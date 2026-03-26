@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+     <link rel="stylesheet" href="all.mini.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">About Me</a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#inicio" onclick="seleccionar()">HOME</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">ABOUT ME</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <!-- SECCION INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img hero-frame">
+                <span class="frame-line frame-top"></span>
+                <span class="frame-line frame-right"></span>
+                <span class="frame-line frame-bottom"></span>
+                <span class="frame-line frame-left"></span>
+                <img src="img/hero-resume.jpg" alt="">
+                <span class="pulse-ring"></span>
+            </div>
+            <h1>Varisyos Srisanga</h1>
+            <h2>Position Desired  &amp; :<span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span></h2>
+            <div class="redes">
+                <a href="https://www.facebook.com/kenVarisyos/"><i class="fa-brands fa-facebook-f"></i></a>
+               
+                <a href="mailto:kenvarisyos@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://line.me/ti/p/~pumipumipum" target="_blank"><i class="fa-brands fa-line"></i></a>
+                <a href="tel:+66649732217"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+        <div id="snow-container"></div>
+    </section>
+
+
+    <section id="sobremi" class="sobremi">
+        <div class="contenido-seccion">
+            <h2>About Me</h2>
+            <p>สวัสดีครับ ขอเเนะนำตัว ผมชื่อ วริศยศ ศรีสง่า ชื่อเล่นชื่อ เคน ผมมีความสนใจเกี่ยวกับ<span> IT/network/coding</span> มีความพร้อมในการทำงานด้าน IT เรียนรู้ไว ปรับตัวเก่งมีประสบการณ์ทั้งด้านระบบ IT, Network และ Web Developmentสามารถนำความรู้ไปใช้งานจริงและพัฒนาตนเองร่วมกับองค์กรได้</p>
+
+            <div class="fila">
+                <!-- datos personales -->
+                <div class="col">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                        <li>
+                            <strong>Birthday</strong>
+                            29-08-2544
+                        </li>
+                        <li>
+                            <strong>Telephone</strong>
+                            064-973-2217
+                        </li>
+                        <li>
+                            <strong>Email</strong>
+                            kenvarisyos@gmail.com
+                        </li>
+                        <li>
+                            <strong>Website</strong>
+                            www.example.com
+                        </li>
+                        <li>
+                            <strong>Dirección</strong>
+                            เกษตรบางเขน กรุงเทพ
+                        </li>
+                        <li>
+                            <strong>Work</strong>
+                            <span>FREELANCE / หางานประจำ</span>
+                        </li>
+                    </ul>
+                </div>
+
+             
+                <div class="col">
+                    <h3>I LOVE</h3>
+                    <div class="contenedor-intereses">
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>Game</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>Song</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-plane"></i>
+                            <span>Travel</span>
+                        </div>
+                       
+                        <div class="interes">
+                            <i class="fa-solid fa-person-hiking"></i>
+                            <span>Hicking</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Books</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-car"></i>
+                            <span>Autos</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Photography</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <a id="downloadCvBtn" class="download-cv-btn" href="https://drive.usercontent.google.com/download?id=1DfDrw7bW3LEB0GxcaBh9_KW66tapLSdH&export=download&authuser=0&confirm=t&uuid=c3357941-a1af-4905-8aa5-f9753e7165f0&at=AGN2oQ0BTGy8YXyY8bfXiDbr29jy:1774439685699" target="_blank" rel="noopener noreferrer">
+                ดาวน์โหลด Resume <i class="fa-solid fa-download"></i>
+                <span class="overlay"></span>
+            </a>
+        </div>
+    </section>
+
+
+    <section class="skills" id="skills">
+        <div class="contenido-seccion">
+            <h2>Skills</h2>
+
+                <div class="skill-ticker top">
+    <div class="ticker-track">
+        <span>
+            💻 PHP, JavaScript, C# &nbsp;•&nbsp;
+            ⚙️ Laravel, Vue.js, Nuxt.js &nbsp;•&nbsp;
+            🗄️ MySQL, MariaDB &nbsp;•&nbsp;
+            🐳 Docker, VMware ESXi &nbsp;•&nbsp;
+            🌐 Network (VLAN, LAN, WAN) &nbsp;•&nbsp;
+            📊 Network Monitoring (Zabbix) &nbsp;•&nbsp;
+            🔧 IT Support & Troubleshooting &nbsp;•&nbsp;
+            🔐 Basic Security (ISO 27001)
+        </span>
+                        <span>
+                            💻 PHP, JavaScript, C# &nbsp;•&nbsp;
+                            ⚙️ Laravel, Vue.js, Nuxt.js &nbsp;•&nbsp;
+                            🗄️ MySQL, MariaDB &nbsp;•&nbsp;
+                            🐳 Docker, VMware ESXi &nbsp;•&nbsp;
+                            🌐 Network (VLAN, LAN, WAN) &nbsp;•&nbsp;
+                            📊 Network Monitoring (Zabbix) &nbsp;•&nbsp;
+                            🔧 IT Support & Troubleshooting &nbsp;•&nbsp;
+                            🔐 Basic Security (ISO 27001)
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-ticker bottom">
+                    <div class="ticker-track">
+                        <span>
+                            🎨 Bootstrap, Tailwind CSS, daisyUI &nbsp;•&nbsp;
+                            🧠 Google Apps Script & Automation &nbsp;•&nbsp;
+                            🖥️ Windows Server, IIS, Linux &nbsp;•&nbsp;
+                            📡 UniFi AP, NAS Storage, CCTV (Hikvision) &nbsp;•&nbsp;
+                            🖨️ Printer & Hardware Support &nbsp;•&nbsp;
+                            📱 Android Studio &nbsp;•&nbsp;
+                            🎬 Photoshop, Premiere Pro &nbsp;•&nbsp;
+                            🔌 Raspberry Pi
+                        </span>
+                        <span>
+                            🎨 Bootstrap, Tailwind CSS, daisyUI &nbsp;•&nbsp;
+                            🧠 Google Apps Script & Automation &nbsp;•&nbsp;
+                            🖥️ Windows Server, IIS, Linux &nbsp;•&nbsp;
+                            📡 UniFi AP, NAS Storage, CCTV (Hikvision) &nbsp;•&nbsp;
+                            🖨️ Printer & Hardware Support &nbsp;•&nbsp;
+                            📱 Android Studio &nbsp;•&nbsp;
+                            🎬 Photoshop, Premiere Pro &nbsp;•&nbsp;
+                            🔌 Raspberry Pi
+                        </span>
+                    </div>
+                </div>
+           
+
+<div class="fila">
+
+    <div class="col">
+        <h3>Technical Skills</h3>
+
+        <div class="skill">
+            <span>PHP / JavaScript</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Laravel </span>
+            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
+        </div>
+
+                <div class="skill">
+            <span>Nuxt.js / Vue.js</span>
+            <div class="barra-skill"><div class="progreso"><span>65%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>HTML & CSS (Tailwind, Bootstrap)</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>MySQL / MariaDB</span>
+            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Docker / VMware ESXi</span>
+            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Network (VLAN, LAN, WAN)</span>
+            <div class="barra-skill"><div class="progreso"><span>70%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Windows Server / Linux / IIS</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Zabbix Monitoring</span>
+            <div class="barra-skill"><div class="progreso"><span>70%</span></div></div>
+        </div>
+
+    </div>
+
+    <div class="col">
+        <h3>Professional Skills</h3>
+
+        <div class="skill">
+            <span>IT Support & Troubleshooting</span>
+            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Network Configuration</span>
+            <div class="barra-skill"><div class="progreso"><span>75%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Google Apps Script </span>
+            <div class="barra-skill"><div class="progreso"><span>75%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>CCTV & Security Systems</span>
+            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Hardware & Printer Support</span>
+            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Problem Solving</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Teamwork & Communication</span>
+            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Adobe Photoshop, Premiere Pro</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Bootstrap, Tailwind CSS, daisyUI</span>
+            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CURRICULUM -->
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+            <h2>Curriculum</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <h3>Education</h3>
+                    <div class="item izq">
+                        <h4>Master of Information Technology and Artificial Intelligence </h4>
+                        <span class="fecha">Expected Graduation: 2026</span>
+                        <p>Sripatum University</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Bachelor of Information Technology</h4>
+                        <span class="fecha">Graduated: 2024</span>
+                        <p>Phranakhon Rajabhat University</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>High School (Math-Science Program)</h4>
+
+                        <span class="fecha">2018 – 2020</span>
+                        <p>Sukum Navapan Upatham School</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                     <div class="item izq">
+                        <h4>Lower Secondary School</h4>
+
+                        <span class="fecha">2015 – 2017</span>
+                        <p>Nawaminthrachinuthit Triamudomsuksanomklao School</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col derecha">
+                    <h3>Experience </h3>
+                    <div class="item der">
+                        <h4>IT Support / Network Engineer</h4>
+                        
+                        <span class="fecha">September 2024 – July 2025</span>
+                        <p>
+                            - Managed and maintained IT systems within the organization and clinics<br>
+                        - Designed and implemented network infrastructure and network diagrams<br>
+                        - Maintained servers, LAN systems, and network devices<br>
+                        - Configured and managed access points and internet connectivity<br>
+                        - Monitored bandwidth usage and network performance<br>
+                        - Provided support for printers, TVs, and display systems<br>
+                        - Maintained CCTV systems (Hikvision) and security devices<br>
+                        - Supported parking systems and card access systems<br>
+                        - Provided technical support for Windows, macOS, and related devices<br>
+
+                        </p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Full-stack Web Developer (Freelance)</h4>
+
+                        <span class="fecha">2005 - 2008</span>
+                        <p>
+                            - Developed web applications using Laravel and JavaScript<br>
+                            - Designed and developed websites for various business clients<br>
+                            - Built employee management systems using NFC Card and MariaDB<br>
+                            - Developed inventory tracking and warehouse management systems<br>
+                            - Implemented automation systems using Google Apps Script<br>
+
+                        </p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                                        <div class="item der">
+                        <h4>IT Support (Student Committee – Faculty of Science)</h4>
+
+                        <span class="fecha">2020 – 2021</span>
+                        <p>
+                            -Maintained computer systems and audiovisual equipment<br>
+                            - Supported video production, sound systems, and media equipment<br>
+                            - Assisted in organizing and supporting faculty events<br>
+                        </p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Part-time Lecturer (Basic Computer Course)</h4>
+                        <span class="fecha">August 2025 – Present</span>
+                        <p>
+                            - Taught basic computer and IT skills<br>
+                            - Provided guidance on fundamental computer usage and information systems<br>
+
+                        </p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="portfolio" class="portfolio">
+        <div class="contenido-seccion">
+            <h2>PORTFOLIO</h2>
+            <div class="galeria">
+                <div class="proyecto">
+                    <img src="img/1.png" alt="">
+                    <div class="overlay">
+                        <h3>โปรเจ็คจบป.โท </h3>
+                        <p>เเจ้งเตือนการโจมตีภันคุกคามด้วย php & SIEM</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/2.png" alt="">
+                    <div class="overlay">
+                        <h3>เว็บจองโรงเเรมพร้อมระบบหลังบ้าน</h3>
+                        <p>เขียนเว็บไซต์จองโรงเเรมด้วยภาษา vue.js</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/p3.jpg" alt="">
+                    <div class="overlay">
+                        <h3>โปรเจ็คเขียนเว็บมหาลัยพร้อมระบบหลังบ้าน</h3>
+                        <p>เขียนเว็บไซต์มหาลัยด้วยภาษา Laravel</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/6.png" alt="">
+                    <div class="overlay">
+                        <h3>CERTIFICATIONS</h3>
+                        <p>GoogleAdvancedDataAnalytics</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/5.png" alt="">
+                    <div class="overlay">
+                        <h3>conference</h3>
+                        <p>ผลงานป้องกันภัยคุกคาม</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="img/7.png" alt="">
+                    <div class="overlay">
+                        <h3>CERTIFICATIONS</h3>
+                        <p>GoogleDataAnalytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACT</h2>
+            <div class="fila">
+                <!-- Formulario -->
+                <!-- <div class="col">
+                    <form id="contactForm">
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        <input type="text" id="contactSubject" placeholder="Subject" required>
+                        <textarea id="contactMessage" cols="30" rows="10" placeholder="Message" required></textarea>
+                        <button id="contactSendBtn" type="button">
+                            send<i class="fa-solid fa-paper-plane"></i>
+                            <span class="overlay"></span>
+                        </button>
+                    </form>
+                </div> -->
+                <!-- Mapa -->
+                <div class="col">
+                    <img src="img/map.png" alt="">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Location: Bangkok, Thailand
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                Phone: 064-973-2217
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email: kenvarisyos@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+             <a href="https://www.facebook.com/kenVarisyos/"><i class="fa-brands fa-facebook-f"></i></a>
+               
+                <a href="mailto:kenvarisyos@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://line.me/ti/p/~pumipumipum" target="_blank"><i class="fa-brands fa-line"></i></a>
+                <a href="tel:+66649732217"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        <p> &copy; 2023 Varisyos Srisanga. All rights reserved. </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
