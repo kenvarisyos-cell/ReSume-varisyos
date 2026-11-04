@@ -1,0 +1,5 @@
+/* ═══ NT iBUZZ brand (2026-09-30) — ฟอนต์บริษัท Montserrat + สีจากคู่มือโลโก้ (Gradient Gold #ddb84f→#c99a2e, Brown #603813)
+   ใช้ร่วมทุกส่วนของ NTIBUZZ-Home: หน้าเว็บหลัก / Office / Backend / Sale ═══ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:700 800;font-display:swap;src:local("Montserrat Bold"),url("Montserrat-Bold.otf") format("opentype")}
+:root{--brand-font:"Montserrat","Kanit","Noto Sans Thai",system-ui,sans-serif;--brand-gold:#ddb84f;--brand-gold-deep:#c99a2e;--brand-gold-light:#f2d98a;--brand-brown:#603813}

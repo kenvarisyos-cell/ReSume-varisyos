@@ -1,0 +1,667 @@
+
+
+
+<style>
+.text--success {
+    color: #1cdf81;
+}
+
+.text--danger {
+    color: #ff3e6a;
+}
+
+
+a {
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+a:hover {
+    color: #1cdf81;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.flex--row {
+    flex-direction: row;
+}
+
+.flex.flex--column {
+    flex-direction: column;
+}
+
+.flex.flex--align-center {
+    align-items: center;
+}
+
+.flex.flex--justify-space-between {
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.container section {
+    margin-top: 48px;
+    clear: both;
+}
+
+header {
+    padding: 24px 36px;
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 96px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #141c28;
+    font-size: 24px;
+}
+
+header .logo i {
+    font-size: 1.6em;
+    color: #1cdf81;
+    transition: all 0.5s ease;
+}
+
+header .logo:hover {
+    color: #1cdf81;
+}
+
+header .logo:hover i {
+    color: #141c28;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    padding: 0px 24px;
+    display: block;
+    color: #94979d;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 36px;
+    box-sizing: border-box;
+    height: 96px;
+    line-height: 96px;
+    transition: all 0.5s ease;
+    border-bottom: 3px solid transparent;
+}
+
+header nav ul li a.active {
+    color: #141c28;
+    font-weight: 600;
+    border-bottom-color: #1cdf81;
+}
+
+header nav ul li a.active:hover {
+    color: #141c28;
+}
+
+header nav ul li a:hover {
+    color: #1cdf81;
+}
+
+header nav ul li:last-child a {
+    margin-right: 0;
+}
+
+header .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header .user .name {
+    margin-right: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    color: #94979d;
+}
+
+.btn.btn--icon {
+    border-radius: 48px;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f5f6fb;
+    padding: 0;
+    font-size: 1.6em;
+}
+
+.btn.btn--icon:hover {
+    border-color: #94979d;
+    color: #141c28;
+}
+
+.btn.btn--round {
+    border-radius: 36px;
+    background: #1cdf81;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn.btn--round:hover {
+    background: #1bd47a;
+}
+
+input {
+    height: 36px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #e4e5e6;
+    display: block;
+}
+
+.cards {
+    margin: -8px;
+}
+
+.cards.cards--thirds {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards.cards--thirds .card {
+    width: calc(33.33% - 16px);
+}
+
+.cards .card {
+    box-sizing: border-box;
+    margin: 8px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px 0px rgba(47, 63, 70, 0.1);
+    transition: all 0.5s ease;
+}
+
+.cards .card:hover {
+    box-shadow: 0 6px 24px -4px rgba(47, 63, 70, 0.2);
+}
+
+.cards .card .content {
+    padding: 24px;
+}
+
+.cards .card .content .person {
+    color: #141c28;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.cards .card .content .company {
+    color: #141c28;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+.cards .card footer {
+    border-top: 1px solid #f5f6fb;
+    padding: 8px 24px;
+}
+
+.cards .card footer .status i {
+    font-size: 1.2em;
+}
+</style>
+<!doctype html>
+ <html>
+
+ <head>
+     <title>Welcome - PNRU TEMPLATE</title>
+     <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" /> 
+
+
+
+
+
+
+
+
+
+ </head>
+
+ <body>
+
+
+     <div id="layoutSidenav_content">
+         <main>
+             
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Responsiive Admin Dashboard | CodingLab </title>
+
+    <link href="../css/boxicons.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="../../_demo/demo.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxs-search-alt-2'></i>
+            <span class="logo_name">PNRU</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="menu.html">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ MENU</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ into</span>
+                </a>
+            </li>
+            <li>
+                <a href="activities.html">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">ระบบจัดการ กิจกรรม</span>
+                </a>
+            </li>
+            <li>
+                <a href="news.html">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">ระบบจัดการ ข่าวสาร</span>
+                </a>
+            </li>
+            <li>
+                <a href="works.html">
+                    <i class='bx bx-coin-stack'></i>
+                    <span class="links_name">ระบบจัดการ ผลงาน</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">ระบบจัดการ ติดต่อ</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">ระบบจัดการ กรรมการบริหารคณะ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">ระบบจัดการ อ.เกษียร์อายุ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-message'></i>
+                    <span class="links_name">ระบบจัดการ อ.จารย์คณะ</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="courses.html">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ สาขา</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ หลักสูตร</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ ประวัติ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-demo-off="page">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">ระบบจัดการ เกียวกับคณะ</span>
+                </a>
+            </li>
+
+            <li class="log_out">
+                <a href="../login.html">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+
+        </nav>
+
+        <br> <br> <br> <br> <br> <br>
+
+
+        <main>
+            <div class="container">
+
+                <section class="actions flex flex--row flex--justify-space-between flex--align-center">
+                    <input type="text" placeholder="ยินดีต้อนรับคุณ ผู้ดูแลระบบ (demo)">
+                    <a href="#" class="btn btn--round" data-demo-off="page">เปลียน รหัสผ่าน <i class='uil uil-plus'></i></a>
+                </section>
+                <section class="filters"></section>
+                <section class="results cards cards--thirds">
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> เเจ้งปัญหาเว็บ </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--success"><i class='uil uil-arrow-growth'></i>
+                                    กรุณาตรวจเช็คทุกครั้ง</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </article>
+                    </a>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company">ระบบจัดการ คณะกรรมการบริหารคณะ</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--success"><i class='uil uil-arrow-growth'></i>สามารถเพิ่มลดใส่ลิ้งได้</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ สร้างหน้าใหม่
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"><i class='uil uil-times'></i>หน้านี้สามารถเเก้ไขเปิดปิดได้</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </article>
+                    </a>
+                    <a href="popup.html">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ POPUP
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"><i class='uil uil-times'></i>หน้านี้สามารถเเก้ไขเปิดปิดได้</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </article>
+                    </a>
+                    <article class="card">
+                        <a href="#" data-demo-off="page">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company">ระบบจัดการ ตารางเมนูคณะ
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"><i class='uil uil-schedule'></i>สามารถเพิ่มลบได้
+                                </div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company">ระบบจัดการ คู่มือปฏิบัติงาน</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--success"><i class='uil uil-arrow-growth'></i>สามารถเพิ่มลดใส่ลิ้งได้</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ สายสนับสนุน</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--success"><i class='uil uil-arrow-growth'></i>สามารถเพิ่มลดใส่ลิ้งได้</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ ข้อมูลโครงสร้าง</div>
+                            </div>
+                    </a>
+                    <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                        <div class="status text--danger"><i class='uil uil-times'></i> สามารถเเก้ไขได้อย่างเดียว
+                        </div>
+                        <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                    </footer>
+                    </article>
+
+
+
+                    <a href="services.html">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ บริการวิชาการ</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> ระบบจัดการ บริการวิชาการ</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+
+
+
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ footer
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> ระบบจัดการ footter</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+
+
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> เพิ่ม สาขา
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> เพิ่ม/ลบ สาขา</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> เพิ่ม ประเภทกิจกรรม
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> เพิ่ม/ลบ  ประเภทกิจกรรม</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                    <a href="#" data-demo-off="page">
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> ระบบจัดการ ดาวน์โหลดแบบฟอร์มคณะ
+
+                                </div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> เเก้ไข เพิ่ม/ลบ เเบบฟอร์ม</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                    </a>
+                    </article>
+                                        
+
+
+                                        
+
+                    <a href="#" data-demo-off="page">
+
+
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> เพิ่ม user เฉพาะเเอดมิน</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> เเก้ไขเพิ่ม user เฉพาะเเอดมิน</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </article>
+                    </a>
+                    <a href="#" data-demo-off="page">
+
+
+                        <article class="card">
+                            <div class="content">
+                                <div class="person">รูปเเบบตาราง</div>
+                                <div class="company"> เพิ่ม user เเก้ไขหลักสูตร</div>
+                            </div>
+                            <footer class="flex flex--row flex--align-center flex--justify-space-between">
+                                <div class="status text--danger"> เเก้ไขเพิ่ม user เเก้ไขหลักสูตร</div>
+                                <a href="#" class="btn btn--icon"><i class='uil uil-angle-right'></i></a>
+                            </footer>
+                        </article>
+                    </a>
+                                                                                                                    </section>
+
+            </div>
+        </main>
+
+
+
+
+        
+
+</body>
+
+</html>
+
+
+<link href="../css/template-admin.css" rel="stylesheet" />
+
+
+
+         </main>
+         <footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+ <script src="../../_demo/demo.js" data-label="DEMO · หลังบ้านเว็บคณะ ดูได้อย่างเดียว" defer></script>
+<script>
+// stand-ins for the admin scripts that were removed (those saved to the server):
+// the sidebar toggle, and a notice on the add, delete and reorder buttons
+(() => {
+  const sb = document.querySelector('.sidebar'), btn = document.querySelector('.sidebarBtn');
+  if (sb && btn) btn.addEventListener('click', () => {
+    const open = sb.classList.toggle('active');
+    btn.classList.replace(open ? 'bx-menu' : 'bx-menu-alt-right', open ? 'bx-menu-alt-right' : 'bx-menu');
+  });
+  document.querySelectorAll('.deleat, .btnremove, .btninsert, .add-btn').forEach(el => { el.dataset.demoOff = 'action'; });
+})();
+</script>
+</body>
+
+ </html>

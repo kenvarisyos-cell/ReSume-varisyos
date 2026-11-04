@@ -1,0 +1,556 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+<script>
+function serviceRequestForm() {
+    return {
+        currentStep: 0,
+
+        values: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            computerType: '',
+            operatingSystem: '',
+            ownedFor: '',
+            problemMessage: ''
+        }
+    }
+}
+// Get the modal
+// var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+// btn.onclick = function() {
+  
+// }
+
+// When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<style>
+.cr {
+    border-radius: 45px;
+}
+
+.hk {
+    background-color: #f3f0f057;
+}
+
+input[type=text] {
+    background-color: #f3f0f057;
+
+}
+
+input[type=email] {
+    background-color: #f3f0f057;
+
+}
+
+input[type=select] {
+    background-color: #f3f0f057;
+
+}
+</style>
+
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    border-radius: 10px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width:419px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0px 10px 0px 0px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    <title>NTN l TEAM</title>
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    
+    <link href="manage/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="manage/css/style.css" />
+    
+
+    
+
+<link rel="stylesheet" href="../_demo/demo.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2><span class="danger">NTN </span> TEAM</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar active">
+                <a href="dashboard.html">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="employees.html">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>รายชื่อ</h3>
+                </a>
+                                <a href="employee-new.html">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>เพิ่มบัญชีผู้ใช้</h3>
+                </a>
+                     
+
+                <a href="sickleave.html">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3>ลางาน</h3>
+                </a>
+
+                <a href="profile-edit.html">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3>เเก้ไขโปรไฟล์</h3>
+                </a>
+                
+                <a href="profile-1.html">
+                    <span class="material-icons-sharp"> phonelink </span>
+                    <h3>เเสดงโปรไฟล์ในระบบ</h3>
+                </a>
+                <a href="login.html">
+
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+                <form id="logout-form" action="#" method="POST" class="d-none" data-demo-off="form">
+                    <input type="hidden" name="_token" value="">                </form>
+            </div>
+        </aside>
+        
+        
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+
+
+
+
+
+
+<main>
+
+
+
+    <div class="new-users">
+        <h2 style="font-weight: 800;font-size: 1.8rem;">เพิ่มข้อมูลพนักงาน</h2>
+
+                
+        <div class=" bg-blue-50 min-h-screen p-6 text-lg" style=" background: transparent;">
+            <form x-data="serviceRequestForm()" class="max-w-screen-lg  mx-auto p-10 shadow" style="border-radius: 25px;background-color: var(--color-white); " method="POST" action="#" enctype="multipart/form-data" data-demo-off="form">
+                <input type="hidden" name="_token" value="">                <h1 class="text-3xl font-bold text-center">เพิ่มพนักงานในระบบ</h1>
+                <p class="mt-2 text-gray-600 text-center">เพิ่มพนักงานใหม่</p>
+
+                <h2 class="mt-6    text-2xl font-semibold border-b-2 border-blue-300 pb-2 px-4">
+                    Step <span x-text="currentStep+1"></span>
+                </h2>
+
+                <div x-show="currentStep === 0" class="flex flex-col mt-4 p-4 md:flex-row">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-semibold">ข้อมูลส่วนตัว</h3>
+                        <p class="mt-4 text-gray-600">ข้อมูลส่วนตัวพนักงาน</p>
+                    </div>
+
+                    <div class="flex-1">
+                        <label class="inline-block w-full cr">
+                            <p class="  ">ชื่อ-นามสกุล (ภาษาไทย)</p>
+                            <input x-model="values.t1" name="firstName_th" class="w-full cr px-3 py-2 border focus:border-blue-800 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr mt-2">
+                            <p class="  ">NAME -SURNAME (ENGLISH)</p>
+                            <input x-model="values.t2" name="firstName_eng" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr mt-2">
+                            <p class="  ">Username</p>
+                            <input x-model="values.t3" name="email" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+                        <label class="inline-block w-full cr mt-2">
+                            <p class="  ">PASSWORD</p>
+                            <input x-model="values.t4" name="password" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+                        
+                        <label class="inline-block w-full cr mt-6">
+                            <p class="  ">เลขที่บัตรประชาชน 13 หลัก</p>
+                            <input x-model="values.t5" name="idCardNumber" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">ตำแหน่งงาน</p>
+                            <input x-model="values.t6" name="job_position" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr">
+                            <p class="  ">สังกัดบริษัท</p>
+                            <select x-model="values.t7" name="computerType" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none hk">
+                                <option value="">-- กรุณาเลือกสังกัดบริษัท --</option>
+                                <option>บริษัท ตะวันแม็คไวสซ์ จำกัด</option>
+                                <option>บริษัท เอ็นทีเอ็น เทรดดิ้ง-ประเทศไทย จำกัด</option>
+                                <option>บริษัท เฮอร์เบิร์ท (ประเทศไทย) จำกัด</option>
+                            </select>
+                        </label>
+
+                        <div class="w-full cr flex mt-10 -mb-4">
+                            <button @click.prevent="currentStep += 1" class="ml-auto px-6 py-2 bg-blue-500 font-semibold text-white">Next
+                                step</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="currentStep === 2" x-cloak class="flex flex-col mt-4 p-4 md:flex-row transition-all">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-semibold">ข้อมูลเพิ่มเติม</h3>
+                        <p class="mt-4 text-gray-600">ลิ้งติดต่อพนักงาน
+                        </p>
+                    </div>
+
+                    <div class="flex-1">
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">รหัสพนักงาน*</p>
+                            <input x-model="values.t8" name="computerType1" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">ฝ่าย*</p>
+                            <input x-model="values.t9" name="computerType1" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">เขตการขาย*</p>
+                            <input x-model="values.t10" name="computerType1" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">วัน/เดือน/ปี เกิด</p>
+                            <input x-model="values.t11" name="ownedFor" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="date" required />
+                        </label>
+
+                        <label class="inline-block w-full cr">
+                            <p class="  ">คำนำหน้าชื่อ</p>
+                            <select x-model="values.t12" name="computerType" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none hk">
+                                <option value="">-- กรุณาเลือกคำนำหน้าชื่อ --</option>
+                                <option>นาย</option>
+                                <option>นาง</option>
+                                <option>นางสาว</option>
+                            </select>
+                        </label>
+
+
+                     
+
+
+                        <div class="w-full cr flex mt-10 -mb-4">
+                            <button @click.prevent="currentStep -= 1" class="ml-auto px-6 py-2 font-semibold text-gray-600">Previous</button>
+
+                            <button @click.prevent="currentStep += 1" class="px-6 py-2 bg-blue-500 font-semibold text-white">Next
+                                step</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="currentStep === 1" x-cloak class="flex flex-col mt-4 p-4 md:flex-row transition-all">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-semibold">link ติดต่อ</h3>
+                        <p class="mt-4 text-gray-600">ลิ้งติดต่อพนักงาน
+                        </p>
+                    </div>
+
+                    <div class="flex-1">
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">เบอร์โทรศัพท์ (061-xxx-xxxx)*</p>
+                            <input x-model="values.t13" name="computerType1" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">อีเมลบริษัท เช่น(xxx@tawanmcweis.com)</p>
+                            <input x-model="values.t14" name="ownedFor" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">ID Line หรือ ชื่อ Line (แสดงผลบนนามบัตร
+                                ควรตั้งให้เป็นทางการหรือกึ่งทางการ)</p>
+                            <input x-model="values.t15" name="problemMessage" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+
+
+                        <label class="inline-block w-full cr mt-4">
+                            <p class="  ">ลิงก์ Line (กรุณาแนบเป็นลิงค์)📌 เข้าไปที่หน้าหลัก ➤
+                                เพิ่มเพื่อน ➤ คิวอาร์โค้ด ➤ คิวอาร์โค้ดของฉัน ➤ คัดลอกลิงค์</p>
+                            <input x-model="values.t16" name="problemMessage1" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none" type="text" required />
+                        </label>
+                        <label class="inline-block w-full cr mt-4 ">
+                            <p class="  ">อัปโหลดรูปภาพ</p>
+                            <input x-model="values.photo" name="photo" class="w-full cr px-3 py-2 border focus:border-blue-400 focus:outline-none hk" type="file" />
+                        </label>
+
+
+
+                        <div class="w-full cr flex mt-10 -mb-4">
+                            <button @click.prevent="currentStep -= 1" class="ml-auto px-6 py-2 font-semibold text-gray-600">Previous</button>
+
+                            <button @click.prevent="currentStep += 1" class="px-6 py-2 bg-blue-500 font-semibold text-white">Next
+                                step</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="currentStep === 3" x-cloak class="flex flex-col mt-4 p-4 md:flex-row transition-all">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-semibold">Review</h3>
+                        <p class="mt-4 text-gray-600">Make sure your info is correct.</p>
+                    </div>
+
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-xl">ข้อมูลพนักงาน <button @click.prevent="currentStep = 0" class="text-base font-semibold text-blue-600">Edit</button></h4>
+                        <p class="mt-2 "><span x-text="values.firstName"></span> <span x-text="values.lastName"></span>
+                        </p>
+                        <p class="  ">ชื่อ-นามสกุล (ภาษาไทย) :
+                        <p x-text="values.t1" class="  "></p>
+                        <p class="  ">ชื่อ-นามสกุล (ภาษาอังกฤษ) :
+                        <p x-text="values.t2" class="  "></p>
+                        <p class="  ">Username :
+                        <p x-text="values.t3" class="  "></p>
+                        <p class="  ">Password :
+                        <p x-text="values.t4" class="  "></p>
+                        <p class="  ">เลขบัตรประชาชน :
+                        <p x-text="values.t5" class="  "></p>
+                        <p class="  ">ตำเเหน่งงาน :
+                        <p x-text="values.t6" class="  "></p>
+                        <p class="  ">สังกัดบริษัท :
+                        <p x-text="values.t7" class="  "></p>
+                        <p class="mt-2   ">
+                            (<span x-text="values.computerType"></span>)</p>
+
+                        <h4 class="mt-3 font-semibold text-xl">หน้าเเสดงโปรไฟล์บัตร <button @click.prevent="currentStep = 1" class="text-base font-semibold text-blue-600">Edit</button></h4>
+                        <p class="  "><span x-text="values.operatingSystem"></span></p>
+                        <p class="  ">เบอร์โทรศัพท์ : <p x-text="values.t13" class="  "></p></p>
+                        <p class="  ">Gmail บริษัท :
+                        <p x-text="values.t14"></p>
+                        <p class="  ">ID line :
+                        <p x-text="values.t15"></p>
+                        <p class="  ">Link line :
+                        <p x-text="values.t16"></p>
+                        <p class="  ">รูปภาพ :
+                        <p x-text="values.photo"></p>
+                        </p>
+
+                        <h4 class="mt-3 font-semibold text-xl">ข้อมูลเพิ่มเติม <button @click.prevent="currentStep = 2" class="text-base font-semibold text-blue-600">Edit</button></h4>
+                       
+                        <p class="  ">รหัสพนักงาน : <span x-text="values.t8"></span></p>
+                        <p class="  ">ฝ่าย :
+                        <p x-text="values.t9"></p>
+                        <p class="  ">เขตการขาย :
+                        <p x-text="values.t10"></p>
+                        <p class="  ">วัน/เดือน/ปี :
+                        <p x-text="values.t11"></p>
+                        <p class="  ">คำนำหน้าชื่อ :
+                        <p x-text="values.t12"></p>
+                        </p>
+
+                        <div class="w-full flex mt-10 -mb-4">
+                            <button @click.prevent="currentStep -= 1" class="ml-auto px-6 py-2 font-semibold text-gray-600">Previous</button>
+
+                            <button type="submit" class="px-6 py-2 bg-blue-500 font-semibold text-white">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</main>
+
+
+
+
+
+
+
+
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>ยินดีต้อนรับคุณ, <b>สมชาย ตัวอย่าง</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="manage/images/profile-1.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2>NTN TEAM</h2>
+                    <p>Web Manager</p>
+                </div>
+            </div>
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp"> notifications_none </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> volume_up </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>เวลาเข้างาน</h3>
+                            <small class="text_muted"> 08:30 AM - 17:15 PM </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> edit </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>ประชุมงาน</h3>
+                            <small class="text_muted"> ทุกวันพุทธของทุกอาทิตย์ </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp"> add </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <script src="manage/js/orders.js"></script>
+    <script src="manage/js/index.js"></script> -->
+    <script>
+        const sideMenu = document.querySelector('aside');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+
+const darkMode = document.querySelector('.dark-mode');
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode-variables');
+    darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+    darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+    </script>
+<script src="../_demo/demo.js" data-label="DEMO · ข้อมูลพนักงานสมมติ" defer></script>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+</script>

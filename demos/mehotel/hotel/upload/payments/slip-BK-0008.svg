@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="560" viewBox="0 0 360 560">
+<rect width="360" height="560" fill="#eef2f7"/>
+<rect x="18" y="18" width="324" height="524" rx="16" fill="#fff" stroke="#d6dde7"/>
+<circle cx="180" cy="92" r="32" fill="#16a34a"/>
+<path d="M164 93l11 11 22-24" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+<text x="180" y="160" font-size="22" font-weight="700" fill="#1f2937">Transfer successful</text>
+<text x="180" y="186" font-size="14" fill="#6b7280">sample slip for the demo only</text>
+<text x="180" y="250" font-size="38" font-weight="700" fill="#111827">&#3647; 3,780.00</text>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="15">
+<line x1="44" y1="282" x2="316" y2="282" stroke="#e5e7eb" stroke-width="2"/>
+<text x="44" y="318" fill="#6b7280">Booking</text><text x="316" y="318" text-anchor="end" fill="#111827">BK-0008</text>
+<text x="44" y="352" fill="#6b7280">Payment</text><text x="316" y="352" text-anchor="end" fill="#111827">PM-0008</text>
+<text x="44" y="386" fill="#6b7280">To</text><text x="316" y="386" text-anchor="end" fill="#111827">MeHotel (demo)</text>
+<text x="44" y="420" fill="#6b7280">Check-in</text><text x="316" y="420" text-anchor="end" fill="#111827">2026-11-20</text>
+</g>
+<text x="180" y="500" transform="rotate(-24 180 470)" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" text-anchor="middle" fill="#ef4444" fill-opacity=".16">DEMO</text>
+</svg>

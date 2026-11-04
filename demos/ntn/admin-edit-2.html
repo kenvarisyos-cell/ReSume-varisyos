@@ -1,0 +1,719 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+
+
+.create_profile_section *,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.create_profile_section {
+    overflow-y: hidden;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.create_profile_section {
+    width: 100%;
+    position: relative;
+    margin: 50px auto;
+}
+
+.create_profile_section a {
+    text-decoration: none;
+    color: rgba(215, 67, 77, 1.0);
+    transition: 0.5s ease;
+}
+
+.create_profile_section a:hover {
+    color: #179b77;
+}
+
+.create_profile_section .form {
+
+
+    margin: 10px auto;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.create_profile_section .tab-group {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.create_profile_section .tab-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.create_profile_section .tab-group li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background: white;
+    color: rgba(215, 67, 77, 1.0);
+    font-size: 15px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.create_profile_section .tab-group li a:hover {
+    background: rgba(215, 67, 77, 1.0);
+    color: #fff;
+}
+
+.create_profile_section .tab-group .active a {
+    background: rgba(215, 67, 77, 1.0);
+    color: #fff;
+}
+
+.create_profile_section h1 {
+    text-align: center;
+    color: black;
+    text-transform: none;
+    font-size: 23px !important;
+    font-weight: 300;
+    margin: 0 0 40px;
+}
+
+.create_profile_section input {
+    height: 25px !important;
+    margin: -10px auto;
+}
+
+.create_profile_section label {
+    position: absolute;
+    transform: translateY(6px);
+    left: 13px;
+    color: black;
+    transition: all 0.25s ease;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    font-size: 11px;
+    font-weight: 500 !important;
+}
+
+.create_profile_section label .req {
+    margin: 2px;
+    color: rgba(215, 67, 77, 1.0);
+}
+
+.create_profile_section label.active {
+    transform: translateY(-15px);
+    left: 2px;
+    font-size: 10px;
+}
+
+.create_profile_section label.active .req {
+    opacity: 0;
+}
+
+.create_profile_section label.highlight {
+    color: black;
+}
+
+.create_profile_section input,
+textarea {
+    font-size: 11px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 3px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color: black;
+    border-radius: 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.create_profile_section input:focus,
+.create_profile_section textarea:focus {
+    outline: 0;
+    border-color: rgba(215, 67, 77, 1.0);
+}
+
+.create_profile_section textarea {
+    border: 2px solid #a0b3b0;
+    resize: vertical;
+}
+
+.create_profile_section .field-wrap {
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 45px;
+}
+
+.create_profile_section .top-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.create_profile_section .top-row>div {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+
+.create_profile_section .top-row>div:last-child {
+    margin: 0;
+}
+
+.create_profile_section .button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(215, 67, 77, 1.0);
+    color: #fff;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+}
+
+.create_profile_section .button:hover,
+.button:focus {
+    background: #179b77;
+    cursor: pointer;
+}
+
+.create_profile_section .button-block {
+    display: block;
+    width: 100%;
+}
+
+.create_profile_section .forgot {
+    margin-top: -20px;
+    text-align: right;
+}
+
+.create_profile_section .forgot a {
+    font-size: 10px !important;
+}
+
+.create_profile_section .forgot a:hover {
+    color: rgba(215, 67, 77, 1.0) !important;
+}
+
+
+.avatar-upload {
+    position: relative;
+    max-width: 210px;
+    margin: 64px auto;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-upload .avatar-edit input {
+    width: 34px;
+    position: relative;
+    left: -35px;
+    top: 16px;
+    cursor: default !important;
+    z-index: 1;
+    opacity: 0;
+}
+
+.avatar-upload .avatar-edit input+label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input+label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+    content: "\f040";
+    font-family: 'FontAwesome';
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 100%;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 6px solid #eee;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-upload .avatar-preview>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.avatar-edit label {
+    position: absolute;
+    top: -6px;
+    cursor: default;
+    left: -33px;
+}
+
+.top-row input {
+    margin-top: 0px !important;
+}
+
+
+.create_profile_section #signup {
+    overflow-x: hidden;
+}
+
+.create_profile_section #signup h1 {
+    margin: 50px auto !important;
+    margin-bottom: 70px !important;
+    font-weight: 500;
+    font-size: 30px !important;
+}
+
+
+input[type=text] {
+    padding-top: -4.5rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 197px;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    transition: width 0.4s ease-in-out;
+    background-color: #f3f0f057;
+}
+
+input[type=tel] {
+    padding-top: -4.5rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 197px;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    transition: width 0.4s ease-in-out;
+    background-color: #f3f0f057;
+}
+
+input[type=email] {
+    background-color: #f3f0f057;
+    padding-top: -4.5rem;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 197px;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=password] {
+
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-color: #f3f0f057;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    <title>NTN l TEAM</title>
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    
+    <link href="manage/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="manage/css/style.css" />
+    
+
+    
+
+<link rel="stylesheet" href="../_demo/demo.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2><span class="danger">NTN </span> TEAM</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar active">
+                <a href="dashboard.html">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="employees.html">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>รายชื่อ</h3>
+                </a>
+                             
+
+                <a href="sickleave.html">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3>ลางาน</h3>
+                </a>
+
+                <a href="#" data-demo-off="page">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3>เเก้ไขโปรไฟล์</h3>
+                </a>
+                
+                <a href="profile-2.html">
+                    <span class="material-icons-sharp"> phonelink </span>
+                    <h3>เเสดงโปรไฟล์ในระบบ</h3>
+                </a>
+                <a href="login.html">
+
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+                <form id="logout-form" action="#" method="POST" class="d-none" data-demo-off="form">
+                    <input type="hidden" name="_token" value="">                </form>
+            </div>
+        </aside>
+        
+        
+
+
+
+<main>
+    <div class="new-users">
+        <h2>Costume protocol</h2>
+                <div class="user-list">
+
+
+
+
+
+            
+            <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+            </script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+            <div class="create_profile_section">
+
+
+                <div class="form">
+
+
+
+                    <div class="tab-content">
+
+
+
+
+                        <div id="signup">
+                            <h2>Create An Account</h2>
+
+                            <form method="POST" action="#" enctype="multipart/form-data" data-demo-off="form">
+                                <input type="hidden" name="_token" value="">                                <input type="hidden" name="_method" value="PUT">                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" name="photo" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                                                        <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url(&#x27;manage/images/profile-3.jpg&#x27;);">
+                                        </div>
+                                    </div>
+                                                                    </div>
+
+                                <div class="top-row">
+                                    <div class="field-wrap">
+                                        <label class="active">
+                                            <b>Name th<span class="req">*</span></b>
+                                        </label>
+                                        <input type="text" required autocomplete="none" value="สุดา ใจดี" name="firstName_th" />
+                                    </div>
+
+                                    <div class="field-wrap">
+                                        <label class="active">
+                                            <b>Name Eng<span class="req">*</span></b>
+                                        </label>
+                                        <input type="text" autocomplete="none" name="firstName_eng" value="Suda Jaidee" />
+                                    </div>
+                                </div>
+
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b> Email Address<span class="req">*</span></b>
+                                    </label>
+                                    <input type="email" autocomplete="none" value="suda@example.com" />
+                                </div>
+
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b>ตำเเหน่ง <span class="req">*</span></b>
+                                    </label>
+                                    <input type="text" autocomplete="none" value="ฝ่ายขาย" name="job_position" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b>line <span class="req">*</span></b>
+                                    </label>
+                                    <input type="text" autocomplete="none" value="ntn.demo" name="problemMessage" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b>เบอร์โทร <span class="req">*</span></b>
+                                    </label>
+                                    <input type="text" autocomplete="none" value="https://www.ntnmedicalteam.com/" name="problemMessage1" />
+                                </div>
+
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b> Address<span class="req"></span></b>
+                                    </label>
+                                    <input type="text" autocomplete="none" value="สำนักงานใหญ่" name="computerType" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label class="active">
+                                        <b> เเสดงข้อมูลพนักงาน<span class="req"></span></b>
+                                    </label>
+                                    <input type="text" autocomplete="none" value="สำนักงานใหญ่" name="computerType" />
+                                </div>
+                                <div class="field-wrap">
+                                    <label>
+                                        <b> Enter New Password<span class="req ">*</span></b>
+                                    </label>
+                                    <input type="password" name="password" autocomplete="none" />
+                                </div>
+
+                                <button style="background:#008000;" type="submit" id="signup-submit" class="button button-block">เเก้ไขโปรไฟล์</button>
+                                <br>
+                                <button type="delete" id="delete-user" class="button button-block">ลบโปรไฟล์</button>
+
+
+                            </form>
+
+                        </div>
+
+                        
+
+                    </div>
+
+                </div> 
+
+            </div>
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+
+
+<script>
+$('.form').find('input, textarea').on('keyup blur focus', function(e) {
+
+    var $this = $(this),
+        label = $this.prev('label');
+
+    if (e.type === 'keyup') {
+        if ($this.val() === '') {
+            label.removeClass('active highlight');
+        } else {
+            label.addClass('active highlight');
+        }
+    } else if (e.type === 'blur') {
+        if ($this.val() === '') {
+            label.removeClass('active highlight');
+        } else {
+            label.removeClass('highlight');
+        }
+    } else if (e.type === 'focus') {
+
+        if ($this.val() === '') {
+            label.removeClass('highlight');
+        } else if ($this.val() !== '') {
+            label.addClass('highlight');
+        }
+    }
+
+});
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+            console.log('Changed');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imageUpload").change(function() {
+    readURL(this);
+});
+</script>
+
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>ยินดีต้อนรับคุณ, <b>สุดา ใจดี</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="manage/images/profile-1.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2>NTN TEAM</h2>
+                    <p>Web Manager</p>
+                </div>
+            </div>
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp"> notifications_none </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> volume_up </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>เวลาเข้างาน</h3>
+                            <small class="text_muted"> 08:30 AM - 17:15 PM </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> edit </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>ประชุมงาน</h3>
+                            <small class="text_muted"> ทุกวันพุทธของทุกอาทิตย์ </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp"> add </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <script src="manage/js/orders.js"></script>
+    <script src="manage/js/index.js"></script> -->
+    <script>
+        const sideMenu = document.querySelector('aside');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+
+const darkMode = document.querySelector('.dark-mode');
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode-variables');
+    darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+    darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+    </script>
+<script src="../_demo/demo.js" data-label="DEMO · ข้อมูลพนักงานสมมติ" defer></script>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+</script>

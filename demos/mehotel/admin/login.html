@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hotel</title><link href="../css/app.b7648ab9.css" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="../img/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../img/icons/favicon-16x16.png"><meta name="theme-color" content="#4DBA87"><meta name="apple-mobile-web-app-capable" content="no"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="hotel"><link rel="apple-touch-icon" href="../img/icons/apple-touch-icon-152x152.png"><link rel="mask-icon" href="../img/icons/safari-pinned-tab.svg" color="#4DBA87"><meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><link rel="stylesheet" href="../../_demo/demo.css">
+</head><body style=""><div id="app" data-v-app=""><div class="scroll-smooth"><div class="home" data-theme="bumblebee" default="true" menu="false"><div class="hero min-h-screen bg-base-200"><div class="hero-content text-center"><div class="max-w-md"><div class="card flex-shrink-0 w-screen max-w-sm shadow-2xl bg-base-100"><div class="card-body"><h1 class="text-5xl font-bold text-primary">Login</h1><p class="font-bold uppercase text-neutral text-opacity-60"> Verify your access </p><div class="form-control mt-4"><label class="label"><span class="label-text text-opacity-60">Username</span></label><input type="text" placeholder="username" class="input input-bordered"></div><div class="form-control"><label class="label"><span class="label-text text-opacity-60">Password</span></label><input type="password" placeholder="password" class="input input-bordered"></div><div class="form-control mt-10"><button class="btn btn-primary" data-demo-login=""> Login </button></div><div class="form-control"><p class="label-text-alt text-right"> visit website <a href="#" class="label-text-alt link link-hover font-bold"><a href="../index.html" class=""> MeHotel </a></a></p></div></div></div></div></div></div></div></div></div><script src="../../_demo/demo.js" data-label="DEMO · หลังบ้าน MeHotel ข้อมูลตัวอย่าง" defer></script>
+<script>
+// stand-ins for the removed app scripts. Create and remove still open their forms (those are CSS-only);
+// edit, save, approve and the other buttons that wrote to the API show a notice instead.
+(() => {
+  document.querySelectorAll('[data-demo-login]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); location.href = 'index.html'; }));
+  document.querySelectorAll('.modal .btn-primary:not(label), td .btn-link, label[for="modal-detail"]').forEach(el => { el.dataset.demoOff = 'action'; });
+  document.querySelectorAll('label.modal-button').forEach(el => { if (/^edit$/i.test(el.textContent.trim())) el.dataset.demoOff = 'action'; });
+  // payment slip thumbnails: the app never had a viewer for them, so show the image in a plain overlay
+  document.querySelectorAll('label[for="my-modal-3"] img').forEach(img => img.addEventListener('click', e => {
+    e.preventDefault();
+    const o = document.createElement('div');
+    o.style.cssText = 'position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgb(0 0 0/.6);cursor:zoom-out';
+    o.innerHTML = '<img alt="สลิปตัวอย่าง" style="max-height:86vh;max-width:90vw;border-radius:12px">';
+    o.firstChild.src = img.src;
+    o.addEventListener('click', () => o.remove());
+    document.body.appendChild(o);
+  }));
+})();
+</script>
+</body></html>

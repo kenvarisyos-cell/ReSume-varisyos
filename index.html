@@ -336,7 +336,24 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
 
   <section id="work">
     <h2 class="h layer" data-layer="type" data-name="Work / Heading">Selected work</h2>
-    <p class="sub layer" data-layer data-name="Work / How to">กดเปิด demo เพื่อลองใช้หน้าเว็บของแต่ละโปรเจกต์ในหน้านี้ได้เลย ข้อมูลบางส่วนใน demo เป็นข้อมูลตัวอย่าง</p>
+    <p class="sub layer" data-layer data-name="Work / How to">กดเปิด demo เพื่อลองใช้หน้าเว็บของแต่ละโปรเจกต์ในหน้านี้ได้เลย ปุ่มหลังบ้านเปิดหน้าจัดการของระบบให้ดูภาพรวม ข้อมูลบางส่วนใน demo เป็นข้อมูลตัวอย่าง</p>
+
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / NT iBUZZ website">
+        <small>Project Engineer · NTIBUZZ</small>
+        <h3>เว็บไซต์บริษัท NT iBUZZ</h3>
+        <p>เว็บไซต์บริษัทเขียนด้วย PHP มีหน้าบริการ ข่าว พันธมิตร ติดต่อ และหน้าสินค้า 4 ตัว ได้แก่ C nema Smart Life, Telemedicine, Nerd Martech และ iBUZZ Telehealth Portable เนื้อหาดึงจากฐานข้อมูล CMS และอ่านจากไฟล์ JSON แทนเมื่อฐานข้อมูลใช้ไม่ได้ มีหน้าภาษาอังกฤษและ sitemap</p>
+        <div class="chips"><span>PHP</span><span>MySQL</span><span>JSON</span><span>SEO</span></div>
+        <div class="actions">
+          <a class="btn sm" href="demos/ntibuzz/index.html" data-demo data-title="เว็บไซต์บริษัท NT iBUZZ" data-meta="สำเนา static ของหน้าเว็บบริษัท"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
+        </div>
+        <p class="note">สำเนา static ของหน้าเว็บบริษัท 13 หน้า ไม่รวมระบบหลังบ้านและระบบงานขาย</p>
+      </div>
+      <a class="shot layer" data-layer="place" data-name="Work / NT iBUZZ website · screen" href="demos/ntibuzz/index.html" data-demo data-title="เว็บไซต์บริษัท NT iBUZZ" data-meta="สำเนา static ของหน้าเว็บบริษัท" aria-label="เปิด demo เว็บไซต์บริษัท NT iBUZZ">
+        <img src="assets/shots/ntibuzz.jpg" alt="หน้าแรกเว็บไซต์ NT iBUZZ ข้อความเทคโนโลยีเปลี่ยนเมืองเพื่ออนาคตของทุกคน พร้อมไอคอนสินค้าและบริการ" width="1366" height="854">
+        <span class="tag-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</span>
+      </a>
+    </article>
 
     <article class="row">
       <div class="row-text layer" data-layer data-name="Work / SIEM">
@@ -346,6 +363,7 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
         <div class="chips"><span>PHP</span><span>SIEM</span><span>Machine Learning</span><span>Dashboard</span></div>
         <div class="actions">
           <a class="btn sm" href="demos/siem/index.html" data-demo data-title="ระบบป้องกันภัยคุกคามเว็บ (SIEM + ML)" data-meta="Interactive demo · ข้อมูลจำลองที่เก็บในเบราว์เซอร์"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
+          <a class="btn sm ghost" href="demos/siem/index.html#module-management" data-demo data-title="SIEM · หลังบ้าน จัดการโมดูล" data-meta="Interactive demo · ข้อมูลจำลองที่เก็บในเบราว์เซอร์">หลังบ้าน</a>
         </div>
         <p class="note">demo ทำงานในเบราว์เซอร์ทั้งหมด ลองกดจำลองเหตุการณ์ เปิดดู Payload แล้ว Block IP หรือไปหน้าทดสอบเพื่อเทียบผลตอนเปิดและปิด Protection ข้อมูลทุกอย่างเป็นข้อมูลจำลอง</p>
       </div>
@@ -363,8 +381,9 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
         <div class="chips"><span>Vue 3</span><span>Tailwind CSS</span><span>daisyUI</span><span>PHP API</span><span>JWT</span></div>
         <div class="actions">
           <a class="btn sm" href="demos/mehotel/index.html" data-demo data-title="MeHotel ระบบจองโรงแรม" data-meta="build จากซอร์สล่าสุด · ข้อมูลโรงแรมตัวอย่าง"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
+          <a class="btn sm ghost" href="demos/mehotel/admin/order.html" data-demo data-title="MeHotel · หลังบ้าน" data-meta="คำสั่งจองและสลิปตัวอย่าง · ดูได้อย่างเดียว">หลังบ้าน</a>
         </div>
-        <p class="note">build จากซอร์สล่าสุดของโปรเจกต์ ชื่อโรงแรม ราคา และรีวิวใน demo เป็นข้อมูลตัวอย่าง</p>
+        <p class="note">build จากซอร์สล่าสุดของโปรเจกต์ ชื่อโรงแรม ราคา รีวิว คำสั่งจอง และสลิปใน demo เป็นข้อมูลตัวอย่าง</p>
       </div>
       <a class="shot layer" data-layer="place" data-name="Work / MeHotel · screen" href="demos/mehotel/index.html" data-demo data-title="MeHotel ระบบจองโรงแรม" data-meta="build จากซอร์สล่าสุด · ข้อมูลโรงแรมตัวอย่าง" aria-label="เปิด demo MeHotel">
         <img src="assets/shots/mehotel.jpg" alt="หน้าแรก MeHotel ภาพนักเดินป่ายืนบนภูเขาพร้อมปุ่มจองโรงแรม" width="1366" height="854">
@@ -380,8 +399,9 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
         <div class="chips"><span>Laravel</span><span>MySQL</span><span>Bootstrap</span><span>Docker</span></div>
         <div class="actions">
           <a class="btn sm" href="demos/scipnru/index.html" data-demo data-title="เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี" data-meta="สำเนา static จากฐานข้อมูลของโปรเจกต์"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
+          <a class="btn sm ghost" href="demos/scipnru/admin/index.html" data-demo data-title="เว็บไซต์คณะ · หลังบ้าน" data-meta="หน้าจัดการเนื้อหาจากฐานข้อมูลของโปรเจกต์ · ดูได้อย่างเดียว">หลังบ้าน</a>
         </div>
-        <p class="note">สำเนา static จากฐานข้อมูลของโปรเจกต์ 12 หน้า ระบบหลังบ้านต้องเข้าสู่ระบบจึงไม่ได้รวมไว้</p>
+        <p class="note">สำเนา static จากฐานข้อมูลของโปรเจกต์ หน้าเว็บ 12 หน้าและหลังบ้าน 8 หน้า หลังบ้านดูได้อย่างเดียว ปุ่มเพิ่มและลบปิดไว้</p>
       </div>
       <a class="shot layer" data-layer="place" data-name="Work / SCIPNRU · screen" href="demos/scipnru/index.html" data-demo data-title="เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี" data-meta="สำเนา static จากฐานข้อมูลของโปรเจกต์" aria-label="เปิด demo เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี">
         <img src="assets/shots/scipnru.jpg" alt="หน้าแรกเว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี พร้อมแบนเนอร์รับสมัครนักศึกษา" width="1366" height="854">
@@ -398,6 +418,7 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
         <div class="actions">
           <a class="btn sm" href="demos/ntn/index.html" data-demo data-title="ระบบบัตรพนักงาน NFC" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
           <a class="btn sm ghost" href="demos/ntn/profile-1.html" data-demo data-title="หน้าโปรไฟล์ที่เปิดจากบัตร NFC" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ">หน้าบัตร NFC</a>
+          <a class="btn sm ghost" href="demos/ntn/dashboard.html" data-demo data-title="ระบบบัตรพนักงาน NFC · หลังบ้าน" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ">หลังบ้าน</a>
         </div>
         <p class="note">ชื่อ รูป และข้อมูลพนักงานใน demo เป็นข้อมูลสมมติทั้งหมด</p>
       </div>
@@ -458,6 +479,11 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
     <div>
       <h2 class="h layer" data-layer="type" data-name="Résumé / Experience">Experience</h2>
       <ol class="tl">
+        <li class="layer" data-layer data-name="Experience / NTIBUZZ">
+          <span class="when">ปัจจุบัน</span>
+          <h3>Project Engineer · NTIBUZZ</h3>
+          <p>ทำเว็บไซต์บริษัทและระบบ PHP กับ MySQL บน hosting จัดทำเอกสาร ISO/IEC 29110 ของโครงการ NT01 และ NT02 และตรวจซองประกวดราคาภาครัฐเทียบ TOR</p>
+        </li>
         <li class="layer" data-layer data-name="Experience / Freelance">
           <span class="when">เม.ย. 2567 – ปัจจุบัน</span>
           <h3>Full-stack Web Developer · Freelance</h3>

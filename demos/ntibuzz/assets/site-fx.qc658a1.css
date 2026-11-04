@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   เว็บบริษัท (ทุกหน้า) — ชั้นเอฟเฟคเพิ่ม · 2026-10-08
+   คำขอ user: "ทำให้สวย เน้นดีไซน์เดิม เพิ่มลูกเล่นเอฟเฟค" → "เพิ่มเอฟเฟคให้สวยสมูทกว่าเดิมทุกหน้าของ Home"
+   ไม่เปลี่ยนโครง/สี/ตำแหน่งของหน้าเดิม — เพิ่มแค่การเคลื่อนไหว · โหลดจาก inc/head.php + inc/foot.php (และ en/_layout.php)
+   ทุกกฎขึ้นต้น html.fx (คลาสใส่ด้วย JS ใน <head>) → ไม่มี JS = หน้าเดิมเป๊ะ · ปิดทั้งหมดเมื่อเครื่องตั้งลดการเคลื่อนไหว
+   ถอดออก: ลบบรรทัด site-fx ใน inc/head.php, inc/foot.php, en/_layout.php
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* 0 · เปลี่ยนหน้าแบบจางนุ่ม (View Transitions ข้ามหน้า — เบราว์เซอร์ตระกูล Chrome/Edge/Opera รุ่นใหม่ · รุ่นเก่าเปลี่ยนหน้าแบบเดิม) */
+@view-transition{navigation:auto}
+html.fx .nt-navbar{view-transition-name:nt-nav}
+::view-transition-old(root){animation:fxVtOut .32s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:fxVtIn .5s cubic-bezier(.2,.7,.2,1) both}
+::view-transition-group(nt-nav){animation-duration:0s}
+
+/* 1 · แถบทองบอกความคืบหน้าการเลื่อนหน้า */
+html.fx .fx-progress{position:fixed;left:0;top:0;z-index:1100;width:100%;height:3px;pointer-events:none;transform-origin:0 50%;
+  transform:scaleX(var(--p,0));background:linear-gradient(90deg,#a9781e,#f6e39b 55%,#c99529);box-shadow:0 0 12px rgba(231,196,78,.75)}
+
+/* 2 · HERO หน้าแรก + หัวหน้าทุกหน้า — ข้อความไหลเข้าทีละชิ้นจากเบลอเป็นชัด */
+html.fx .hero-in .col-lg-7>*,html.fx .phero-in>*{animation:fxUp 1s cubic-bezier(.2,.7,.2,1) both}
+html.fx .hero-in .col-lg-7>*:nth-child(1),html.fx .phero-in>*:nth-child(1){animation-delay:.05s}
+html.fx .hero-in .col-lg-7>*:nth-child(2),html.fx .phero-in>*:nth-child(2){animation-delay:.17s}
+html.fx .hero-in .col-lg-7>*:nth-child(3),html.fx .phero-in>*:nth-child(3){animation-delay:.3s}
+html.fx .hero-in .col-lg-7>*:nth-child(4),html.fx .phero-in>*:nth-child(4){animation-delay:.42s}
+html.fx .hero-in .col-lg-7>*:nth-child(5),html.fx .phero-in>*:nth-child(5){animation-delay:.54s}
+/* โลโก้กลางหน้าแรก — หมุนขยายเข้า + ลอยตามเมาส์ · ภาพพื้นหลังเลื่อนช้ากว่าหน้า */
+html.fx .hero-emblem{animation:fxPop 1.3s .25s cubic-bezier(.2,.8,.2,1) both;translate:var(--ex,0px) var(--ey,0px);transition:translate .6s cubic-bezier(.2,.7,.2,1)}
+html.fx .hero::before{translate:0 calc(var(--hs,0) * 1px)}
+html.fx .phero::after{translate:0 calc(var(--hs,0) * .6px)}
+
+/* ประกายทองลอยขึ้นในหัวหน้า (JS สร้าง .fx-spark) */
+html.fx .fx-sparks{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+html.fx .fx-spark{position:absolute;bottom:-12px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;opacity:0;
+  background:radial-gradient(circle,#fffbe0 0%,#f6d86a 40%,rgba(231,196,78,0) 72%);
+  animation:fxRise var(--d) linear var(--dl) infinite}
+
+/* ชิปบริการบน hero — แสงวาบผ่านทีละอัน */
+html.fx .hero-chip{position:relative;overflow:hidden}
+html.fx .hero-chip::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,250,220,.55) 50%,transparent 70%);transform:translateX(-130%);animation:fxSweep 6s ease-in-out infinite}
+html.fx .hero-chip:nth-child(2)::after{animation-delay:.35s}
+html.fx .hero-chip:nth-child(3)::after{animation-delay:.7s}
+html.fx .hero-chip:nth-child(4)::after{animation-delay:1.05s}
+
+/* ตัวเลขสถิติ — วิ่งเสร็จแล้วมีเส้นทองลากใต้ + เรืองแสงครั้งเดียว (::after คือเส้นตั้งเดิมข้างตัวเลข จึงใช้ ::before) */
+html.fx .hero .stat::before{content:"";position:absolute;left:calc(var(--bs-gutter-x,1.5rem) * .5);top:auto;bottom:-6px;width:0;height:2px;
+  background:linear-gradient(90deg,#f6e39b,rgba(231,196,78,0));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+html.fx .hero .stat:has(b.done)::before{width:58%}
+html.fx .stat b.done,html.fx [data-count].done,html.fx [data-scramble].done{animation:fxGlow 1.4s ease-out 1}
+
+/* 3 · เนื้อหาเผยตัวนุ่มขึ้น — จากเบลอเป็นชัด (เสริม .reveal เดิม ไม่แตะจังหวะเดิม) */
+html.fx .reveal:not(.in),html.fx .reveal-group:not(.in)>*{filter:blur(6px)}
+html.fx .reveal,html.fx .reveal-group>*{transition-property:opacity,transform,filter;transition-duration:.9s;transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+
+/* หัวข้อแต่ละส่วน — ป้ายเล็กมีแสงวาบ · หัวข้อเผยจากกลางออกข้าง · เส้นทองยืดออก */
+html.fx .eyebrow{position:relative;overflow:hidden}
+html.fx .eyebrow::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.7) 50%,transparent 70%);transform:translateX(-130%);animation:fxSweep 7s ease-in-out 1.5s infinite}
+html.fx .reveal .sec-title{clip-path:inset(-30% 50% -30% 50%);transition:clip-path 1.1s .1s cubic-bezier(.7,0,.2,1)}
+html.fx .reveal[data-anim="left"] .sec-title,html.fx .reveal:not(.text-center) .sec-title{clip-path:inset(-30% 100% -30% 0)}
+html.fx .reveal.text-center .sec-title,html.fx .text-center .reveal .sec-title{clip-path:inset(-30% 50% -30% 50%)}
+html.fx .reveal.in .sec-title{clip-path:inset(-30% -6% -30% -6%)}
+html.fx .reveal .divider-gold{width:0;transition:width 1s .45s cubic-bezier(.2,.7,.2,1)}
+html.fx .reveal.in .divider-gold{width:64px}
+
+/* 4 · การ์ด — ขยับนุ่ม · แสงวาบผ่านรูปตอนชี้ · ชื่อเปลี่ยนทอง · ลูกศรขยับ */
+html.fx .prod-card,html.fx .news,html.fx .svc,html.fx .member,html.fx .vm-card,html.fx .iso-card,html.fx .ct-card{
+  transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s cubic-bezier(.2,.8,.2,1),border-color .4s}
+html.fx .fx-shine{position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.55) 48%,transparent 64%);transform:translateX(-135%)}
+html.fx :is(.prod-card,.news,.svc,.vm-card,.member,a):hover .fx-shine{transform:translateX(135%);transition:transform 1s cubic-bezier(.3,.6,.2,1)}
+html.fx .news .thumb{position:relative}
+html.fx .prod-badge{animation:fxBob 4.5s ease-in-out infinite}
+html.fx :is(.prod-card,.news,.svc):hover h3{color:#8a5a12;transition:color .3s}
+html.fx :is(.prod-card,.news,.svc) :is(.read,.svc-more) i{display:inline-block;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+html.fx :is(.prod-card,.news,.svc):hover :is(.read,.svc-more) i{transform:translateX(6px)}
+html.fx .svc-media:hover .svc-photo{transform:scale(1.06)}
+
+/* 5 · ใบรับรอง — วงแหวนทองหมุนรอบโลโก้ตอนชี้ */
+html.fx .iso-badge{position:relative;overflow:visible}
+html.fx .iso-badge::after{content:"";position:absolute;inset:-7px;border-radius:24px;border:1.5px dashed rgba(201,149,41,.7);opacity:0;
+  transition:opacity .35s;animation:spin 9s linear infinite}
+html.fx .iso-card:hover .iso-badge::after,html.fx .iso-card:focus-visible .iso-badge::after{opacity:1}
+html.fx .iso-badge img{border-radius:20px}
+
+/* 6 · วิดีโอ/กรอบภาพ — เปิดม่านจากบนลงล่าง + เส้นแสงสแกน */
+html.fx .reveal .vframe{clip-path:inset(0 0 100% 0 round 18px);transition:clip-path 1.25s .2s cubic-bezier(.7,0,.2,1)}
+html.fx .reveal.in .vframe{clip-path:inset(0 0 0 0 round 18px)}
+html.fx .fx-scan{position:absolute;left:0;right:0;top:-30%;height:30%;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(255,226,140,.22),transparent);animation:fxScan 5.5s linear infinite}
+
+/* 7 · รูปที่โหลดทีหลัง — ค่อย ๆ จางเข้าแทนโผล่ทันที (JS ใส่ .fx-img เฉพาะรูปที่ยังโหลดไม่เสร็จ) */
+html.fx img.fx-img{opacity:0;transition:opacity .7s ease}
+html.fx img.fx-img.fx-in{opacity:1}
+
+/* 8 · ปุ่มเส้นทอง — สีทองไหลเติมจากซ้ายตอนชี้ · ปุ่มทั้งหมดขยับนุ่มขึ้น */
+html.fx .btn-outline-gold{background-image:linear-gradient(90deg,#e7c44e,#c9a227);background-repeat:no-repeat;background-size:0% 100%;
+  transition:background-size .45s cubic-bezier(.2,.7,.2,1),color .3s,transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s}
+html.fx .btn-outline-gold:hover{background-size:100% 100%;background-color:transparent}
+
+/* 9 · ไอคอนโซเชียลท้ายเว็บ — เด้งขึ้นนุ่ม ๆ */
+html.fx .ft .socials a{transition:transform .4s cubic-bezier(.3,1.6,.5,1),background-color .3s,color .3s}
+html.fx .ft .socials a:hover{transform:translateY(-4px) rotate(-6deg)}
+
+/* 10 · ปุ่มกลับขึ้นบน พร้อมวงแหวนบอกระยะ */
+html.fx .fx-top{position:fixed;left:20px;bottom:22px;z-index:1050;width:50px;height:50px;border:0;border-radius:50%;padding:0;cursor:pointer;
+  display:grid;place-items:center;background:#fffaf0;color:#603813;box-shadow:0 10px 26px rgba(96,56,19,.25);
+  opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+html.fx .fx-top.show{opacity:1;transform:none;pointer-events:auto}
+html.fx .fx-top:hover{background:#fdf1d0}
+html.fx .fx-top:focus-visible{outline:2px solid #603813;outline-offset:3px}
+html.fx .fx-top svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+html.fx .fx-top .tr{fill:none;stroke:#f0e2bf;stroke-width:3}
+html.fx .fx-top .pg{fill:none;stroke:#c99529;stroke-width:3;stroke-linecap:round;stroke-dasharray:138.2;stroke-dashoffset:calc(138.2 * (1 - var(--p,0)))}
+html.fx .fx-top .bi{position:relative;font-size:1.15rem}
+
+/* 11 · คลิกตรงไหนมีประกายทองแตกออก (JS สร้าง .fx-burst) */
+html.fx .fx-burst{position:fixed;z-index:2000;left:0;top:0;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,#fffbe0,#e7c44e 60%,rgba(231,196,78,0) 72%);animation:fxBurst .7s cubic-bezier(.15,.7,.3,1) forwards}
+
+@keyframes fxVtOut{to{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
+@keyframes fxVtIn{from{opacity:0;transform:translateY(14px);filter:blur(4px)}}
+@keyframes fxUp{from{opacity:0;transform:translateY(26px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes fxPop{from{opacity:0;scale:.72;rotate:-24deg}to{opacity:1;scale:1;rotate:0deg}}
+@keyframes fxRise{0%{opacity:0;transform:translate(0,0)}12%{opacity:.95}75%{opacity:.55}100%{opacity:0;transform:translate(var(--dx),-760px)}}
+@keyframes fxSweep{0%,62%{transform:translateX(-130%)}82%,100%{transform:translateX(130%)}}
+@keyframes fxGlow{0%{filter:drop-shadow(0 0 0 rgba(246,227,155,0))}35%{filter:drop-shadow(0 0 14px rgba(246,227,155,.95))}100%{filter:drop-shadow(0 0 0 rgba(246,227,155,0))}}
+@keyframes fxBob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes fxScan{to{transform:translateY(440%)}}
+@keyframes fxBurst{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--bx),var(--by)) scale(.2);opacity:0}}
+
+@media (max-width:767.98px){
+  html.fx .fx-top{left:14px;bottom:16px;width:44px;height:44px}
+  html.fx .reveal:not(.in),html.fx .reveal-group:not(.in)>*{filter:none}   /* มือถือ: ไม่ใช้เบลอ (ประหยัดเครื่อง) */
+}
+/* เครื่องที่ตั้งลดการเคลื่อนไหว → ปิดเอฟเฟคทั้งหมด หน้าแสดงตามเดิม */
+@media (prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+  html.fx .hero-in .col-lg-7>*,html.fx .phero-in>*,html.fx .hero-emblem,html.fx .hero-chip::after,html.fx .eyebrow::after,html.fx .prod-badge,
+  html.fx .fx-scan,html.fx .fx-spark,html.fx .stat b.done,html.fx [data-count].done,html.fx [data-scramble].done,html.fx .iso-badge::after{animation:none!important}
+  html.fx .reveal .sec-title,html.fx .reveal .vframe{clip-path:none!important;transition:none!important}
+  html.fx .reveal:not(.in),html.fx .reveal-group:not(.in)>*{filter:none}
+  html.fx .reveal .divider-gold{width:64px;transition:none}
+  html.fx img.fx-img{opacity:1}
+  html.fx .fx-sparks,html.fx .fx-burst{display:none}
+}

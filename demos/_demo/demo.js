@@ -26,7 +26,7 @@
     if (el && el.tagName !== 'FORM') {
       e.preventDefault();
       e.stopPropagation();
-      say('หน้านี้ไม่ได้รวมไว้ใน demo');
+      say(el.dataset.demoOff === 'action' ? 'ปุ่มนี้ปิดไว้ใน demo ไม่มีการแก้ข้อมูลจริง' : 'หน้านี้ไม่ได้รวมไว้ใน demo');
     }
   }, true);
 

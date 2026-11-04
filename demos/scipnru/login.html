@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <input type="hidden" value="http://127.0.0.1:8010" id="__url">
+        <input type="hidden" value="" id="__url">
 
 
 
@@ -640,7 +640,13 @@
 </div>
 </div>
 
-<script type="text/javascript" src="vendor/boostrap/js/bootstrap.bundle.min.js"></script> <script src="../_demo/demo.js" data-label="DEMO · สำเนา static ของเว็บคณะ" defer></script>
+<script type="text/javascript" src="vendor/boostrap/js/bootstrap.bundle.min.js"></script> <script src="../_demo/demo.js" data-label="DEMO · กด Login เพื่อดูหลังบ้าน" defer></script>
+<script>
+// demo: Login opens the back-office pages; the original handler that posts the form never runs
+document.addEventListener('click', e => {
+  if (e.target.closest('#login_btn')) { e.preventDefault(); e.stopImmediatePropagation(); location.href = 'admin/index.html'; }
+}, true);
+</script>
 </body>
 
  </html>
