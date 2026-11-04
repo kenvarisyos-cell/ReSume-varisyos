@@ -159,8 +159,8 @@ section{padding-block:var(--space-3xl)}
 .chips{display:flex; flex-wrap:wrap; gap:var(--space-sm)}
 .chips span{padding:4px 11px; border-radius:var(--radius-pill); background:var(--color-paper-3); border:var(--rule); font-size:var(--text-sm); white-space:nowrap}
 
-.creds{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--space-lg)}
-.cred{display:grid; gap:var(--space-sm); color:inherit; text-decoration:none}
+.creds{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:var(--space-lg)}
+.cred{display:grid; align-content:start; gap:var(--space-sm); color:inherit; text-decoration:none}
 .cred .pic{aspect-ratio:4/3; border-radius:var(--radius-md); overflow:hidden; border:var(--rule); background:var(--color-paper-2); box-shadow:var(--shadow-card)}
 .cred img{width:100%; height:100%; object-fit:cover; object-position:left top}
 .cred b{font:600 var(--text-base) var(--font-display); transition:color var(--dur-fast) var(--ease-out)}
@@ -204,7 +204,7 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
 .demo iframe{flex:1; width:100%; border:0; background:#fff}
 
 @media (max-width:980px){
-  .skills{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .skills,.creds{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
 @media (max-width:860px){
   .hero{grid-template-columns:1fr; padding-top:100px; gap:var(--space-xl)}
@@ -483,6 +483,10 @@ html.built #hud .note{display:none}
         <span class="pic"><img src="assets/certs/spuc-2025-conference.jpg" alt="เกียรติบัตรนำเสนอผลงานวิชาการภาคบรรยายในงาน SPUC 2025" width="854" height="711"></span>
         <b>นำเสนอผลงาน SPUC 2025</b><span>ม.ศรีปทุม วิทยาเขตชลบุรี · 1 ก.ค. 2568</span>
       </a>
+      <a class="cred layer" data-layer="place" data-name="Credentials / ICDL" href="assets/certs/icdl-profile-certificate.jpg" data-demo data-open="https://profile.icdlasia.org/1a88c74c-2ed3-4784-aacb-39ca38fc6193" data-title="ICDL Application Essentials · MS Office 2016" data-meta="ICDL Asia · สอบผ่าน 18 มี.ค. 2565 · ปุ่มมุมขวาบนเปิดหน้าตรวจสอบใบรับรอง">
+        <span class="pic"><img src="assets/certs/icdl-profile-certificate.jpg" alt="ICDL Profile Certificate ของ Varisyos Srisanga โมดูล Application Essentials หลักสูตร MS Office 2016 สอบผ่าน 18 มีนาคม 2022" width="1000" height="1419"></span>
+        <b>ICDL Application Essentials</b><span>ICDL Asia · MS Office 2016 · 18 มี.ค. 2565</span>
+      </a>
     </div>
   </section>
 
@@ -550,7 +554,7 @@ html.built #hud .note{display:none}
       <div class="layer" data-layer data-name="Skills / Smart system"><h3>Smart System</h3><div class="chips"><span>NFC Card System</span><span>ISO/IEC 27001</span><span>Machine Learning / Deep Learning</span><span>CCTV (HIKVISION)</span></div></div>
       <div class="layer" data-layer data-name="Skills / Support"><h3>Hardware &amp; IT Support</h3><div class="chips"><span>Printer (Ricoh, Canon)</span><span>Remote Support</span><span>Troubleshooting</span><span>Server &amp; Client Devices</span></div></div>
       <div class="layer" data-layer data-name="Skills / Documents"><h3>Documents &amp; Compliance</h3><div class="chips"><span>ISO/IEC 29110</span><span>TOR · Table of Compliance</span><span>e-bidding audit</span></div></div>
-      <div class="layer" data-layer data-name="Skills / Media"><h3>Tools &amp; Media</h3><div class="chips"><span>Adobe Photoshop</span><span>Premiere Pro</span><span>Raspberry Pi</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Media"><h3>Tools &amp; Media</h3><div class="chips"><span>Microsoft Office (ICDL)</span><span>Adobe Photoshop</span><span>Premiere Pro</span><span>Raspberry Pi</span></div></div>
     </div>
   </section>
 
@@ -642,7 +646,7 @@ html.built #hud .note{display:none}
     title.textContent = a.dataset.title || a.textContent.trim();
     meta.textContent = a.dataset.meta || '';
     frame.title = 'Demo: ' + title.textContent;
-    open.href = href;
+    open.href = a.dataset.open || href;   // data-open: where "open in a new tab" goes instead (a certificate's verification page)
     frame.src = href;
     document.documentElement.classList.add('modal-open');
     dlg.showModal();
