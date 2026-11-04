@@ -52,8 +52,9 @@
 }
 *{box-sizing:border-box}
 html,body{overflow-x:clip}
-html{background:var(--color-paper)}
-html.modal-open{overflow:hidden}
+html{background:var(--color-paper); scrollbar-gutter:stable}
+/* building: the page holds still while the swarm builds it (the script scrolls it), like an open demo */
+html.modal-open,html.building{overflow:hidden}
 body{margin:0; position:relative; background:transparent; color:var(--color-ink); font:400 var(--text-base)/1.7 var(--font-body); -webkit-font-smoothing:antialiased}
 body::before{content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:
   radial-gradient(55vmax 40vmax at 80% 0%, color-mix(in oklch, var(--color-accent) 13%, transparent), transparent 60%),
@@ -272,6 +273,9 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
 #hud .bar{position:absolute; left:14px; right:14px; bottom:-1px; height:2px; background:var(--color-rule); border-radius:2px; overflow:hidden}
 #hud .bar i{display:block; height:100%; width:0; background:var(--color-accent); transition:width 220ms var(--ease-out)}
 @media (max-width:520px){ #hud .avatars, #hud .hud-agents, #hud .sep.a{display:none} }
+#hud .note{position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%); width:max-content; max-width:calc(100vw - 32px); margin:0; padding:7px 14px; border:var(--rule); border-radius:var(--radius-pill); background:color-mix(in oklch, var(--color-paper-2) 90%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:var(--shadow-card); font:500 13px/1.45 var(--font-body); color:var(--color-ink); white-space:normal; text-align:center}
+#hud .note::before{content:""; display:inline-block; width:7px; height:7px; margin-right:8px; border-radius:50%; background:var(--color-accent); vertical-align:.06em; animation:blink 1.1s steps(2) infinite}
+html.built #hud .note{display:none}
 @media (prefers-reduced-motion: reduce){
   .js .layer,.js .ch{opacity:1; transform:none; transition:none}
   .js .pill{transform:translateX(-50%)}
@@ -580,6 +584,7 @@ footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
 </aside>
 
 <div id="hud" aria-live="polite">
+  <p class="note">แอนิเมชันกำลังสร้างหน้าเว็บ กรุณารอสักครู่ หรือกด <b>Skip</b> เพื่อข้าม</p>
   <div class="avatars" aria-hidden="true"></div>
   <span class="hud-agents"><b id="hudN">0</b> agents</span>
   <span class="sep a"></span>
@@ -654,7 +659,9 @@ const NAMES = ['mira','kofi','ploy','ohm','june','tariq','nok','sasha','bank','i
   'eli','ying','sam','pun','iris','gun','nina','tae','jo','meen','axel','ice','beam','tan','lina','poom'];
 const LANES = 5;                  // layers built at the same time
 const SPEEDS = [1, 2, 4];
+const HAND = 'M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15';   // the Lucide "hand" icon (ISC licence)
 const ICON = {
+  hand: `<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="${HAND}" stroke="var(--color-paper)" stroke-width="4.2" opacity=".7"/><path d="${HAND}" stroke="var(--c)" stroke-width="2"/></g></svg>`,
   arrow: '<svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M1 1l6.5 18 2.6-7.2L17 9.2z" fill="var(--c)" stroke="var(--color-paper)" stroke-width="1.2" stroke-linejoin="round"/></svg>',
   cross: '<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1.5v7M11 13.5v7M1.5 11h7M13.5 11h7" stroke="var(--color-paper)" stroke-width="4.5" stroke-linecap="round" opacity=".7"/><path d="M11 1.5v7M11 13.5v7M1.5 11h7M13.5 11h7" stroke="var(--c)" stroke-width="2.2" stroke-linecap="round"/></svg>',
   ibeam: '<svg width="14" height="24" viewBox="0 0 14 24" aria-hidden="true"><path d="M3 2h3.5M3 22h3.5M7.5 2H11M7.5 22H11M7 2v20" stroke="var(--color-paper)" stroke-width="4" stroke-linecap="round" opacity=".7"/><path d="M3 2h3.5M3 22h3.5M7.5 2H11M7.5 22H11M7 2v20" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round"/></svg>'
@@ -666,7 +673,7 @@ const hudN = $('#hudN'), hudDone = $('#hudDone'), hudTotal = $('#hudTotal'), hud
 const btnSpeed = $('#hudSpeed'), btnSkip = $('#hudSkip'), btnReplay = $('#hudReplay');
 const layers = [...document.querySelectorAll('[data-layer]')];
 const agents = [];
-const state = { speedIx: 0, aborted: false, finished: false, done: 0, animating: false, lastUserScroll: 0 };
+const state = { speedIx: 0, aborted: false, finished: false, done: 0, animating: false };
 const S = () => SPEEDS[state.speedIx];
 const rand = (a, b = 0) => b ? a + Math.random() * (b - a) : Math.random() * a;
 
@@ -690,7 +697,13 @@ hudTotal.textContent = layers.length;
 const revealNow = l => { l.classList.add('on'); l.querySelectorAll('.ch').forEach(c => { c.classList.add('on'); c.classList.remove('cur'); }); };
 const resetLayer = l => { l.classList.remove('on'); l.querySelectorAll('.ch').forEach(c => c.classList.remove('on', 'cur')); };
 
-if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layers.forEach(revealNow); hud.hidden = true; lp.hidden = true; document.documentElement.classList.add('built'); return; }
+// reduced motion, or a link straight to a section (#work, #contact): show the finished page without the build
+if (matchMedia('(prefers-reduced-motion: reduce)').matches || (location.hash.length > 1 && document.getElementById(location.hash.slice(1)))) { layers.forEach(revealNow); hud.hidden = true; lp.hidden = true; document.documentElement.classList.add('built'); return; }
+
+// the build plays from the top with the page held still until it is done; a reload would otherwise restore
+// the old scroll position and the swarm would work off screen
+const lock = on => document.documentElement.classList.toggle('building', on);
+history.scrollRestoration = 'manual'; scrollTo(0, 0); lock(true);
 
 // ---- abortable timing ----
 let abort, abortP;
@@ -773,15 +786,20 @@ function makeFrame(a, r, cls, full) {
   swarm.appendChild(d); return d;
 }
 const pickIdle = () => { const free = agents.filter(a => !a.busy); return free[Math.floor(rand(free.length))] || agents[0]; };
+const active = new Set();   // layers being built right now
 function followScroll(el) {
-  if (performance.now() - state.lastUserScroll < 5000) return;        // the reader took the wheel, leave them alone
   if (document.documentElement.classList.contains('modal-open')) return;   // a demo is open
   const r = rect(el), top = scrollY, vh = innerHeight;
-  // scroll just enough to show the new layer near the bottom, so what was just built stays on screen
-  if (r.bottom > top + vh - 120) scrollTo({ top: Math.max(0, Math.min(r.top - 96, r.bottom - vh + 160)), behavior: 'smooth' });
+  // scroll just enough to show the new layer near the bottom, so what was just built stays on screen, but keep
+  // the top of every layer still in progress below the nav (this also goes back up to a layer that starts
+  // above the view, like the right column of a two-column section)
+  let y = r.bottom > top + vh - 120 ? Math.min(r.top - 96, r.bottom - vh + 160) : top;
+  const first = Math.min(r.top, ...[...active].map(l => rect(l).top));
+  if (first < y + 80) y = first - 96;
+  if (Math.abs(y - top) > 4) scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
 }
 async function build(layer, a) {
-  a.busy = true;
+  a.busy = true; active.add(layer);
   const kind = layer.dataset.layer;
   const r = rect(layer);
   const row = panelAdd(layer, kind);
@@ -819,7 +837,7 @@ async function build(layer, a) {
   await sleep(200);
   if (fr) fr.remove();
   row.classList.remove('active');
-  setTool(a, 'arrow', ''); a.busy = false;
+  setTool(a, 'arrow', ''); a.busy = false; active.delete(layer);
 }
 async function run() {
   let i = 0;
@@ -834,26 +852,52 @@ async function run() {
   await Promise.all(Array.from({ length: LANES }, lane));
   finish();
 }
-function finish() {
+// rAF loop that is not cut short by Skip (sleep and tween are); fn returning false stops it early
+const frames = (ms, fn) => new Promise(res => {
+  const t0 = performance.now();
+  (function f(now) { const p = Math.min(1, (now - t0) / ms); if (fn(p) === false || p === 1) return res(); requestAnimationFrame(f); })(t0);
+});
+// Hand Tool (H): when the build ends low on the page, the cursor nearest the middle grabs the canvas and
+// flicks it back to the top, so reading starts at the beginning
+async function flick() {
+  const y0 = scrollY, vh = innerHeight, x = innerWidth / 2;
+  if (y0 < 40 || !agents.length) return;
+  const mid = y0 + vh / 2, a = agents.reduce((b, c) => Math.abs(c.y - mid) < Math.abs(b.y - mid) ? c : b);
+  a.busy = true; a.lock = false; a.k = 9; a.tx = x; a.ty = y0 + vh * .66;
+  await new Promise(r => setTimeout(r, 450 / S()));
+  a.lock = true; setTool(a, 'hand', 'H');
+  let at = scrollY;
+  await frames(Math.min(1600, 700 + y0 / 8) / S(), p => {
+    if (Math.abs(scrollY - at) > 2) return false;   // something else moved the page (a #link): stop there
+    const e = p < .5 ? 4 * p ** 3 : 1 - (2 - 2 * p) ** 3 / 2;
+    at = Math.round(y0 * (1 - e)); scrollTo({ top: at, behavior: 'instant' });
+    a.x = x; a.y = at + vh * (.66 - .5 * (1 - (1 - p) ** 3));   // the hand rises ahead of the page
+  });
+  a.lock = false; a.tx = a.x; a.ty = a.y; setTool(a, 'arrow', 'อ่านจากตรงนี้');
+}
+function finish(flickUp = true) {
   if (state.finished) return; state.finished = true;
   layers.forEach(revealNow); swarm.querySelectorAll('.fr:not(.hv)').forEach(e => e.remove());
   lpList.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
   state.done = layers.length; hudDone.textContent = state.done; lpCount.textContent = state.done; hudBar.style.width = '100%';
-  btnSkip.hidden = true; btnReplay.hidden = false;
+  btnSkip.hidden = true;
   document.documentElement.classList.add('built');   // hover frames switch on
-  // agents leave one by one so the page is readable; the Layers panel slides away with them
-  agents.forEach((a, i) => setTimeout(() => {
-    a.busy = true; a.lock = false; a.k = 3; setTool(a, 'arrow', '');
-    a.tx = Math.random() < .5 ? -80 : innerWidth + 80; a.ty = scrollY + rand(-80, innerHeight + 80);
-    setTimeout(() => a.el.classList.remove('in'), 500 / S());
-  }, 1800 / S() + i * 50 / S()));
-  setTimeout(() => lp.classList.add('out'), 2200 / S());
-  setTimeout(() => { state.animating = false; }, 1800 / S() + agents.length * 50 / S() + 1500);
+  (flickUp ? flick() : Promise.resolve()).then(() => {
+    lock(false); history.scrollRestoration = 'auto'; btnReplay.hidden = false;
+    // agents leave one by one so the page is readable; the Layers panel slides away with them
+    agents.forEach((a, i) => setTimeout(() => {
+      a.busy = true; a.lock = false; a.k = 3; setTool(a, 'arrow', '');
+      a.tx = Math.random() < .5 ? -80 : innerWidth + 80; a.ty = scrollY + rand(-80, innerHeight + 80);
+      setTimeout(() => a.el.classList.remove('in'), 500 / S());
+    }, 1800 / S() + i * 50 / S()));
+    setTimeout(() => lp.classList.add('out'), 2200 / S());
+    setTimeout(() => { state.animating = false; }, 1800 / S() + agents.length * 50 / S() + 1500);
+  });
 }
-function skip() {
+function skip(flickUp = true) {
   state.aborted = true; abort();
   agents.forEach(a => { a.busy = false; a.lock = false; a.arrive = null; a.tx = a.x; a.ty = a.y; });
-  finish();
+  finish(flickUp);
 }
 function replay() {
   state.aborted = false; state.finished = false; state.done = 0; newAbort();
@@ -862,19 +906,15 @@ function replay() {
   layers.forEach(resetLayer);
   lpList.innerHTML = ''; lpCount.textContent = 0; lp.classList.remove('out');
   hudDone.textContent = 0; hudBar.style.width = '0%'; btnSkip.hidden = false; btnReplay.hidden = true;
-  scrollTo(0, 0); state.lastUserScroll = 0;
+  scrollTo(0, 0); lock(true);
   spawn(); setTimeout(run, 900 / S());
 }
 
 btnSpeed.addEventListener('click', () => { state.speedIx = (state.speedIx + 1) % SPEEDS.length; btnSpeed.textContent = S() + '×'; });
-btnSkip.addEventListener('click', skip);
+btnSkip.addEventListener('click', () => skip(true));
 btnReplay.addEventListener('click', replay);
-const userScrolled = () => { state.lastUserScroll = performance.now(); };
-addEventListener('wheel', userScrolled, { passive: true });
-addEventListener('touchmove', userScrolled, { passive: true });
-addEventListener('keydown', e => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(e.key)) userScrolled(); });
-// a click on a nav link or a demo means the reader is driving: finish the build so nothing is hidden
-document.addEventListener('click', e => { if (!state.finished && e.target.closest('a[href^="#"], a[data-demo]')) skip(); });
+// a click on a nav link or a demo means the reader is driving: finish the build, unlock, and let the link work
+document.addEventListener('click', e => { if (!state.finished && e.target.closest('a[href^="#"], a[data-demo]')) skip(false); });
 
 // shortcut: rects are measured once per layer at build time, so a window resize mid-build misplaces the live frame; add a resize listener if it matters
 // wait for fonts and above-the-fold images (max 2.5 s) so layer positions are final before the swarm starts
