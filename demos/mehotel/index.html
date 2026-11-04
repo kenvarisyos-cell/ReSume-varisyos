@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hotel</title><style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+          transform: scale(var(--fa-counter-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+          transform: scale(var(--fa-layers-scale, 0.25));
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(var(--fa-li-width, 2em) * -1);
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  -webkit-animation-name: fa-beat;
+          animation-name: fa-beat;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  -webkit-animation-name: fa-fade;
+          animation-name: fa-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  -webkit-animation-name: fa-beat-fade;
+          animation-name: fa-beat-fade;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  -webkit-animation-name: fa-flip;
+          animation-name: fa-flip;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+          animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 2s);
+          animation-duration: var(--fa-animation-duration, 2s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  -webkit-animation-name: fa-spin;
+          animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+          animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    -webkit-animation-delay: -1ms;
+            animation-delay: -1ms;
+    -webkit-animation-duration: 1ms;
+            animation-duration: 1ms;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@-webkit-keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  45% {
+    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+            transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0);
+  }
+}
+@-webkit-keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@-webkit-keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+            transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@-webkit-keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg);
+  }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg);
+  }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg);
+  }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg);
+  }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg);
+  }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg);
+  }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  -webkit-transform: rotate(var(--fa-rotate-angle, none));
+          transform: rotate(var(--fa-rotate-angle, none));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse,
+.fa-duotone.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}</style><link href="css/app.b7648ab9.css" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png"><meta name="theme-color" content="#4DBA87"><meta name="apple-mobile-web-app-capable" content="no"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="hotel"><link rel="apple-touch-icon" href="img/icons/apple-touch-icon-152x152.png"><link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#4DBA87"><meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><link rel="stylesheet" href="../_demo/demo.css">
+</head><body style=""><div id="app" data-v-app=""><div class="scroll-smooth"><div class="hotel" default="true" menu="true"><div data-theme="emerald"><input type="checkbox" id="modal-joinnows" class="modal-toggle"><div class="modal"><div class="modal-box relative"><label for="modal-joinnows" class="btn btn-sm btn-ghost absolute right-2 top-2">✕</label><div class="card-body pb-2"><div class="text-3xl font-bold">LOG IN</div><div class="text-md text-base-300 italic"> Connect your membership information to get access. </div><div class="divider"></div><div class="flex flex-col w-full border-opacity-50"><div class="form-control grid"><label class="label"><span class="label-text">Email Address / Username*</span></label><input type="text" placeholder="Email Address / Username*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Password*</span></label><input type="password" placeholder="Password*" class="input input-bordered"></div><div class="form-control grid mt-4 mb-4"><div class="flex w-full"><div class="rounded-box"><label class="label cursor-pointer"><input type="checkbox" class="checkbox"><span class="label-text pl-2">Remember me</span></label></div><div class="grid flex-grow rounded-box justify-end"><label class="label"><a href="#" class="label-text-alt link link-hover font-bold"> Forgot password? </a></label></div></div></div></div><div class="form-control"><button class="btn btn-sm md:btn-md lg:btn-lg bg-black text-white border-black w-full"> Login </button></div><div class="form-control"><p class="label-text-alt"> You don't have an account yes? <a href="#" class="label-text-alt link link-hover font-bold">Join now! </a></p></div></div><div class="card-body pb-2 hidden"><div class="text-3xl font-bold">CREATE AN ACCOUNT</div><div class="text-md text-base-300 italic">Please enter your details.</div><div class="divider"></div><div class="flex flex-col w-full border-opacity-50"><div class="form-control grid"><label class="label"><span class="label-text">Email*</span></label><input type="text" placeholder="Email*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Username*</span></label><input type="text" placeholder="Username*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Password*</span></label><input type="password" placeholder="Password*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Confirm Password*</span></label><input type="password" placeholder="Confirm Password*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Firstname*</span></label><input type="text" placeholder="Firstname*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Lastname*</span></label><input type="text" placeholder="Lastname*" class="input input-bordered"></div><div class="form-control grid mt-4"><label class="label"><span class="label-text">Tel*</span></label><input type="text" placeholder="Tel*" class="input input-bordered"></div><div class="form-control grid mt-4 mb-4 justify-items-start"><div class="rounded-box"><label class="label cursor-pointer"><input type="checkbox" class="checkbox"><span class="label-text pl-2">I Agree to the <a href="#" class="label-text-alt link link-hover font-bold"> Privacy Policy </a> | <a href="#" class="label-text-alt link link-hover font-bold"> Terms &amp; Confitions. </a></span></label></div></div></div><div class="form-control"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-black text-white border-black w-full"> Submit </button></div></div><div class="card-body pb-2 hidden"><svg class="svg-inline--fa fa-envelope-circle-check text-5xl" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-circle-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path class="" fill="currentColor" d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L478.9 160.8C412.3 167.2 356.5 210.8 332.6 270.6L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM294.4 339.2L320.8 319.4C320.3 324.9 320 330.4 320 336C320 378.5 335.1 417.6 360.2 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2zM640 336C640 415.5 575.5 480 496 480C416.5 480 352 415.5 352 336C352 256.5 416.5 192 496 192C575.5 192 640 256.5 640 336zM540.7 292.7L480 353.4L451.3 324.7C445.1 318.4 434.9 318.4 428.7 324.7C422.4 330.9 422.4 341.1 428.7 347.3L468.7 387.3C474.9 393.6 485.1 393.6 491.3 387.3L563.3 315.3C569.6 309.1 569.6 298.9 563.3 292.7C557.1 286.4 546.9 286.4 540.7 292.7H540.7z"></path></svg><div class="text-xl font-bold">Verify your email</div><div class="text-md">Please check your email to verify your account.</div><div class="text-md"> if you haven't received the email,be sure to check your junk mail folder. </div><div class="form-control"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-black text-white border-black w-full"> Resend email </button></div></div><div class="card-body pb-2 hidden"><div class="text-xl font-bold">Forgot password</div><div class="text-md text-base-300 italic"> Enter your registered email below to receive password reset instruction. </div><div class="divider"></div><div class="flex flex-col w-full border-opacity-50"><div class="form-control grid"><input type="text" placeholder="Email Address*" class="input input-bordered"></div></div><div class="form-control mt-2"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-black text-white border-black w-full"> Reset password </button></div></div></div></div><div class="shadow bg-base-100 drawer h-100"><input id="drawer-menu" type="checkbox" class="drawer-toggle"><div class="flex flex-col items-center justify-center drawer-content"><div class="drawer"><input id="my-drawer-3" type="checkbox" class="drawer-toggle"><div class="drawer-content flex flex-col"><div class="w-full navbar bg-base-100 z-30 top-0 gap-2 px-4 py-2 flex absolute bg-opacity-0" style="transition: 0.5s ease-in;"><div class="flex-none lg:hidden"><label for="drawer-menu" class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></label></div><div class="flex-1"><a class="btn btn-link normal-case text-xl drop-shadow-2xl">MeHotel</a></div><div class="flex-none hidden lg:flex"><div class="items-stretch hidden lg:flex"><ul class="menu menu-horizontal p-0"><li><a aria-current="page" href="index.html" class="router-link-active router-link-exact-active btn btn-link">หน้าหลัก</a></li><li><a href="booking.html" class="btn btn-link">การจอง</a></li><li><a href="gallery.html" class="btn btn-link">Gallery</a></li><li><a href="contact.html" class="btn btn-link">ติดต่อเรา</a></li><li><a href="about.html" class="btn btn-link">เกี่ยวกับเรา</a></li></ul></div></div><div class="flex-none mr-2"><label for="modal-joinnows" class="btn btn-sm btn-outline modal-button"> Login / Sign up </label></div></div><div class="hero min-auto" id="home"><section class="parallax bg-transparent" data-v-edb58cf4=""><img src="img/monutain_01.e567f574.png" class="monutain_01-fadeIn" data-v-edb58cf4=""><img src="img/trees_02.763e5b04.png" class="trees_02-fadeIn" data-v-edb58cf4=""><img src="img/monutain_02.04e0293f.png" class="monutain_02-fadeIn" data-v-edb58cf4=""><img src="img/trees_01.727b376b.png" class="trees_01-fadeIn" data-v-edb58cf4=""><img src="img/man.ee844034.png" class="man-fadeIn" data-v-edb58cf4=""><img src="img/plants.950f89c1.png" class="plants-fadeIn" data-v-edb58cf4=""></section><div class="hero-overlay bg-dark bg-opacity-0 z-10 min-h-screen bg-opacity-0" style="transition: 1s;"></div><div class="hero-content flex-col lg:flex-row-reverse w-full lg:px-20 lg:pt-0 pt-24" style="z-index: 11; transition: 1s; padding-bottom: 25rem;"><div class="container"><div class="text-center lg:text-right"><div class="text-4xl lg:text-5xl font-bold" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);"> หากคุณ กำลังตามหาที่พัก </div><div class="text-sm font-bold" style="text-align-last: center; translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);"><a href="gallery.html" class="btn btn-md md:btn-md lg:btn-lg btn-primary mt-10 w-60 modal-button bg-opacity-0 opacity-100"> จองโรงเเรม </a></div></div></div></div></div><div class="lg:bg-base-100 grid grid-col w-full px-4 lg:px-auto"><div class="container mx-auto py-14" style="z-index: 12;"><div class="grid grid-col w-full px-4 lg:px-auto"><div class="text-center mb-2"><span class="text-primary font-semibold tracking-widest text-xs uppercase">Best Choice</span><h2 class="text-2xl lg:text-4xl font-extrabold text-base-content mt-1">ห้องพักยอดนิยม</h2><div class="mx-auto mt-3 h-1 w-16 rounded-full bg-primary"></div><p class="text-base-content/60 mt-3 max-w-xl mx-auto"> ทางเราคัดห้องพักที่จัดหาว่าดีที่สุดขึ้นมาให้คุณเลือก </p></div><div class="grid rounded-box place-items-center" data-v-5924a134=""><div class="grid w-full gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4" data-v-5924a134=""><div class="card w-auto bg-base-100 shadow-xl image-full min-h-16" data-v-5924a134=""><figure data-v-5924a134=""><img src="hotel/upload/hotels/20221007200907-0-1.jpg" alt="Image" data-v-5924a134=""></figure><div class="card-body bg-base-100 bg-opacity-75 animate-slideOut" data-v-5924a134=""><h2 class="card-title text-black" data-v-5924a134="" style="padding: 5px; overflow-wrap: break-word; display: block; max-height: 50px;">ดอยอินทนนท์ วิว รีสอร์ท</h2><div class="card-actions justify-end" data-v-5924a134="" style="position: absolute; bottom: 0px; right: 0px; padding: 10px;"><a href="hotel-MH001.html" class="btn btn-ghost btn-outline btn-sm mt-10" data-v-5924a134=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-v-5924a134=""><path class="" fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div><div class="card w-auto bg-base-100 shadow-xl image-full min-h-16" data-v-5924a134=""><figure data-v-5924a134=""><img src="hotel/upload/hotels/20221010234208-0-1.jpg" alt="Image" data-v-5924a134=""></figure><div class="card-body bg-base-100 bg-opacity-75 animate-slideOut" data-v-5924a134=""><h2 class="card-title text-black" data-v-5924a134="" style="padding: 5px; overflow-wrap: break-word; display: block; max-height: 50px;">ซันเซ็ท พูลวิลล่า หัวหิน</h2><div class="card-actions justify-end" data-v-5924a134="" style="position: absolute; bottom: 0px; right: 0px; padding: 10px;"><a href="hotel-MH002.html" class="btn btn-ghost btn-outline btn-sm mt-10" data-v-5924a134=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-v-5924a134=""><path class="" fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div><div class="card w-auto bg-base-100 shadow-xl image-full min-h-16" data-v-5924a134=""><figure data-v-5924a134=""><img src="hotel/upload/hotels/20221010234705-0-1.jpg" alt="Image" data-v-5924a134=""></figure><div class="card-body bg-base-100 bg-opacity-75 animate-slideOut" data-v-5924a134=""><h2 class="card-title text-black" data-v-5924a134="" style="padding: 5px; overflow-wrap: break-word; display: block; max-height: 50px;">อินฟินิตี้ พูล วิลล่า ภูเก็ต</h2><div class="card-actions justify-end" data-v-5924a134="" style="position: absolute; bottom: 0px; right: 0px; padding: 10px;"><a href="hotel-MH003.html" class="btn btn-ghost btn-outline btn-sm mt-10" data-v-5924a134=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-v-5924a134=""><path class="" fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div><div class="card w-auto bg-base-100 shadow-xl image-full min-h-16" data-v-5924a134=""><figure data-v-5924a134=""><img src="hotel/upload/hotels/20230129132644-0-1.jpg" alt="Image" data-v-5924a134=""></figure><div class="card-body bg-base-100 bg-opacity-75 animate-slideOut" data-v-5924a134=""><h2 class="card-title text-black" data-v-5924a134="" style="padding: 5px; overflow-wrap: break-word; display: block; max-height: 50px;">เดอะ ซิตี้ สวีท กรุงเทพฯ</h2><div class="card-actions justify-end" data-v-5924a134="" style="position: absolute; bottom: 0px; right: 0px; padding: 10px;"><a href="hotel-MH004.html" class="btn btn-ghost btn-outline btn-sm mt-10" data-v-5924a134=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-v-5924a134=""><path class="" fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div></div></div><div class="text-center mt-8"><a href="gallery.html" class="btn btn-outline btn-primary rounded-full px-8"> ดูห้องพักทั้งหมด → </a></div></div></div></div><div class="lg:bg-base-200 grid grid-col w-full px-4 lg:px-auto"><div class="container mx-auto py-14" style="z-index: 12;"><div class="grid grid-col w-full px-4 lg:px-auto"><div class="text-center mb-8"><span class="text-primary font-semibold tracking-widest text-xs uppercase">Why Choose Us</span><h2 class="text-2xl lg:text-4xl font-extrabold text-base-content mt-1">บริการของเรา</h2><div class="mx-auto mt-3 h-1 w-16 rounded-full bg-primary"></div><p class="text-base-content/60 mt-3 max-w-xl mx-auto"> เว็บไซต์จองโรงแรมของเราพร้อมให้บริการครบครันดังต่อไปนี้ </p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,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" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">จองได้ตลอด 24 ชม.</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">จองโรงแรมได้ตลอด 24 ชม. โดยไม่ต้องไปถึงหน้าโรงแรม บริการทุกระดับประทับใจ</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQ8SURBVHic7dvdi1VVHMbxzxwnNfOFsuxNpxsl0YhC0C5MQiyi8K6rutECy6TyPyi6DCqKsLI3jC4qugnqooIiSigijMDM8iXfGtSICbLR0Jkufuc0M3v2ObPPy977MMcvrIs9Z6/1PGvN2muvvdZv0eP0laQ7Cwswt3r9N/7CuaKNFNEAfViN9ViLFRhAJXHfBRzFT/gan+M7jBbgMReuxdM4LCrRSjpULeOagr23xSK8grNar3gyncUOXFVgPZqmD1sxZOoKXcApHKymU9W/TZVvCI8ob+yqyxX4WH3jZ/AetuBmMQgmmV397WG8j38alPcRLs+tNk2yDPulGz0gKjSvhXLnix51qE7ZP2Npm97bZjkGpXfVx9DfAY1+bBevyaTOIG7sgEZL3IDfU0x9hcU56A1gd4reCSzJQa8hl2FPipk3dea/Xo9LsCtF93vMyVF3EjtTTLykuInVjhT9lwvQBndjJCH+rskzuzyp4IOEhxFsyFu4H3sTwvu1Nsq3y1zsS3jZJ99H0JaE4HmsylNwCtaYPIF6MC+xPvHuHS+2Iy+xJnjNRE975TQW3ZUQOief112zDOBfE72tz0PojYTIrjxEWuQdE7292mmBCk4roJVbJNk7T+rwY3BTQmAIMzop0Cb9Jk+Vl2fJmPXdvSZx/aUYfbuF82IKPp7bsmTM2gDLEtc/ZMxXJElPSc+pNJo09IllrUXiO308v2b3VRi/JK5vxS1isaX2xZqJJXgRx9VfkLinfb8d5171/R4TdZryq3E7hhsUVEvrOm6/fdaZ2vcwHq9XwHMZCqiltTlVoh3Wyu7/2WTmh5rIPB0aYBSbahkX4I8mM0+HBjiN+RVsxsISDJfNldhUwcaynZTIxgpWlu2iRFZURFfoVa6u6K6PmqKZUeRCZldysQHKNlA2FxtArO70Kn9WcKRsFyVypIJPy3ZRIp9UxPJ2N63vFcUFvF0ROylvlWymDF4Xe4ngUmMxeb3wObxHxDj8/xocFut8uzOKdeMjcz7jfV/gThG4NYl+PCEWEeu13qAIYOo25okdoXq+j4sQuwkr4fW2j/rFxsJqsZK6UPSSwyIY4rdOu+8QS/GAeKSJnnpSPN7fiiCKi4wnywbiYswUPWAwXzvdyTZjmws9yfid4eQWWc/wo2iAnWUbKYutogHOiQMPPcdMYyFp30iP9p723CFmW6NiLpBrPF63st3YgPiZOCfQDBvwoehNBxNpX/W33KM92+VJY6Gyx8TWWpal9W0mh9impRE82nHXHeY+cdStZvoAnhGRY9eLqO7xXKe5M0TD1TxdzYBYR6iNC2np/uq9mxvcM+X2dZ60syp8VFRsJZ4SMfujiXtqByFbieUvNP6/U8wR0Vm3i8Gs1o1Xae6/PyKCnKYVyVDbRmlazjhn4wWNj8OdwfMKnGiVcQBxlnhTpHFCCQeoe5r/APzIC9yTQl/9AAAAAElFTkSuQmCC" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">บริการแจ้งปัญหา</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">มีบริการแจ้งปัญหาและแก้ไขเบื้องต้น ทีมงานรีบตอบกลับให้ไวที่สุด</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALkSURBVHic7du7ixNRGMbhZ8egoIKrYOEFG1dcXCwUC60FO7tdURtXBW+FpRaCNmKndnsB/wLttbJQLAQbBS+FiiB42V7wsuvGYhKJITHJ5MxMkskPTrGZOV++983MuS+9wRE8ww8s4A425ZpRhtxAuUH5hPEc88qE6xqLr5YFTOSWXcq0Ej/QJrQrfiBN6FR8tXw1ACYkFT8QJnQrvlreY13GuXfNPvwWxoAyLmebfhhOCGfCg4xzD0YoE+5nnXgSbmCqwechTLiScu5dU23wlnC8wfVuTTiUbvrdUd/aNzNhWnITLqUpoBuadXWhTfiGc9ghfs1mMI/TWJOGsHZo1c+n8SQ0Km+wM7y8/9PuIKeZCUcr10KZkOmIsdMR3hKONYjTlyYkHd42M2Fa2NchVRO6HdtnZUIqU+lQE5u+NCGU+FYmnBTWhM/Y3Gviszbhbv0XjHQgfi32d3B/pyzisTjRWvZiQ8DveBQo1pAhg8QobuMjlqXT0KVRatcGd7dx/3JF462KZrAer3pATBYG1JaXWBfhGnYpHhO4GmEy70xyZCpSoG3oBmyJEOWdRY5ERRaPYv/6oJSw3lPxwmRWjGNrWsGT9L+700qmCTNN8uhmHFBGufCvQOENKOEXVnZY75R4wTEr9qQU9ye8kP+YPo+5QBnPI8wmN7DvmSFeFpuX/6+Z9RMwi5FS5Y+zuFf5cKwN587gQxv3heIiDgeK9Rbn8bDRxTHtbU/16zhgEdtrA9d3g+/E6+eDyhfxKbO/1BswJsDmQQ+zSd0TUDsXOIg5rGgj0BPxhkVWrA4UpyQ+YfZPG1DUXmCuot25HhCShwFlnCmJH4dOeY3vCeolZRs2phD3AvG/qXTqXL92g/XlR4RVmUjoTVYNp8MJ603iQMhEWpDqxk3eLXmevcBwSWxoQN4J5E0kfheKynJksKe/rfgUiVeCiso94qMihT0hUq08Kj4387EHRKVpQPWM0M1q3T+Xt4iqBg8YAwAAAABJRU5ErkJggg==" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">สะสมคะแนน</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">จองห้องพักผ่านเว็บไซต์รับส่วนลดและสิทธิพิเศษมากมาย</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAL5SURBVHic7ZvLahRBFIa/CWIURYQkovME7t0IMY7GjfoOiopLIaiYUXyALJSIiq+QV9BAVDRK4sJtVrrUYIwbowkRMuOiT8/UVF+Ynq6umr78UFT6nFOnTv116+mqQAUAPgLtkqVlgJoQ0E7HX25R26cLnIRhH50OH3EZxTBAHwFZToWko8vKtKxGgPY8TGtAlrE4XQNqwDVgBdiWtCIyZx3g741ZYwRYIHpvXsBOpwTaa4uAm1LPLjADHAWOALdF1habrOGMgFWpZyZEd1d0qxbicEbAltQzFqIbE92WhTg67bW9CG5LPhqi82P5aymWnkpt4bPkV0J0VzUbq7A1BSaBFt6C1wTqwDhwB/gnukkLcRhfAw4CL4BNSc+BA5rNZeANsEf0NrgHvAYuDeA/CYwT8IxgY+YV/UO83u33t3oLeJDAf1IYJ2BTyjeAC/L3D9E16O79s3jDPgp1vKmxi0fClOZ/Gjin+R8Exgn4RTfAKXoDfCvPzQT+mlJmSfN/hiDBg8A4AU8IDtHHovsjz3E9r6MuZX734X8QGCdgFJhT/MwB+1P6VsvF+R8Emb0JhvkxQUBaX5G+S/9BxDQB65KfNOxX9bkea5UQpgl4J3nDsF/wtj+1DqMwMbdsHq4sp4y10179YCTNJykbvyVUmIg1cDBiAll/1zNKdLULuA7ANUpPgM2jMdMwEqs/Aj6YcJYzpN1KAzD1nm61ntKvARUBrgNwjYoA1wG4RkWA6wAqVBhOXAQWgQ1JiyIrqn0PbhF+jtcSXdHse3AC2JECT+V5Angksh2RFcU+gBti+D5E55/xXS+QfWAbnJA87KLSJ8mPFcg+QMBXyU+FODgt+ZcC2QdwGPhO9/R1XNK8yL4BhwpkH0ADWCP6QGKN3lOfPNqfjWr8/ZiCeronKa/2s3rjp0URd41Fvb7SLoD9eVX5SoT9XGPxr6/k3f6lKvwpwtiXBMFxpcI822+oQt9BvyiMfem/B1QEuA7ANUpPQOn/dbY6HC07/gN38l7Ls73BOQAAAABJRU5ErkJggg==" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">จองห้องประชุม</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">จองห้องประชุมได้สำหรับผู้ที่ต้องการจัดประชุมโดยไม่ต้องเข้าพัก</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARbSURBVHic7dtbjF5TFAfw31yIYTpN0xYlGhohlJC6x+1l1DzQiJi6vCDEg3jgQVJRj6RpPLiEhHiQVpU+IBE8qEvikrhUE4mEEPHAaKaknVKjNaMe9jf6zZlzvvOd23dh/sl6OOesvfZa/7P32vvsvQ/zmMc85vE/Rk+BsotwPVZhaTnuVIa/MIbteBt/FzV4D/biUBfKlzivSPAbOyCIorIfl+cJ/roOcL4s2YWFfRkJ2IbjMpbpVAzi9yxJ8FR8G3N/HB9iugyvKsIgViP6wr/IYmREfFM6vQQHW4GHzPV9X28GAwsS7n9T0LFW4euYewv6K6psCW4W5giwA1vxa0X1tQSj4rtAnN5EjN5e3NAST+PRrP+FDKzGVILeodqz4bwRFESs/1lyQBp68IS5mbYefTWdIlPwUlEmAWdrbkQ4AytLrLcQyiTg5Ay6p5RYbyGUOQrszaC7p0A9Q1gjtLZxvIXvCthrGmlJcAD7EnTqZQJH5fRhWJjDRxPro9Jbc0tGgQcTdOrlgSyV1uFiTDaw+1QJ/hc20IctDZzcLF/eOQE/NrA7I/cW9H8WokNVswZ6hFng+/hN6Bbv4aYYm81gAJ8l1B2VaeGTPQ6ZCbigqIES0IOXE+pNkj9wYYytzBOha0oJoRgextqMZQbwGpY3o5xEwAphwtJOrMW6nGWX4U0sTFNMImBNzorLwvl4XrEp80q8JGWuk0RAmc1/Ee7ABtyPM1P0l+N1oSkXxQgez1poCAeE9b965EmCa4RZXzRTPyb+o2kQOxPqKSL3ZfF/be1BUQJuFDYkkpx6MUJCL16tIPgZ0jc36/+mEggYTQl+RrY53EcfqSj4NJmFPuwuSEDam4/KVtwqbFe1nYDL6h7kIaDZN98xEh0FimT/UaFfV7XQWgmiBFyb005XBs9sAlZIH6Pj0LXBM5uAvG+/a4NnNgF5+3/XBs9hAoZwRTsdaRdmCLgaR7bTkXZhhoBmmv/BKh1pEw72CiSMxDw8OnI9Vr0/LcdPvcJq67ExD0+MXO/U5bu7MdjeK7n5n2X2mYApPFm5S63DtNpawQ7Jc+VbIoUG8GkD/W6S9TNB7W+g9Im5y1KL8U4HBJBXpmrB/xtX2nbWbeaiR5gCv2HuVlUnygF8j2fFTPc/SCm8D+fGkPCfwZ3SGdyFi9rlYNXox8fSSZgUjprl3dntaCzGR5rrT+PCeeGrhA2Irv4YqkcfbhdyQlctazWQS9KCTtp5OaZWeLgmqxrodirGcJIS/g2A44Vh7xnN7dN3gjxdRuBJWIG7hJXjuEORnSCrmwmkjGbdj3Mc7i5X4ogS7BbBhPCB15ZP+EGBiA34XHve/pbKo8yAZUL+2IRftIaA0ZZElgO9wt7/OuEPrkanvvLKpOSj/R2HASFZbRT+3phWnIAXWhpByVgqnCZ7Dj/IHvweHXQMtwychrvxirkHLaKyG5e2x83WoE9Yv1yPd/Ez/sRXwmmyJXmM/gMkjTwCoI4kDwAAAABJRU5ErkJggg==" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">แกลเลอรี่ห้องพัก</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">มีแกลเลอรี่ให้ชมวิวและบรรยากาศ ช่วยตัดสินใจจองได้ง่ายขึ้น</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABH9JREFUeJztm01oXUUUx39J5NmA0sZFF6YfxFoVCYIkJW0SBRFXKmobu+662p2VLkVJRboVQXAjCv0AUTfixi+kiSDRVVFBhdSiadUG26Lpou+5OGe88+beue9+3/fs/cPhMXPunJlz3pw558x9Dxo0aHAzYyjjuBFgDngKmAXuAsaUtw78DJwFPgSWgBv5ltk/GAWOAZeATkK6CLyoYwcaB4EL+JWcAuY9/A5wHlhQWUPAqzHPFkHXgK+A54FWHsWHeyz2IjCpz073WFQbWFSZAMdLNoKhb4HxrMqf7iF8ynp+FLgf2A+8DfzlGXNKZQ8BZyoywjdk2AlJtumUdzRsBk4A1yPGLeozW4DViozwXBrlDyYUarvAfcAK8AYSJQz2AL8549rAAeXvj5E/q7Kytm1aTqr8KOED7xdgAjjkMcI08JDT/zESIgF2Rsg8D2xS/pJn0QZZ2zZdSWqAY87Av1VBSL4zDP0O7NOxM8CGwz+qvIUKDGDzvRghHOdfVt5u4HJKA3SAP5DdA+FzZU3nbHlkz9EdXtO2UxvgYWfAn8hhBvBlQoWj8oJPVcYYki3az88r750Mxk1LXRh2O5D01sb7SDh7zFpoHC4BjyKH4YbV/4jSOvCBZ86zCeSXjmW6Lfa09r9Fb+vaEWFS2zb/TeW5p75RfG+COQrdAVFw/f9u7f8hp/Id4Dvl3+v0r2n/eD8YwE1abtP+q07/rGe8T/kOQRi63enfCIupBlFnQFJEldLTwCfA1hxya4frAru1v5cLJKHvVdY9Tr9xgW0FzJHKBaJ2wI9O2/j1FxHPpoWRMen0mzm3FzBHKkQZYMlpP6mfpwqY74x+PuGZ88EC5sgNN59fRyo2gM/IvvU+VxlbCGd8pnB6N4f8wqLACOFT/LjyJpDMMO2kl4FdKsO9BFlDdmKLcIZook1R1WAiA4Dc4blhakZ5+5ACJ40BntWxM8A/Du8F5fmKLIOs7UwGGEVKVXvgBWCH8ieAjxz+HJL/R+UAh5Ad4JbDqwTlsJuB1moAkPK07Qz+laAsBtkNrwNfI9kdxCdCNrWBZ6y5fM9VXg3aWIwQcB255tocM67X5WiHoMQeI7zbyqRUGEbCX5SgK0j5uoB86/a9fy8DnCS4FH2vQuVTG8AYYZGwO7hkLkfjXKANvEKQf7xWsfKZDGBwgPitOo988z7lVwl8HuClGpTPZQCQE/soEruTTriGhLpNEfJqR9aXo8NIwmFeju6i++XoTwQvR5eRrX/TooXcAPmuvWt1gVsKV1dudXYCDyC743HgjhLmKQRZXSAOuQ+aktGlc54bof8FBsEAJrXN2o7FILiAWWMnY9snDxiMHVAqyogCRWOO7m8tbTsWg+ACRaNxARuNAepeQIMG9aKJAnWtol/QGKDuBdSNQTBAUw06cvu+GrxWgsyiEPqpbBnV4DmCN8lFoMhq8FyB6/LiCPXf/ProcIl6/4dbkX9o1K2sSyvk/OtMGozTX0ZYAe4sVeMItJA/LC0R/pFlFXRV5z5Mhd98gwYNBgv/AmtrjAdCZRsJAAAAAElFTkSuQmCC" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">เรียลไทม์</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">ระบบอัปเดตแบบเรียลไทม์ ไม่ต้องรีเฟรชหน้าเว็บให้เสียเวลา</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,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" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">ประวัติการจอง</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">แสดงประวัติการจอง ตรวจสอบย้อนหลังได้ตลอดเวลา</p></div><div class="group rounded-2xl bg-base-100 border border-base-200 p-6 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"><div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 transition group-hover:bg-primary/20"><img src="data:image/png;base64,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" class="h-9 w-9 object-contain"></div><h3 class="font-bold text-base-content">ช่องทางติดตาม</h3><p class="mt-1 text-sm text-base-content/60 leading-relaxed">ติดตามเราได้หลายช่องทาง เช่น Facebook, Instagram, LINE</p></div></div></div></div></div><div class="w-full bg-primary text-primary-content"><div class="container mx-auto px-4 py-12"><div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center"><div><div class="text-3xl lg:text-4xl font-extrabold">50+</div><div class="text-sm opacity-80 mt-1">โรงแรมพันธมิตร</div></div><div><div class="text-3xl lg:text-4xl font-extrabold">1,200+</div><div class="text-sm opacity-80 mt-1">ห้องพักให้เลือก</div></div><div><div class="text-3xl lg:text-4xl font-extrabold">8,500+</div><div class="text-sm opacity-80 mt-1">ลูกค้าไว้วางใจ</div></div><div><div class="text-3xl lg:text-4xl font-extrabold">4.8★</div><div class="text-sm opacity-80 mt-1">คะแนนรีวิวเฉลี่ย</div></div></div></div></div><div class="w-full bg-base-200"><div class="container mx-auto px-4 py-16"><div class="card bg-neutral text-neutral-content shadow-xl"><div class="card-body items-center text-center py-12"><h2 class="card-title text-2xl lg:text-3xl">พร้อมออกเดินทางหรือยัง?</h2><p class="opacity-80 max-w-lg">จองที่พักในฝันของคุณวันนี้ — ง่าย รวดเร็ว ปลอดภัย และคุ้มค่าที่สุด</p><div class="card-actions mt-4"><a href="gallery.html" class="btn btn-primary rounded-full px-10"> จองที่พักเลย </a></div></div></div></div></div><footer class="footer grid-rows-1 p-10 bg-neutral text-neutral-content"><div><span class="footer-title">MeHotel</span><a class="link link-hover">เกี่ยวกับเรา</a><a class="link link-hover">เว็บไซน์เราจัดทำขึ้นเพื่อการศึกษาหาความรู้เเละพัฒนาระบบ</a><a> ทางเรามองเห็นถึงความสำคัญของการหาที่พักที่ยากเเละเสียเวลาทางเราจึงออกเเบบระบบ <a> ดิจิทัลที่เน้นความคิดสร้างสรรค์และสะดวกสบายเราถึงออกเเบบเว็บไซน์นี้ขึ้นมาเพื่อการนั้น </a></a><a> เราวัดความสําเร็จของเราด้วยผลลัพธ์ที่เราขับเคลื่อนให้กับลูกค้าของเรา </a></div><div><span class="footer-title"></span><a class="link link-hover"></a><a class="link link-hover"></a><a class="link link-hover"></a><a class="link link-hover"></a></div><div><span class="footer-title">FEATURED LINKS</span><a harf="" class="link link-hover">หน้าหลัก</a><a harf="" class="link link-hover">จองโรงเเรม</a><a harf="" class="link link-hover">gallery</a><a harf="" class="link link-hover">ติดต่อเรา</a><a harf="" class="link link-hover">เกียวกับเรา</a><a harf="" class="link link-hover">เเบบสอบถาม</a></div></footer><footer class="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300"><div class="items-center grid-flow-col"><svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" class="fill-current"><path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path></svg><p>Me Hotel . <br>By Varisyos &amp; Weerawan</p></div><div class="md:place-self-center md:justify-self-end"><div class="grid grid-flow-col gap-4"><a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a><a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a><a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a></div></div></footer></div></div></div><div class="drawer-side w-full"><label for="drawer-menu" class="drawer-overlay"></label><div class="bg-base-200 w-full opacity-40" style="transition: 0.25s ease-in;"><div class="z-20 bg-base-200 bg-opacity-90 backdrop-blur sticky top-0 items-center gap-2 px-4 py-2 flex"><div class="flex-0 px-2"><div class="font-title text-primary inline-flex text-lg transition-all duration-200 md:text-3xl"><span class="lowercase">Me</span><span class="text-base-content lowercase">Hotel</span></div></div><div class="flex-1 px-2"></div><div class="flex-0 link link-hover font-mono text-xs text-opacity-50 text-right"><label for="drawer-menu" class="btn btn-ghost text-xl"> ✕ </label></div></div><ul class="card menu menu-compact flex flex-col p-0 px-4"><li></li><li class="menu-title"><span>Application Menu</span></li><li><a aria-current="page" href="index.html" class="router-link-active router-link-exact-active flex gap-4"><span class="flex-1 text-1xl font-bold">หน้าหลัก</span></a></li><li><a href="booking.html" class="flex gap-4"><span class="flex-1 text-1xl font-bold">การจอง</span></a></li><li><a href="gallery.html" class="flex gap-4"><span class="flex-1 text-1xl font-bold">Gallery</span></a></li><li><a href="contact.html" class="flex gap-4"><span class="flex-1 text-1xl font-bold">ติดต่อเรา</span></a></li><li><a href="about.html" class="flex gap-4"><span class="flex-1 text-1xl font-bold">เกี่ยวกับเรา</span></a></li></ul></div></div></div></div></div></div></div><script src="../_demo/demo.js" data-label="DEMO · ข้อมูลโรงแรมตัวอย่าง" defer></script>
+<script>
+// hover overlay on hotel cards, as the app's mouseover handler did
+document.querySelectorAll('.card.image-full').forEach(c => { const b = c.querySelector('.card-body'); if (!b) return;
+  c.addEventListener('mouseenter', () => { b.classList.add('animate-slideIn'); b.classList.remove('animate-slideOut'); });
+  c.addEventListener('mouseleave', () => { b.classList.remove('animate-slideIn'); b.classList.add('animate-slideOut'); }); });
+</script>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="dark" lang="th">
+<head><meta content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-src 'none'; object-src 'none'" http-equiv="Content-Security-Policy"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security Operations | Portfolio Demo</title>
+<!-- Bootstrap CSS -->
+<link href="assets/vendor/d0b418ae4b/bootstrap.min.css" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="assets/vendor/d51a5571b9/all.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #212529;
+        }
+        main {
+            margin-bottom: 100px;
+        }
+    </style>
+<style>.footer{position:static!important}main{margin-bottom:32px!important}.chart-area,.chart-pie{position:relative;height:300px}</style><link href="demo.css" rel="stylesheet"/></head>
+<body data-page="system-monitoring">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+<a class="navbar-brand" href="index.html#dashboard">
+<i class="fas fa-shield-alt me-2"></i>
+                ระบบรักษาความปลอดภัยเว็บ
+            </a>
+<button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav me-auto">
+<!-- Developer Menu -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="developerDropdown" role="button">
+<i class="fas fa-code me-1"></i> ผู้พัฒนาระบบ
+                            </a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="index.html#installation"><i class="fas fa-download me-1"></i> การติดตั้ง</a></li>
+<li><a class="dropdown-item" href="index.html#system-monitoring"><i class="fas fa-chart-line me-1"></i> ตรวจสอบข้อมูลการใช้งาน</a></li>
+<li><a class="dropdown-item" href="index.html#data-verification"><i class="fas fa-check-circle me-1"></i> การตรวจสอบข้อมูล</a></li>
+<li><a class="dropdown-item" href="index.html#event-collection"><i class="fas fa-database me-1"></i> รวบรวมข้อมูลเหตุการณ์</a></li>
+<li><a class="dropdown-item" href="index.html#module-management"><i class="fas fa-puzzle-piece me-1"></i> จัดการโมดูล</a></li>
+<li><a class="dropdown-item" href="index.html#module-selection"><i class="fas fa-tools me-1"></i> เลือกใช้โมดูล</a></li>
+</ul>
+</li>
+<!-- Admin Menu -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="adminDropdown" role="button">
+<i class="fas fa-user-shield me-1"></i> ผู้ดูแลระบบ
+                            </a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="index.html#attack-history"><i class="fas fa-history me-1"></i> ประวัติการโจมตี</a></li>
+<li><a class="dropdown-item" href="index.html#attack-testing"><i class="fas fa-vial me-1"></i> ทดสอบการโจมตี</a></li>
+<li><a class="dropdown-item" href="index.html#troubleshoot"><i class="fas fa-wrench me-1"></i> แก้ไขปัญหาเบื้องต้น</a></li>
+<li><a class="dropdown-item" href="index.html#system-monitoring"><i class="fas fa-desktop me-1"></i> ตรวจสอบระบบ</a></li>
+<li><a class="dropdown-item" href="index.html#server-settings"><i class="fas fa-server me-1"></i> ตั้งค่าเซิร์ฟเวอร์</a></li>
+</ul>
+</li>
+<!-- Regular User Menu -->
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="userDropdown" role="button">
+<i class="fas fa-user me-1"></i> ผู้ใช้งาน
+                            </a>
+<ul class="dropdown-menu">
+<li><a class="dropdown-item" href="index.html#website-test"><i class="fas fa-vial me-1"></i> ทดสอบการใช้งาน</a></li>
+<li><a class="dropdown-item" href="index.html#report-issue"><i class="fas fa-bug me-1"></i> แจ้งปัญหา</a></li>
+<li><a class="dropdown-item" href="index.html#feedback"><i class="fas fa-comment me-1"></i> เสนอแนะระบบ</a></li>
+</ul>
+</li>
+<!-- Quick Access -->
+<li class="nav-item">
+<a class="nav-link" href="index.html#dashboard">
+<i class="fas fa-tachometer-alt me-1"></i> แดชบอร์ด
+                            </a>
+</li>
+</ul>
+<!-- User Authentication -->
+<ul class="navbar-nav ms-auto">
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="profileDropdown" role="button">
+<i class="fas fa-user-circle me-1"></i> admin
+                        </a>
+<ul class="dropdown-menu dropdown-menu-end">
+<li><a class="dropdown-item" href="index.html#profile"><i class="fas fa-user-cog me-1"></i> โปรไฟล์</a></li>
+<li><hr class="dropdown-divider"/></li>
+<li><a class="dropdown-item" href="index.html#login"><i class="fas fa-sign-out-alt me-1"></i> ออกจากระบบ</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Flash messages -->
+<div class="container mt-3">
+</div>
+<!-- Main content -->
+<main class="container mt-4" id="app" tabindex="-1"></main>
+<!-- Footer -->
+<footer class="footer mt-5 py-3 bg-dark">
+<div class="container text-center">
+<span class="text-muted">Security Operations · Interactive Portfolio Demo · ข้อมูลและการตรวจจับทั้งหมดเป็นสถานการณ์จำลอง</span>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="assets/vendor/432dcb7400/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/459cd6d7de/chart.umd.js"></script>
+<script src="demo.js"></script></body>
+</html>

@@ -1,0 +1,146 @@
+html,body {
+
+font-family: Kanit;
+}
+div{
+	font-family: Kanit;
+}
+.elementor-button {
+
+    margin: 10px;
+
+    display: inline-block;
+    line-height: 1;
+    background-color: #dc3545;
+    font-size: 15px;
+    padding: 12px 24px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+    fill: #fff;
+
+    right: 10px;
+    text-align: right;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    z-index: 9999999;
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.tm-bg-gray {
+    background-color: #F4F4F4;
+}
+
+.tm-text-primary {
+    color: #3399CC;
+}
+
+.tm-text-secondary {
+    color: #3CAFAF;
+}
+
+.tm-share-box {
+    font-size: 1.4rem;
+    padding: 3rem;
+}
+
+.tm-share-button {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    /*  */
+}
+
+.br1 {
+    margin-Top: 70px;
+}
+
+html,body {
+	font-family: Kanit;
+    height: auto;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    background: #000000;
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #005a2b;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00b456;
+}
+
+
+.wrapper {
+    border: 1px solid #000000;
+    height: calc(100vh - 2px);
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    width: calc(100vw - 2.55px);
+}
+
+.scroll-top {
+    background: #005a2b;
+    border: 0;
+    border-radius: 50%;
+    bottom: 0;
+    cursor: pointer;
+    height: 50px;
+    margin: 15px;
+    opacity: 0.75;
+    position: fixed;
+    right: -70px;
+    transition: right 0.2s ease-in-out;
+    width: 50px;
+    z-index: 99;
+}
+
+.scroll-top.visible {
+    right: 0;
+}
+
+.arrow {
+    border: solid #000000;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 4px;
+}
+
+.arrow.up {
+    transform: rotate(-135deg);
+}
+
+.content-container {
+    display: flex;
+    height: 300px;
+    width: 100%
+}
+
+.content {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: auto;
+}

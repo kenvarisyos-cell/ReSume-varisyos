@@ -1,0 +1,125 @@
+.responsive {
+margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+}
+.breadcrumb {
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.breadcrumb .active {
+    color: #fff;
+}
+
+.hero {
+    background: url(../img/hero.jpg) no-repeat center / cover;
+    height: 100%;
+    width: 100%;
+    display: table;
+    position: relative;
+}
+
+.overlay:before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 75px;
+}
+
+.hero-text {
+    max-width: 890px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    position: relative;
+    margin: 0;
+}
+
+.hero-text p {
+    position: relative;
+    margin: 45px 0 30px;
+    font-size: 20px;
+    color: #26272d;
+}
+
+.hero-text .btn {
+    position: relative;
+    background-color: transparent;
+}
+
+.hero-text .btn:hover {
+    background-color: #26272d;
+    color: #fff;
+}
+
+.hero .breadcrumb {
+    padding-top: 60px;
+    margin-bottom: 0;
+}
+
+.hero .breadcrumb:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    height: 12px;
+    width: 80px;
+    border-top: 5px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.subpage-hero {
+    height: 400px;
+}
+
+.subpage-hero.overlay:before {
+    background-color: rgba(38, 39, 45, 0.5);
+}
+
+.subpage-hero .hero-content,
+.subpage-hero .hero-content h1,
+.subpage-hero a {
+    color: #fff;
+}
+
+.subpage-hero a:hover {
+    color: #6fc754;
+}
+
+.portfolio-hero {
+    background: url("https://wisynco.com/wp-content/uploads/2014/12/footer-background-011.jpg") no-repeat center / cover;
+}
+
+.blog-hero {
+    background: url("https://wallpapercave.com/wp/wp9146823.jpg") no-repeat center / cover;
+}
+
+.contact-hero {
+    background: url(../img/contact-hero.jpg) no-repeat center / cover;
+}

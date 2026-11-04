@@ -1,0 +1,5 @@
+/* Shared by every static demo: a corner badge and a short notice instead of dead links or forms. */
+.demo-badge{position:fixed;left:12px;bottom:12px;z-index:2147483000;font:600 11px/1 system-ui,-apple-system,"Segoe UI","Leelawadee UI",sans-serif;letter-spacing:.04em;color:#fff;background:rgba(15,23,42,.78);padding:7px 10px;border-radius:999px;pointer-events:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.demo-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,12px);opacity:0;z-index:2147483001;font:500 14px/1.45 system-ui,-apple-system,"Segoe UI","Leelawadee UI",sans-serif;color:#fff;background:rgba(15,23,42,.94);padding:10px 16px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:opacity .2s,transform .2s;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
+.demo-toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion: reduce){.demo-toast{transition:none}}

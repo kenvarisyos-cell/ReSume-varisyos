@@ -1,0 +1,5 @@
+# local backups and build notes that are not part of the published site
+demos/siem-replica/
+demos/siem/README.md
+demos/siem/validation.json
+demos/siem/preview-*.png

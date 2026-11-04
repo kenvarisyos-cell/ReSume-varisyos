@@ -1,0 +1,125 @@
+html,body{
+	    font-family: Kanit;
+}
+.elementor-button {
+
+    margin: 10px;
+    display: inline-block;
+    line-height: 1;
+    background-color: #dc3545;
+    font-size: 15px;
+    padding: 12px 24px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+    fill: #fff;
+    right: 10px;
+    text-align: right;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    z-index: 9999999;
+}
+
+.tm-bg-gray {
+
+    background-color: #F4F4F4;
+}
+
+.tm-text-primary {
+    color: #3399CC;
+}
+
+.tm-text-secondary {
+    color: #3CAFAF;
+}
+
+.tm-share-box {
+    font-size: 1.4rem;
+    padding: 3rem;
+}
+
+.tm-share-button {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    /*  */
+}
+
+.gallery {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border-radiu: 50px;
+    text-align: center;
+}
+
+.gallery-image {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    border-radius: 25px;
+}
+
+.gallery-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    vertical-align: middle;
+    line-height: 200px;
+}
+
+.gallery-text:hover {
+    opacity: 1;
+}
+
+.gallery-text h3 {
+    color: white;
+    display: inline-table;
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.br1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.responsive {
+    left: 300px;
+    max-width: 100%;
+    height: auto;
+}
+.custom_heading-container hr {
+    width: 250px;
+    border: none;
+    height: 1.5px;
+    background-color: #FFD700;
+    margin: 0 5px 0.5rem 5px;
+}
+
+
+
+.custom_heading-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}

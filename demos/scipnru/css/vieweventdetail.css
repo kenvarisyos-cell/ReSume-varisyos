@@ -1,0 +1,35 @@
+body{
+	    font-family: Kanit;
+}
+
+    
+.tm-bg-gray {
+    background-color: #F4F4F4;
+}
+
+.tm-text-primary {
+    color: #3399CC;
+}
+
+.tm-text-secondary {
+    color: #3CAFAF;
+}
+
+.tm-share-box {
+    font-size: 1.4rem;
+    padding: 3rem;
+}
+
+.tm-share-button {scroll-top 
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+
+}
+.responsive {
+    width: 100%;
+  height: auto;
+}

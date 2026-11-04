@@ -1,0 +1,646 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* BASIC */
+
+
+
+
+a {
+    color: #92badd;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+#formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+#formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: #39ace7;
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type=select] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type=date] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder {
+    color: #cccccc;
+}
+
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+}
+
+.underlineHover:hover {
+    color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+    width: 100%;
+}
+
+/* ระบบ modal */
+
+
+.modal_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+.modal_wrapper .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.modal_wrapper .success_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -800px);
+    background: var(--white);
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.modal_wrapper .success_wrap .modal_icon {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.modal_wrapper.active {
+    visibility: visible;
+}
+
+.modal_wrapper.active .shadow {
+    opacity: 1;
+}
+
+.modal_wrapper.active .success_wrap {
+    transform: translate(-50%, -50%);
+}
+</style>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    <title>NTN l TEAM</title>
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    
+    <link href="manage/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="manage/css/style.css" />
+    
+
+    
+
+<link rel="stylesheet" href="../_demo/demo.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2><span class="danger">NTN </span> TEAM</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar active">
+                <a href="dashboard.html">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="employees.html">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>รายชื่อ</h3>
+                </a>
+                                <a href="#" data-demo-off="page">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>เพิ่มบัญชีผู้ใช้</h3>
+                </a>
+                     
+
+                <a href="sickleave.html">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3>ลางาน</h3>
+                </a>
+
+                <a href="#" data-demo-off="page">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3>เเก้ไขโปรไฟล์</h3>
+                </a>
+                
+                <a href="profile-1.html">
+                    <span class="material-icons-sharp"> phonelink </span>
+                    <h3>เเสดงโปรไฟล์ในระบบ</h3>
+                </a>
+                <a href="#" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" data-demo-off="page">
+
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+                <form id="logout-form" action="#" method="POST" class="d-none" data-demo-off="form">
+                    <input type="hidden" name="_token" value="">                </form>
+            </div>
+        </aside>
+        
+        
+
+
+
+<main>
+    <div class="new-users">
+        <h2>Costume protocol</h2>
+                <div class="user-list">
+
+
+            <div class=" container wrapper fadeInDown" style="
+    display: flex;
+">
+
+
+                
+                <h2 class="active"> เเจ้งลางาน </h2>
+
+
+                <form method="POST" action="#" enctype="multipart/form-data" data-demo-off="form">
+                    <input type="hidden" name="_token" value="">                    <div class="modal_wrapper">
+                        <div class="shadow"></div>
+                        <div class="success_wrap">
+                            <span class="modal_icon">
+                                <ion-icon name="checkmark-sharp"></ion-icon>
+                            </span>
+                            <p>You have successfully completed the process.</p>
+                        </div>
+                    </div>
+
+
+                    <input type="text" id="email" class="fadeIn second" name="email" placeholder="กรุณาใส่ชื่อนามสกุล" />
+
+                    <input type="date" class="form-control" name="time" placeholder="กรุณาใส่วันที่ลา" aria-describedby="time" min="2026-11-04">
+
+                    <select name="select" class="form-select form-select-sm" aria-label=".form-select-sm example" style="
+                          background-color: #f6f6f6;
+                          border: none;
+                          color: #0d0d0d;
+                          padding: 15px 32px;
+                          text-align: center;
+                          text-decoration: none;
+                          display: inline-block;
+                          font-size: 16px;
+                          margin: 5px;
+                          width: 85%;
+                          border: 2px solid #f6f6f6;
+                          -webkit-transition: all 0.5s ease-in-out;
+                          -moz-transition: all 0.5s ease-in-out;
+                          -ms-transition: all 0.5s ease-in-out;
+                          -o-transition: all 0.5s ease-in-out;
+                          transition: all 0.5s ease-in-out;
+                          -webkit-border-radius: 5px 5px 5px 5px;
+                          border-radius: 5px 5px 5px 5px;">
+                        <option selected="">---กรุณาเลือกเหตุผลในการลา---</option>
+                        <option value="ลาป่วย">ลาป่วย</option>
+                        <option value="ลาคลอดบุตร">ลาคลอดบุตร</option>
+                        <option value="ลาไปช่วยเหลือภริยาที่คลอดบุตร">ลาไปช่วยเหลือภริยาที่คลอดบุตร</option>
+                        <option value="ลากิจส่วนตัว">ลากิจส่วนตัว</option>
+                        <option value="ลาพักผ่อน">ลาพักผ่อน</option>
+                        <option value="อุปสมบทหรือการลาไปประกอบพิธีฮัจย์">อุปสมบทหรือการลาไปประกอบพิธีฮัจย์
+                        </option>
+                        <option value="ลาไปศึกษา ฝึกอบรม ดูงาน หรือปฏิบัติการวิจัย">ลาไปศึกษา ฝึกอบรม ดูงาน
+                            หรือปฏิบัติการวิจัย
+                        </option>
+                        <option value="ลาไปปฏิบัติงานในองค์การระหว่างประเทศ">
+                            ลาไปปฏิบัติงานในองค์การระหว่างประเทศ</option>
+                        <option value="ลาติดตามคู่สมรส">ลาติดตามคู่สมรส</option>
+                        <option value="ลาไปฟื้นฟูสมรรถภาพด้านอาชีพ">ลาไปฟื้นฟูสมรรถภาพด้านอาชีพ</option>
+
+
+                    </select>
+
+
+                    <input type="text" class="fadeIn second" id="Leave" name="Leave" aria-describedby="Leave" placeholder="กรุณากรอกรายละเอียดการลา">
+                    <input type="submit" class="fadeIn fourth" value="เเจ้งลางาน">
+                </form>
+                
+                <div style="width:100%" id="formFooter">
+                    <a href="#" target="popup" onclick="window.open(&#x27;https://www.gainplus.asia/wp-content/uploads/2021/02/leave_policy_2021_PDFTH.pdf&#x27;,&#x27;name&#x27;,&#x27;width=600,height=400&#x27;)">รายละเอียดการลา</a>
+                </div>
+                </form>
+
+            </div>
+            
+        </div>
+    </div>
+
+</main>
+
+
+
+
+
+
+
+
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>ยินดีต้อนรับคุณ, <b>สมชาย ตัวอย่าง</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="manage/images/profile-1.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2>NTN TEAM</h2>
+                    <p>Web Manager</p>
+                </div>
+            </div>
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp"> notifications_none </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> volume_up </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>เวลาเข้างาน</h3>
+                            <small class="text_muted"> 08:30 AM - 17:15 PM </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> edit </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>ประชุมงาน</h3>
+                            <small class="text_muted"> ทุกวันพุทธของทุกอาทิตย์ </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp"> add </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <script src="manage/js/orders.js"></script>
+    <script src="manage/js/index.js"></script> -->
+    <script>
+        const sideMenu = document.querySelector('aside');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+
+const darkMode = document.querySelector('.dark-mode');
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode-variables');
+    darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+    darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+    </script>
+<script src="../_demo/demo.js" data-label="DEMO · ข้อมูลพนักงานสมมติ" defer></script>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+</script>

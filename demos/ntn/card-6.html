@@ -1,0 +1,362 @@
+<style>
+
+
+/* sss */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12%;
+}
+
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    width: 650px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.user-card:before {
+    content: '';
+    position: absolute;
+    height: 300%;
+    width: 173px;
+    background: #262626;
+    top: -60px;
+    left: -125px;
+    z-index: 0;
+    transform: rotate(17deg);
+}
+
+.user-card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.user-card-img img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.user-card-info {
+    text-align: center;
+}
+
+.user-card-info h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.user-card-info p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.user-card-info p span {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .user-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .user-card-img {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .user-card-info {
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .user-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .user-card-img {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .user-card-info {
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .wrapper {
+        padding-top: 3%;
+    }
+
+    .user-card:before {
+        width: 300%;
+        height: 200px;
+        transform: rotate(0);
+    }
+
+    .user-card-info h2 {
+        margin-top: 25px;
+        font-size: 35px;
+    }
+
+    .user-card-info p span {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+}
+</style>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    <title>NTN l TEAM</title>
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    
+    <link href="manage/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="manage/css/style.css" />
+    
+
+    
+
+<link rel="stylesheet" href="../_demo/demo.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2><span class="danger">NTN </span> TEAM</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp"> close </span>
+                </div>
+            </div>
+
+            <div class="sidebar active">
+                <a href="dashboard.html">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="employees.html">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3>รายชื่อ</h3>
+                </a>
+                             
+
+                <a href="sickleave.html">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3>ลางาน</h3>
+                </a>
+
+                <a href="#" data-demo-off="page">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3>เเก้ไขโปรไฟล์</h3>
+                </a>
+                
+                <a href="profile-6.html">
+                    <span class="material-icons-sharp"> phonelink </span>
+                    <h3>เเสดงโปรไฟล์ในระบบ</h3>
+                </a>
+                <a href="#" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" data-demo-off="page">
+
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3>Logout</h3>
+                </a>
+                <form id="logout-form" action="#" method="POST" class="d-none" data-demo-off="form">
+                    <input type="hidden" name="_token" value="">                </form>
+            </div>
+        </aside>
+        
+        
+
+
+
+<main>
+    <div class="new-users">
+        <h2>Costume protocol</h2>
+              
+
+
+
+
+            
+        
+
+
+            <div class="create_profile_section">
+
+
+          
+
+
+
+                    <div class="recent-orders">
+                      
+                        <div class="wrapper">
+                            <div class="user-card">
+                                <div class="user-card-img">
+                                    
+                                    <img src="manage/images/profile-3.jpg" alt="">
+                                </div>
+                                <div class="user-card-info">
+                                    <h2> กมลา ศรีสุข</h2>
+                                    <p><span>รหัสพนักงาน:</span> E6952</p>
+                                    <p><span>ชื่อ-นามสกุล(TH):</span> กมลา ศรีสุข</p>
+                                    <p><span>ชื่อ-นามสกุล(EN):</span> Kamala Srisuk</p>
+                                    <p><span>เลขบัตรประชาชน:</span> x-xxxx-xxxxx-xx-x</p>
+                                    <p><span>วัน/เดือน/ปี เกิด:</span> ไม่แสดงใน demo</p>
+                                    <p><span>ตำเเหน่ง:</span> ฝ่ายบุคคล</p>
+                                    <p><span>เบอร์โทรศัพท์:</span>0X-XXX-XXXX</p>
+                                    <p><span>บริษัท:</span> NTN Medical Team (ตัวอย่าง)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                </div>
+
+            </div>
+</main>
+
+
+
+
+
+
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp"> menu </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>ยินดีต้อนรับคุณ, <b>กมลา ศรีสุข</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="manage/images/profile-1.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="manage/images/logo.png" />
+                    <h2>NTN TEAM</h2>
+                    <p>Web Manager</p>
+                </div>
+            </div>
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp"> notifications_none </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> volume_up </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>เวลาเข้างาน</h3>
+                            <small class="text_muted"> 08:30 AM - 17:15 PM </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> edit </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>ประชุมงาน</h3>
+                            <small class="text_muted"> ทุกวันพุทธของทุกอาทิตย์ </small>
+                        </div>
+                        <span class="material-icons-sharp"> more_vert </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp"> add </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- <script src="manage/js/orders.js"></script>
+    <script src="manage/js/index.js"></script> -->
+    <script>
+        const sideMenu = document.querySelector('aside');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+
+const darkMode = document.querySelector('.dark-mode');
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode-variables');
+    darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+    darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+    </script>
+<script src="../_demo/demo.js" data-label="DEMO · ข้อมูลพนักงานสมมติ" defer></script>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+</script>

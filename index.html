@@ -1,526 +1,915 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-     <link rel="stylesheet" href="all.mini.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varisyos Srisanga · Ken</title>
+<meta name="description" content="วริศยศ ศรีสง่า (เคน) Full-stack Web Developer และ IT / Network Engineer: Laravel, Vue.js, เซิร์ฟเวอร์ เครือข่าย และ demo ผลงานที่เปิดดูได้ในหน้านี้">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 */
+/* Hallmark · genre: atmospheric · macrostructure: Split Studio · theme: Aurora (Thai fonts: Anuphan + IBM Plex Sans Thai) · enrichment: Tier A (Photoshop-style cursor swarm) + live demos in a dialog · nav: N5 · footer: Ft5 · tone: technical · anchor hue: cyan */
+:root{
+  --color-paper: oklch(11% 0.025 200);
+  --color-paper-2: oklch(15% 0.028 200);
+  --color-paper-3: oklch(18% 0.030 200);
+  --color-paper-4: oklch(24% 0.030 200);
+  --color-rule: oklch(28% 0.022 200);
+  --color-muted: oklch(66% 0.018 200);
+  --color-ink-2: oklch(84% 0.012 200);
+  --color-ink: oklch(96% 0.010 200);
+  --color-accent: oklch(72% 0.170 200);
+  --color-accent-ink: oklch(11% 0.025 200);
+  --color-accent-2: oklch(64% 0.150 175);
+  --color-focus: var(--color-accent);
+  --color-ps: oklch(66% 0.190 255);        /* Photoshop selection blue */
+  --color-scrim: oklch(8% 0.02 200 / .74);
+  --color-grid: oklch(100% 0 0 / .045);          /* Photoshop-style canvas grid */
+  --color-grid-fine: oklch(100% 0 0 / .018);
+  --color-grid-dot: oklch(100% 0 0 / .09);
+  --color-lens: oklch(82% 0.13 200 / .22);        /* the grid where the cursor is */
+  --color-lens-fine: oklch(82% 0.13 200 / .09);
+  --color-lens-dot: oklch(90% 0.12 200 / .55);
+  --font-display: "Anuphan", "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px;
+  --space-xl: 40px; --space-2xl: 64px; --space-3xl: 112px;
+  --text-sm: .8125rem; --text-base: 1rem; --text-lg: 1.15rem; --text-xl: 1.5rem; --text-2xl: 2.4rem;
+  --text-display: clamp(2.6rem, 6vw + 1rem, 5.75rem);
+  --ease-out: cubic-bezier(.2,.8,.2,1); --ease-in: cubic-bezier(.6,0,.9,.4); --ease-in-out: cubic-bezier(.65,0,.35,1);
+  --dur-fast: 140ms; --dur-base: 260ms; --dur-slow: 480ms;
+  --radius-sm: 6px; --radius-md: 14px; --radius-pill: 999px;
+  --rule: 1px solid var(--color-rule);
+  --shadow-card: 0 16px 40px -16px oklch(11% 0.04 200 / .65), 0 1px 2px oklch(11% 0.04 200 / .4);
+}
+*{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{background:var(--color-paper)}
+html.modal-open{overflow:hidden}
+body{margin:0; position:relative; background:transparent; color:var(--color-ink); font:400 var(--text-base)/1.7 var(--font-body); -webkit-font-smoothing:antialiased}
+body::before{content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:
+  radial-gradient(55vmax 40vmax at 80% 0%, color-mix(in oklch, var(--color-accent) 13%, transparent), transparent 60%),
+  radial-gradient(50vmax 40vmax at 10% 100%, color-mix(in oklch, var(--color-accent-2) 11%, transparent), transparent 60%)}
+/* canvas grid, 96 px with 24 px subdivisions and a dot at each major crossing; body is transparent so these show */
+.bg-grid,.bg-lens{position:fixed; z-index:-1; pointer-events:none}
+.bg-grid,.bg-lens i{background-image:
+  radial-gradient(circle, var(--g-dot) 1.3px, transparent 1.8px),
+  linear-gradient(to right, var(--g-line) 1px, transparent 1px), linear-gradient(to bottom, var(--g-line) 1px, transparent 1px),
+  linear-gradient(to right, var(--g-fine) 1px, transparent 1px), linear-gradient(to bottom, var(--g-fine) 1px, transparent 1px);
+  background-size:96px 96px, 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position:48px 48px, 0 0, 0 0, 0 0, 0 0}
+.bg-grid{inset:0; --g-line:var(--color-grid); --g-fine:var(--color-grid-fine); --g-dot:var(--color-grid-dot);
+  -webkit-mask-image:linear-gradient(to bottom, #000 55%, transparent); mask-image:linear-gradient(to bottom, #000 55%, transparent)}
+/* the lens: a soft circle that brightens the grid around the mouse; moved with transforms only */
+.bg-lens{left:0; top:0; width:560px; height:560px; margin:-280px 0 0 -280px; border-radius:50%; overflow:hidden; opacity:0; transition:opacity var(--dur-slow) var(--ease-out); will-change:transform;
+  -webkit-mask-image:radial-gradient(closest-side, #000 15%, transparent); mask-image:radial-gradient(closest-side, #000 15%, transparent)}
+.bg-lens.on{opacity:1}
+.bg-lens i{position:absolute; left:0; top:0; width:100vw; height:100vh; will-change:transform; --g-line:var(--color-lens); --g-fine:var(--color-lens-fine); --g-dot:var(--color-lens-dot)}
+img{display:block; max-width:100%; height:auto}
+.wrap{width:min(1160px, 100% - 2*var(--space-lg)); margin-inline:auto}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-focus); outline-offset:3px; border-radius:var(--radius-sm)}
+
+/* ---------- layers: invisible until an agent places them ---------- */
+.js .layer{opacity:0; transform:translateY(6px) scale(.992)}
+.js .layer.on{opacity:1; transform:none; transition:opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out)}
+.js .layer[data-layer="type"]{opacity:1; transform:none}
+.js .ch{opacity:0}
+.js .ch.on{opacity:1}
+.ch.cur::after{content:""; display:inline-block; width:1.5px; height:.95em; margin-left:1px; vertical-align:-.1em; background:currentColor; animation:blink .9s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- nav (N5 floating pill) ---------- */
+.pill{position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:30; display:flex; align-items:center; gap:2px; padding:6px 6px 6px 16px; border-radius:var(--radius-pill); border:var(--rule); background:color-mix(in oklch, var(--color-paper-2) 72%, transparent); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); white-space:nowrap; max-width:calc(100vw - 32px)}
+.js .pill{transform:translateX(-50%) translateY(6px)}
+.js .pill.on{transform:translateX(-50%)}
+.pill .mark{font:700 1.05rem var(--font-display); letter-spacing:-.02em; color:var(--color-ink); text-decoration:none; margin-right:10px}
+.pill .mark::after{content:"."; color:var(--color-accent)}
+.pill a:not(.mark){font:500 var(--text-sm) var(--font-mono); letter-spacing:.04em; color:var(--color-ink-2); text-decoration:none; padding:7px 12px; border-radius:var(--radius-pill); transition:background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out)}
+.pill a:not(.mark):hover{background:var(--color-paper-4); color:var(--color-ink)}
+
+/* ---------- hero (split) ---------- */
+.hero{min-height:100vh; min-height:100svh; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:var(--space-2xl); align-items:center; padding:120px 0 var(--space-2xl)}
+.hero-text{display:grid; gap:var(--space-lg); align-content:center}
+.eyebrow{font:500 var(--text-sm) var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--color-accent); margin:0}
+.display{font:700 var(--text-display)/1 var(--font-display); letter-spacing:-.035em; margin:0; max-width:12ch; overflow-wrap:anywhere; min-width:0}
+.lede{font-size:var(--text-lg); color:var(--color-ink-2); max-width:52ch; margin:0}
+.display .hi{color:var(--color-accent)}
+.role{margin:0; display:grid; gap:2px}
+.role-label{font:500 var(--text-sm) var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--color-muted)}
+.role-now{font:600 clamp(1.35rem, 1.6vw + .9rem, 2.1rem)/1.3 var(--font-display); letter-spacing:-.02em; white-space:nowrap}
+.caret{display:inline-block; width:3px; height:.9em; margin-left:5px; vertical-align:-.08em; background:var(--color-accent); animation:blink .9s steps(2) infinite}
+.sr{position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0}
+.cta,.actions{display:flex; gap:var(--space-sm) var(--space-md); flex-wrap:wrap; align-items:center}
+.btn{display:inline-flex; align-items:center; gap:8px; height:46px; padding:0 22px; border-radius:var(--radius-pill); border:0; background:var(--color-accent); color:var(--color-accent-ink); font:500 var(--text-base) var(--font-body); text-decoration:none; white-space:nowrap; cursor:pointer; transition:transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), background var(--dur-fast) var(--ease-out)}
+.btn:hover{transform:translateY(-1px); box-shadow:0 12px 30px color-mix(in oklch, var(--color-accent) 22%, transparent)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:var(--color-paper-3); color:var(--color-ink); box-shadow:inset 0 0 0 1px var(--color-rule)}
+.btn.ghost:hover{background:var(--color-paper-4); box-shadow:inset 0 0 0 1px color-mix(in oklch, var(--color-accent) 55%, var(--color-rule))}
+.btn.sm{height:40px; padding:0 18px; font-size:.95rem}
+.btn svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex:none}
+.hero-photo{margin:0; justify-self:end; width:min(100%, 420px); aspect-ratio:4/5; border-radius:var(--radius-md); overflow:hidden; border:var(--rule); box-shadow:var(--shadow-card); background:var(--color-paper-2)}
+.hero-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 18%}
+
+/* ---------- sections ---------- */
+section{padding-block:var(--space-3xl)}
+.h{font:700 var(--text-2xl)/1.1 var(--font-display); letter-spacing:-.025em; margin:0 0 var(--space-lg); overflow-wrap:anywhere; min-width:0}
+.sub{margin:calc(-1 * var(--space-sm)) 0 var(--space-xl); color:var(--color-muted); max-width:60ch}
+.split{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--space-2xl); align-items:start}
+.big{font-size:var(--text-lg); color:var(--color-ink-2); margin:0; max-width:54ch}
+.big + .big{margin-top:var(--space-md)}
+.facts{display:grid; gap:var(--space-lg); margin:0; padding-top:var(--space-sm)}
+.facts div{padding-top:var(--space-md); border-top:var(--rule)}
+.facts dt{font:500 var(--text-sm) var(--font-mono); letter-spacing:.04em; color:var(--color-muted)}
+.facts dd{margin:var(--space-xs) 0 0; color:var(--color-ink)}
+
+.row{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--space-2xl); align-items:center; padding-block:var(--space-xl)}
+.row + .row{border-top:var(--rule)}
+.row:nth-of-type(even) .row-text{order:2}
+.row-text{display:grid; gap:var(--space-md); align-content:center}
+.row-text small{font:500 var(--text-sm) var(--font-mono); letter-spacing:.03em; color:var(--color-accent)}
+.row-text h3{font:700 var(--text-xl)/1.2 var(--font-display); letter-spacing:-.02em; margin:0}
+.row-text p{margin:0; color:var(--color-ink-2)}
+.row-text .note{font-size:var(--text-sm); color:var(--color-muted)}
+.shot{position:relative; display:block; margin:0; aspect-ratio:16/10; border-radius:var(--radius-md); overflow:hidden; border:var(--rule); box-shadow:var(--shadow-card); background:var(--color-paper-2); text-decoration:none; color:var(--color-ink)}
+.shot img{width:100%; height:100%; object-fit:cover; object-position:top}
+.shot .tag-open{position:absolute; left:12px; bottom:12px; display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:var(--radius-pill); background:color-mix(in oklch, var(--color-paper) 80%, transparent); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); font:500 var(--text-sm) var(--font-mono); white-space:nowrap; transition:background var(--dur-fast) var(--ease-out)}
+.shot:focus-visible .tag-open{background:var(--color-accent); color:var(--color-accent-ink)}
+@media (hover:hover){ .shot:hover .tag-open{background:var(--color-accent); color:var(--color-accent-ink)} }
+.tag-open svg{width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.proof{list-style:none; margin:0; padding:0; display:grid; gap:var(--space-md)}
+.proof li{display:grid; gap:var(--space-xs); padding:var(--space-lg); background:var(--color-paper-2); border:var(--rule); border-radius:var(--radius-md)}
+.proof b{font:600 var(--text-base) var(--font-display); letter-spacing:-.01em}
+.proof span{color:var(--color-ink-2); font-size:.95rem}
+.chips{display:flex; flex-wrap:wrap; gap:var(--space-sm)}
+.chips span{padding:4px 11px; border-radius:var(--radius-pill); background:var(--color-paper-3); border:var(--rule); font-size:var(--text-sm); white-space:nowrap}
+
+.creds{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--space-lg)}
+.cred{display:grid; gap:var(--space-sm); color:inherit; text-decoration:none}
+.cred .pic{aspect-ratio:4/3; border-radius:var(--radius-md); overflow:hidden; border:var(--rule); background:var(--color-paper-2); box-shadow:var(--shadow-card)}
+.cred img{width:100%; height:100%; object-fit:cover; object-position:left top}
+.cred b{font:600 var(--text-base) var(--font-display); transition:color var(--dur-fast) var(--ease-out)}
+.cred:focus-visible b{color:var(--color-accent)}
+@media (hover:hover){ .cred:hover b{color:var(--color-accent)} }
+.cred span{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
+
+.tl{list-style:none; margin:0; padding:0; display:grid; gap:var(--space-lg)}
+.tl li{position:relative; padding-left:var(--space-lg); border-left:var(--rule); display:grid; gap:var(--space-xs)}
+.tl li::before{content:""; position:absolute; left:-5px; top:9px; width:9px; height:9px; border-radius:50%; background:var(--color-accent)}
+.tl time,.tl .when{font:500 var(--text-sm) var(--font-mono); color:var(--color-muted); letter-spacing:.02em}
+.tl h3{margin:0; font:600 var(--text-lg)/1.3 var(--font-display); letter-spacing:-.015em}
+.tl p{margin:0; color:var(--color-ink-2); font-size:.95rem}
+
+.skills{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--space-xl) var(--space-2xl)}
+.skills h3{font:500 var(--text-sm) var(--font-mono); letter-spacing:.04em; color:var(--color-muted); margin:0 0 var(--space-sm)}
+
+.contact p{margin:0 0 var(--space-md); color:var(--color-ink-2); max-width:56ch}
+.mail{display:inline-block; font:700 clamp(1.3rem, 4.2vw, 3.4rem)/1.2 var(--font-display); letter-spacing:-.03em; color:var(--color-ink); text-decoration:none; overflow-wrap:anywhere; border-bottom:3px solid var(--color-accent); transition:border-color var(--dur-fast) var(--ease-out)}
+.mail:hover{border-color:var(--color-ink)}
+.links{margin:var(--space-lg) 0 0; display:flex; flex-wrap:wrap; gap:var(--space-sm) var(--space-lg); font:500 var(--text-sm) var(--font-mono); letter-spacing:.03em}
+.links a{color:var(--color-ink-2); text-decoration:none; white-space:nowrap; border-bottom:1px solid var(--color-rule); padding-bottom:2px}
+.links a:hover{color:var(--color-ink); border-color:var(--color-ink)}
+footer{padding:var(--space-2xl) 0 120px; border-top:var(--rule); display:grid; gap:var(--space-md)}
+footer .statement{margin:0; font:600 clamp(1.15rem, 2.2vw, 1.6rem)/1.35 var(--font-display); letter-spacing:-.015em; max-width:36ch}
+footer small{font:400 var(--text-sm) var(--font-mono); color:var(--color-muted)}
+
+/* ---------- demo dialog ---------- */
+.demo{width:min(1240px, 100vw - 32px); height:min(880px, calc(100vh - 32px)); height:min(880px, calc(100dvh - 32px)); max-width:none; max-height:none; padding:0; border:var(--rule); border-radius:var(--radius-md); background:var(--color-paper-2); color:var(--color-ink); overflow:hidden; box-shadow:0 30px 80px oklch(0% 0 0 / .55)}
+.demo[open]{display:flex; flex-direction:column; animation:pop var(--dur-base) var(--ease-out)}
+.demo::backdrop{background:var(--color-scrim); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px)}
+@keyframes pop{from{opacity:0; transform:translateY(10px) scale(.985)}}
+.demo-head{display:flex; align-items:center; justify-content:space-between; gap:var(--space-md); padding:10px 10px 10px 18px; border-bottom:var(--rule); min-height:60px}
+.demo-head div:first-child{min-width:0}
+.demo-head b{display:block; font:600 var(--text-base)/1.3 var(--font-display); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.demo-head span{display:block; font:400 var(--text-sm)/1.3 var(--font-mono); color:var(--color-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.demo-acts{display:flex; gap:var(--space-sm); flex:none}
+.icon-btn{display:inline-grid; place-items:center; width:40px; height:40px; border-radius:var(--radius-pill); border:0; background:var(--color-paper-3); color:var(--color-ink); cursor:pointer; box-shadow:inset 0 0 0 1px var(--color-rule); text-decoration:none; transition:background var(--dur-fast) var(--ease-out)}
+.icon-btn:hover{background:var(--color-paper-4)}
+.icon-btn svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.demo iframe{flex:1; width:100%; border:0; background:#fff}
+
+@media (max-width:980px){
+  .skills{grid-template-columns:repeat(2, minmax(0,1fr))}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr; padding-top:100px; gap:var(--space-xl)}
+  .hero-photo{justify-self:start; width:min(100%, 360px)}
+  .split,.row,.creds,.skills{grid-template-columns:1fr}
+  .row:nth-of-type(even) .row-text{order:0}
+  section{padding-block:var(--space-2xl)}
+  .pill a[data-m]{display:none}
+}
+@media (max-width:640px){
+  .demo{width:100vw; height:100vh; height:100dvh; border:0; border-radius:0}
+}
+
+/* ---------- Photoshop-style swarm overlay ---------- */
+#swarm{position:absolute; inset:0; z-index:40; pointer-events:none; overflow:hidden}
+.cur{position:absolute; left:0; top:0; opacity:0; will-change:transform; transition:opacity 320ms var(--ease-out)}
+.cur.in{opacity:1}
+.cur svg{position:absolute; left:0; top:0; transform:translate(-50%,-50%); filter:drop-shadow(0 1px 2px oklch(0% 0 0 / .6))}
+.cur.i-arrow svg{transform:none}
+.cur.i-arrow .tag{left:14px; top:16px}
+.cur .tag{position:absolute; left:12px; top:12px; font:500 11px/18px var(--font-mono); padding:0 7px; border-radius:4px; background:var(--c); color:var(--color-paper); white-space:nowrap}
+.fr{position:absolute; border:1px solid var(--color-ps); will-change:width,height}
+.fr b{position:absolute; left:-1px; top:-22px; font:500 11px/18px var(--font-mono); background:var(--c); color:var(--color-paper); padding:0 6px; border-radius:4px 4px 4px 0; white-space:nowrap}
+.fr i{position:absolute; width:7px; height:7px; background:var(--color-ink); border:1px solid var(--color-ps); transform:translate(-50%,-50%)}
+.fr i:nth-of-type(1){left:0;top:0} .fr i:nth-of-type(2){left:50%;top:0} .fr i:nth-of-type(3){left:100%;top:0}
+.fr i:nth-of-type(4){left:0;top:50%} .fr i:nth-of-type(5){left:100%;top:50%}
+.fr i:nth-of-type(6){left:0;top:100%} .fr i:nth-of-type(7){left:50%;top:100%} .fr i:nth-of-type(8){left:100%;top:100%}
+.fr-ants{border:0;
+  --ant-x:repeating-linear-gradient(90deg, var(--color-ink) 0 4px, var(--color-paper) 4px 8px);
+  --ant-y:repeating-linear-gradient(180deg, var(--color-ink) 0 4px, var(--color-paper) 4px 8px);
+  background:var(--ant-x) 0 0/8px 1px repeat-x, var(--ant-x) 0 100%/8px 1px repeat-x, var(--ant-y) 0 0/1px 8px repeat-y, var(--ant-y) 100% 0/1px 8px repeat-y;
+  animation:march .4s linear infinite}
+.fr-ants i{display:none}
+@keyframes march{to{background-position:8px 0, -8px 100%, 0 -8px, 100% 8px}}
+.fr-place::before{content:""; position:absolute; inset:0; opacity:.7; background:
+  linear-gradient(to bottom right, transparent calc(50% - .6px), var(--color-ps) calc(50% - .6px) calc(50% + .6px), transparent calc(50% + .6px)),
+  linear-gradient(to bottom left, transparent calc(50% - .6px), var(--color-ps) calc(50% - .6px) calc(50% + .6px), transparent calc(50% + .6px))}
+
+/* ---------- after the build: Move Tool hover (selection frame, layer name, W × H) ---------- */
+.fr.hv{left:0; top:0; opacity:0; transition:opacity 150ms var(--ease-out)}
+.fr.hv.on{opacity:1}
+.fr.hv b{display:flex; align-items:center; gap:6px; background:var(--color-ps); color:oklch(99% 0 0); padding:0 7px 0 3px}
+.fr.hv .k{display:inline-grid; place-items:center; min-width:14px; height:14px; padding:0 2px; border-radius:3px; background:oklch(100% 0 0 / .22); font-size:10px; line-height:1}
+.fr.hv .sz{position:absolute; right:-1px; bottom:-24px; font:500 11px/18px var(--font-mono); padding:0 6px; border-radius:4px; background:var(--color-paper-2); color:var(--color-ink-2); box-shadow:inset 0 0 0 1px var(--color-rule); white-space:nowrap}
+
+/* ---------- Layers panel ---------- */
+#lp{position:fixed; right:16px; bottom:72px; z-index:50; width:236px; background:color-mix(in oklch, var(--color-paper-2) 88%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:var(--rule); border-radius:10px; box-shadow:var(--shadow-card); font:400 11px/1.3 var(--font-mono); color:var(--color-ink-2); overflow:hidden; transition:transform var(--dur-slow) var(--ease-in), opacity var(--dur-slow) var(--ease-in)}
+#lp.out{transform:translateX(130%); opacity:0}
+#lp header{display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:var(--rule); color:var(--color-ink); font-weight:500}
+#lp header b{font-weight:500; color:var(--color-muted)}
+#lp ol{list-style:none; margin:0; padding:0; overflow:hidden}
+#lp li{display:grid; grid-template-columns:12px 18px minmax(0,1fr); gap:8px; align-items:center; padding:6px 10px; border-bottom:var(--rule); animation:lpin 220ms var(--ease-out); position:relative}
+#lp li.active{background:var(--color-paper-3); color:var(--color-ink)}
+#lp li.active::before{content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--color-ps)}
+#lp li .eye{width:12px; height:12px; color:var(--color-muted)}
+#lp li .th{width:18px; height:18px; border-radius:3px; background:var(--color-paper-4); display:grid; place-items:center; font:600 11px var(--font-display); color:var(--color-ink)}
+#lp li .th.img{background:linear-gradient(135deg, var(--color-accent-2), var(--color-ps))}
+#lp li .nm{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@keyframes lpin{from{opacity:0; transform:translateY(-6px)}}
+@media (max-width:1100px){ #lp{display:none} }
+
+/* ---------- HUD ---------- */
+#hud{position:fixed; left:50%; bottom:16px; transform:translateX(-50%); z-index:60; display:flex; align-items:center; gap:10px; padding:8px 10px 8px 12px; background:var(--color-paper-2); border:var(--rule); border-radius:var(--radius-pill); font:400 12px/1 var(--font-mono); color:var(--color-ink-2); box-shadow:var(--shadow-card); max-width:calc(100vw - 32px); white-space:nowrap}
+#hud[hidden]{display:none}
+#hud b{color:var(--color-ink); font-weight:500}
+#hud .sep{width:1px; height:14px; background:var(--color-rule)}
+#hud button{font:inherit; color:var(--color-ink); background:var(--color-paper-3); border:0; border-radius:var(--radius-pill); padding:7px 11px; cursor:pointer; transition:background var(--dur-fast) var(--ease-out)}
+#hud button:hover{background:var(--color-paper-4)}
+#hud button[hidden]{display:none}
+#hud .avatars{display:flex}
+#hud .avatars i{width:18px; height:18px; border-radius:50%; border:2px solid var(--color-paper-2); margin-left:-6px; background:var(--c)}
+#hud .avatars i:first-child{margin-left:0}
+#hud .bar{position:absolute; left:14px; right:14px; bottom:-1px; height:2px; background:var(--color-rule); border-radius:2px; overflow:hidden}
+#hud .bar i{display:block; height:100%; width:0; background:var(--color-accent); transition:width 220ms var(--ease-out)}
+@media (max-width:520px){ #hud .avatars, #hud .hud-agents, #hud .sep.a{display:none} }
+@media (prefers-reduced-motion: reduce){
+  .js .layer,.js .ch{opacity:1; transform:none; transition:none}
+  .js .pill{transform:translateX(-50%)}
+  .ch.cur::after,.fr-ants,.demo[open],.caret{animation:none}
+  .fr.hv,.bg-lens{transition:none}
+  #swarm,#hud,#lp{display:none}
+}
+</style>
 </head>
 <body>
-    <div class="contenedor-header">
-        <header>
-            <div class="logo">
-                <a href="#">About Me</a>
-            </div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">HOME</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">ABOUT ME</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">CONTACT</a></li>
-                </ul>
-            </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </header>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-lens" aria-hidden="true"><i></i></div>
+
+<!-- แก้ข้อความใน HTML ได้เลย
+     data-layer="type"  = พิมพ์ทีละตัวอักษรด้วย Type Tool (T)
+     data-layer="place" = วางรูปด้วยกรอบ transform (V)
+     data-layer         = ลากกรอบ marquee (M) แล้วค่อยปรากฏ
+     data-name          = ชื่อที่โชว์ในแผง Layers
+     a[data-demo]       = กดแล้วเปิดหน้านั้นใน popup (href คือไฟล์ที่จะเปิด) -->
+
+<nav class="pill layer" data-layer data-name="Navigation" aria-label="Main">
+  <a class="mark" href="#top">Ken</a>
+  <a href="#about" data-m>About</a>
+  <a href="#work">Work</a>
+  <a href="#resume" data-m>Résumé</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main class="wrap">
+  <header class="hero" id="top">
+    <div class="hero-text">
+      <p class="eyebrow layer" data-layer="type" data-name="Hero / Name">Varisyos Srisanga · Bangkok</p>
+      <h1 class="display layer" data-layer="type" data-name="Hero / Greeting">Hello,<br>I'm <span class="hi">Ken</span>.</h1>
+      <p class="role layer" data-layer data-name="Hero / Position">
+        <span class="role-label">Position desired</span>
+        <span class="role-now" aria-hidden="true"><span id="role">Web Developer</span><i class="caret"></i></span>
+        <span class="sr">Web Developer, DevOps Engineer, System Engineer, Network Engineer, IT Support, Pre-sales Engineer</span>
+      </p>
+      <p class="lede layer" data-layer data-name="Hero / Intro">ผม วริศยศ ศรีสง่า ทำงานทั้งฝั่งเว็บและฝั่งระบบ เขียนเว็บด้วย Laravel กับ Vue.js และดูแลเซิร์ฟเวอร์กับเครือข่ายที่เว็บเหล่านั้นรันอยู่</p>
+      <div class="cta layer" data-layer data-name="Hero / Buttons">
+        <a class="btn" href="assets/Resume-Varisyos-Srisanga.pdf" download="Resume-Varisyos-Srisanga.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></svg>ดาวน์โหลด Resume (PDF)</a>
+        <a class="btn ghost" href="#work">ดูผลงาน</a>
+      </div>
     </div>
+    <figure class="hero-photo layer" data-layer="place" data-name="Hero / Photo">
+      <img src="assets/photo.jpg" alt="วริศยศ ศรีสง่า ในชุดครุยรับปริญญา" width="1044" height="1392">
+    </figure>
+  </header>
 
-    <!-- SECCION INICIO -->
-    <section id="inicio" class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img hero-frame">
-                <span class="frame-line frame-top"></span>
-                <span class="frame-line frame-right"></span>
-                <span class="frame-line frame-bottom"></span>
-                <span class="frame-line frame-left"></span>
-                <img src="img/hero-resume.jpg" alt="">
-                <span class="pulse-ring"></span>
-            </div>
-            <h1>Varisyos Srisanga</h1>
-            <h2>Position Desired  &amp; :<span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span></h2>
-            <div class="redes">
-                <a href="https://www.facebook.com/kenVarisyos/"><i class="fa-brands fa-facebook-f"></i></a>
-               
-                <a href="mailto:kenvarisyos@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://line.me/ti/p/~pumipumipum" target="_blank"><i class="fa-brands fa-line"></i></a>
-                <a href="tel:+66649732217"><i class="fa-solid fa-phone"></i></a>
-            </div>
-        </div>
-        <div id="snow-container"></div>
-    </section>
-
-
-    <section id="sobremi" class="sobremi">
-        <div class="contenido-seccion">
-            <h2>About Me</h2>
-            <p>สวัสดีครับ ขอเเนะนำตัว ผมชื่อ วริศยศ ศรีสง่า ชื่อเล่นชื่อ เคน ผมมีความสนใจเกี่ยวกับ<span> IT/network/coding</span> มีความพร้อมในการทำงานด้าน IT เรียนรู้ไว ปรับตัวเก่งมีประสบการณ์ทั้งด้านระบบ IT, Network และ Web Developmentสามารถนำความรู้ไปใช้งานจริงและพัฒนาตนเองร่วมกับองค์กรได้</p>
-
-            <div class="fila">
-                <!-- datos personales -->
-                <div class="col">
-                    <h3>Datos Personales</h3>
-                    <ul>
-                        <li>
-                            <strong>Birthday</strong>
-                            29-08-2544
-                        </li>
-                        <li>
-                            <strong>Telephone</strong>
-                            064-973-2217
-                        </li>
-                        <li>
-                            <strong>Email</strong>
-                            kenvarisyos@gmail.com
-                        </li>
-                        <li>
-                            <strong>Website</strong>
-                            www.example.com
-                        </li>
-                        <li>
-                            <strong>Dirección</strong>
-                            เกษตรบางเขน กรุงเทพ
-                        </li>
-                        <li>
-                            <strong>Work</strong>
-                            <span>FREELANCE / หางานประจำ</span>
-                        </li>
-                    </ul>
-                </div>
-
-             
-                <div class="col">
-                    <h3>I LOVE</h3>
-                    <div class="contenedor-intereses">
-                        <div class="interes">
-                            <i class="fa-solid fa-gamepad"></i>
-                            <span>Game</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-headphones"></i>
-                            <span>Song</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-plane"></i>
-                            <span>Travel</span>
-                        </div>
-                       
-                        <div class="interes">
-                            <i class="fa-solid fa-person-hiking"></i>
-                            <span>Hicking</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-book"></i>
-                            <span>Books</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-car"></i>
-                            <span>Autos</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>Photography</span>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <a id="downloadCvBtn" class="download-cv-btn" href="https://drive.usercontent.google.com/download?id=1DfDrw7bW3LEB0GxcaBh9_KW66tapLSdH&export=download&authuser=0&confirm=t&uuid=c3357941-a1af-4905-8aa5-f9753e7165f0&at=AGN2oQ0BTGy8YXyY8bfXiDbr29jy:1774439685699" target="_blank" rel="noopener noreferrer">
-                ดาวน์โหลด Resume <i class="fa-solid fa-download"></i>
-                <span class="overlay"></span>
-            </a>
-        </div>
-    </section>
-
-
-    <section class="skills" id="skills">
-        <div class="contenido-seccion">
-            <h2>Skills</h2>
-
-                <div class="skill-ticker top">
-    <div class="ticker-track">
-        <span>
-            💻 PHP, JavaScript, C# &nbsp;•&nbsp;
-            ⚙️ Laravel, Vue.js, Nuxt.js &nbsp;•&nbsp;
-            🗄️ MySQL, MariaDB &nbsp;•&nbsp;
-            🐳 Docker, VMware ESXi &nbsp;•&nbsp;
-            🌐 Network (VLAN, LAN, WAN) &nbsp;•&nbsp;
-            📊 Network Monitoring (Zabbix) &nbsp;•&nbsp;
-            🔧 IT Support & Troubleshooting &nbsp;•&nbsp;
-            🔐 Basic Security (ISO 27001)
-        </span>
-                        <span>
-                            💻 PHP, JavaScript, C# &nbsp;•&nbsp;
-                            ⚙️ Laravel, Vue.js, Nuxt.js &nbsp;•&nbsp;
-                            🗄️ MySQL, MariaDB &nbsp;•&nbsp;
-                            🐳 Docker, VMware ESXi &nbsp;•&nbsp;
-                            🌐 Network (VLAN, LAN, WAN) &nbsp;•&nbsp;
-                            📊 Network Monitoring (Zabbix) &nbsp;•&nbsp;
-                            🔧 IT Support & Troubleshooting &nbsp;•&nbsp;
-                            🔐 Basic Security (ISO 27001)
-                        </span>
-                    </div>
-                </div>
-
-                <div class="skill-ticker bottom">
-                    <div class="ticker-track">
-                        <span>
-                            🎨 Bootstrap, Tailwind CSS, daisyUI &nbsp;•&nbsp;
-                            🧠 Google Apps Script & Automation &nbsp;•&nbsp;
-                            🖥️ Windows Server, IIS, Linux &nbsp;•&nbsp;
-                            📡 UniFi AP, NAS Storage, CCTV (Hikvision) &nbsp;•&nbsp;
-                            🖨️ Printer & Hardware Support &nbsp;•&nbsp;
-                            📱 Android Studio &nbsp;•&nbsp;
-                            🎬 Photoshop, Premiere Pro &nbsp;•&nbsp;
-                            🔌 Raspberry Pi
-                        </span>
-                        <span>
-                            🎨 Bootstrap, Tailwind CSS, daisyUI &nbsp;•&nbsp;
-                            🧠 Google Apps Script & Automation &nbsp;•&nbsp;
-                            🖥️ Windows Server, IIS, Linux &nbsp;•&nbsp;
-                            📡 UniFi AP, NAS Storage, CCTV (Hikvision) &nbsp;•&nbsp;
-                            🖨️ Printer & Hardware Support &nbsp;•&nbsp;
-                            📱 Android Studio &nbsp;•&nbsp;
-                            🎬 Photoshop, Premiere Pro &nbsp;•&nbsp;
-                            🔌 Raspberry Pi
-                        </span>
-                    </div>
-                </div>
-           
-
-<div class="fila">
-
-    <div class="col">
-        <h3>Technical Skills</h3>
-
-        <div class="skill">
-            <span>PHP / JavaScript</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Laravel </span>
-            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
-        </div>
-
-                <div class="skill">
-            <span>Nuxt.js / Vue.js</span>
-            <div class="barra-skill"><div class="progreso"><span>65%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>HTML & CSS (Tailwind, Bootstrap)</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>MySQL / MariaDB</span>
-            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Docker / VMware ESXi</span>
-            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Network (VLAN, LAN, WAN)</span>
-            <div class="barra-skill"><div class="progreso"><span>70%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Windows Server / Linux / IIS</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Zabbix Monitoring</span>
-            <div class="barra-skill"><div class="progreso"><span>70%</span></div></div>
-        </div>
-
+  <section id="about" class="split">
+    <div>
+      <h2 class="h layer" data-layer="type" data-name="About / Heading">About me</h2>
+      <p class="big layer" data-layer data-name="About / Intro">ผมมีความพร้อมในการทำงานด้านเทคโนโลยีสารสนเทศ สามารถเรียนรู้และปรับตัวได้รวดเร็ว มีความยืดหยุ่นในการทำงานหลากหลายด้าน ทั้งระบบไอที เครือข่าย และการพัฒนาเว็บไซต์ พร้อมนำความรู้ไปปรับใช้ในการทำงานจริงและพัฒนาตนเองไปพร้อมกับการเติบโตขององค์กรอย่างมีประสิทธิภาพ</p>
     </div>
+    <dl class="facts">
+      <div class="layer" data-layer data-name="About / Status"><dt>สถานะ</dt><dd>Freelance · พร้อมเริ่มงานประจำ</dd></div>
+      <div class="layer" data-layer data-name="About / Roles"><dt>ตำแหน่งที่สนใจ</dt><dd>Web Developer · DevOps / System Engineer · IT Support &amp; Network · Pre-sales Engineer</dd></div>
+      <div class="layer" data-layer data-name="About / Based"><dt>ที่อยู่</dt><dd>กรุงเทพฯ</dd></div>
+      <div class="layer" data-layer data-name="About / Off hours"><dt>นอกเวลางาน</dt><dd>เกม · ฟังเพลง · ท่องเที่ยว · เดินป่า · อ่านหนังสือ · รถยนต์ · ถ่ายภาพ</dd></div>
+    </dl>
+  </section>
 
-    <div class="col">
-        <h3>Professional Skills</h3>
+  <section id="work">
+    <h2 class="h layer" data-layer="type" data-name="Work / Heading">Selected work</h2>
+    <p class="sub layer" data-layer data-name="Work / How to">กดเปิด demo เพื่อลองใช้หน้าเว็บของแต่ละโปรเจกต์ในหน้านี้ได้เลย ข้อมูลบางส่วนใน demo เป็นข้อมูลตัวอย่าง</p>
 
-        <div class="skill">
-            <span>IT Support & Troubleshooting</span>
-            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / SIEM">
+        <small>วิทยานิพนธ์ ป.โท · มหาวิทยาลัยศรีปทุม</small>
+        <h3>ระบบป้องกันภัยคุกคามเว็บ (SIEM + ML)</h3>
+        <p>โมดูล PHP ตรวจจับ SQL Injection, XSS และ DDoS แล้วส่งเหตุการณ์เข้า SIEM ใช้ Machine Learning จำแนกการโจมตี มีแดชบอร์ดให้ผู้ดูแลดูสถิติและบล็อก IP ได้ทันที นำเสนอแบบบรรยายในงาน SPUC 2025 เมื่อ 1 ก.ค. 2568</p>
+        <div class="chips"><span>PHP</span><span>SIEM</span><span>Machine Learning</span><span>Dashboard</span></div>
+        <div class="actions">
+          <a class="btn sm" href="demos/siem/index.html" data-demo data-title="ระบบป้องกันภัยคุกคามเว็บ (SIEM + ML)" data-meta="Interactive demo · ข้อมูลจำลองที่เก็บในเบราว์เซอร์"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
         </div>
+        <p class="note">demo ทำงานในเบราว์เซอร์ทั้งหมด ลองกดจำลองเหตุการณ์ เปิดดู Payload แล้ว Block IP หรือไปหน้าทดสอบเพื่อเทียบผลตอนเปิดและปิด Protection ข้อมูลทุกอย่างเป็นข้อมูลจำลอง</p>
+      </div>
+      <a class="shot layer" data-layer="place" data-name="Work / SIEM · screen" href="demos/siem/index.html" data-demo data-title="ระบบป้องกันภัยคุกคามเว็บ (SIEM + ML)" data-meta="Interactive demo · ข้อมูลจำลองที่เก็บในเบราว์เซอร์" aria-label="เปิด demo ระบบป้องกันภัยคุกคามเว็บ">
+        <img src="assets/shots/siem.jpg" alt="Security Operations Dashboard แสดง Health Score จำนวนเหตุการณ์ IP ที่ถูก Block และกราฟเหตุการณ์" width="1366" height="854">
+        <span class="tag-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</span>
+      </a>
+    </article>
 
-        <div class="skill">
-            <span>Network Configuration</span>
-            <div class="barra-skill"><div class="progreso"><span>75%</span></div></div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / MeHotel">
+        <small>Web application · Vue.js</small>
+        <h3>MeHotel ระบบจองโรงแรม</h3>
+        <p>เว็บจองโรงแรมด้วย Vue 3, Tailwind CSS และ daisyUI เรียก REST API ที่เขียนด้วย PHP ผู้ใช้ค้นหาโรงแรม ดูห้องพัก จอง และสะสมแต้ม Reward ได้ ส่วนผู้ดูแลจัดการโรงแรม ห้อง และคำสั่งจองจากหลังบ้าน</p>
+        <div class="chips"><span>Vue 3</span><span>Tailwind CSS</span><span>daisyUI</span><span>PHP API</span><span>JWT</span></div>
+        <div class="actions">
+          <a class="btn sm" href="demos/mehotel/index.html" data-demo data-title="MeHotel ระบบจองโรงแรม" data-meta="build จากซอร์สล่าสุด · ข้อมูลโรงแรมตัวอย่าง"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
         </div>
+        <p class="note">build จากซอร์สล่าสุดของโปรเจกต์ ชื่อโรงแรม ราคา และรีวิวใน demo เป็นข้อมูลตัวอย่าง</p>
+      </div>
+      <a class="shot layer" data-layer="place" data-name="Work / MeHotel · screen" href="demos/mehotel/index.html" data-demo data-title="MeHotel ระบบจองโรงแรม" data-meta="build จากซอร์สล่าสุด · ข้อมูลโรงแรมตัวอย่าง" aria-label="เปิด demo MeHotel">
+        <img src="assets/shots/mehotel.jpg" alt="หน้าแรก MeHotel ภาพนักเดินป่ายืนบนภูเขาพร้อมปุ่มจองโรงแรม" width="1366" height="854">
+        <span class="tag-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</span>
+      </a>
+    </article>
 
-        <div class="skill">
-            <span>Google Apps Script </span>
-            <div class="barra-skill"><div class="progreso"><span>75%</span></div></div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / SCIPNRU">
+        <small>ฝึกงาน · คณะวิทยาศาสตร์และเทคโนโลยี มรภ.พระนคร</small>
+        <h3>เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี</h3>
+        <p>เว็บไซต์คณะที่ใช้งานจริง เขียนด้วย Laravel มีข่าว กิจกรรม หลักสูตร และป๊อปอัปประกาศ เจ้าหน้าที่แก้เมนูและเนื้อหาเองได้จากระบบหลังบ้าน พัฒนาบน Docker และ Laragon โดยมีอาจารย์ประจำคณะกำกับงาน</p>
+        <div class="chips"><span>Laravel</span><span>MySQL</span><span>Bootstrap</span><span>Docker</span></div>
+        <div class="actions">
+          <a class="btn sm" href="demos/scipnru/index.html" data-demo data-title="เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี" data-meta="สำเนา static จากฐานข้อมูลของโปรเจกต์"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
         </div>
+        <p class="note">สำเนา static จากฐานข้อมูลของโปรเจกต์ 12 หน้า ระบบหลังบ้านต้องเข้าสู่ระบบจึงไม่ได้รวมไว้</p>
+      </div>
+      <a class="shot layer" data-layer="place" data-name="Work / SCIPNRU · screen" href="demos/scipnru/index.html" data-demo data-title="เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี" data-meta="สำเนา static จากฐานข้อมูลของโปรเจกต์" aria-label="เปิด demo เว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี">
+        <img src="assets/shots/scipnru.jpg" alt="หน้าแรกเว็บไซต์คณะวิทยาศาสตร์และเทคโนโลยี พร้อมแบนเนอร์รับสมัครนักศึกษา" width="1366" height="854">
+        <span class="tag-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</span>
+      </a>
+    </article>
 
-        <div class="skill">
-            <span>CCTV & Security Systems</span>
-            <div class="barra-skill"><div class="progreso"><span>80%</span></div></div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / NFC card">
+        <small>Freelance · NTN Medical Team</small>
+        <h3>ระบบบัตรพนักงาน NFC</h3>
+        <p>แตะบัตร NFC แล้วเปิดหน้าโปรไฟล์พนักงาน มีปุ่มโทร อีเมล Line และเว็บไซต์บริษัท ระบบเขียนด้วย Laravel ต่อฐานข้อมูล MariaDB และมีหลังบ้านสำหรับรายชื่อพนักงาน การลางาน และแก้ไขโปรไฟล์</p>
+        <div class="chips"><span>Laravel</span><span>MariaDB</span><span>NFC</span><span>Bootstrap</span></div>
+        <div class="actions">
+          <a class="btn sm" href="demos/ntn/index.html" data-demo data-title="ระบบบัตรพนักงาน NFC" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</a>
+          <a class="btn sm ghost" href="demos/ntn/profile-1.html" data-demo data-title="หน้าโปรไฟล์ที่เปิดจากบัตร NFC" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ">หน้าบัตร NFC</a>
         </div>
+        <p class="note">ชื่อ รูป และข้อมูลพนักงานใน demo เป็นข้อมูลสมมติทั้งหมด</p>
+      </div>
+      <a class="shot layer" data-layer="place" data-name="Work / NFC card · screen" href="demos/ntn/index.html" data-demo data-title="ระบบบัตรพนักงาน NFC" data-meta="NTN Medical Team · ข้อมูลพนักงานสมมติ" aria-label="เปิด demo ระบบบัตรพนักงาน NFC">
+        <img src="assets/shots/ntn.jpg" alt="หน้า lobby ของ NTN Medical Team พร้อมปุ่มไปยังระบบบัตรพนักงาน" width="1366" height="854">
+        <span class="tag-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>เปิด demo</span>
+      </a>
+    </article>
 
-        <div class="skill">
-            <span>Hardware & Printer Support</span>
-            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
-        </div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / NTIBUZZ">
+        <small>Engineering &amp; compliance · NTIBUZZ</small>
+        <h3>ระบบที่ตรวจสอบได้</h3>
+        <p>เว็บแอปภายในองค์กรด้วย PHP และ MySQL ขึ้นระบบบน shared hosting และ Linux พร้อมเอกสารตาม ISO/IEC 29110 และงานตรวจซองประกวดราคาเทียบ TOR</p>
+        <div class="chips"><span>ISO/IEC 29110</span><span>e-bidding</span><span>cPanel</span><span>REST + JWT</span></div>
+      </div>
+      <ul class="proof">
+        <li class="layer" data-layer data-name="Work / ISO 29110"><b>ISO/IEC 29110 · Basic profile</b><span>จัดทำ Work Products WP.01 ถึง WP.23 ของโครงการ NT01 และ NT02 (Web Sale) เช่น แผนโครงการ ตาราง traceability รายงานทดสอบ และคำขอเปลี่ยนแปลง โดยเขียนจากโค้ดจริง และตรวจความพร้อมภายในก่อนการตรวจติดตามของ TÜV SÜD</span></li>
+        <li class="layer" data-layer data-name="Work / TOR and TOC"><b>TOR และ Table of Compliance</b><span>ตรวจซอง e-bidding ภาครัฐเทียบ TOR ข้อต่อข้อ ทั้งคุณสมบัติผู้ยื่นแบบรายเดียวและกิจการร่วมค้า สเปคตามหลักเท่าหรือดีกว่า ตารางแสดงความสอดคล้อง คู่เทียบ และ audit workbook ใน Excel</span></li>
+        <li class="layer" data-layer data-name="Work / Hosting"><b>Hosting และ deployment</b><span>ระบบ PHP และ MySQL บน cPanel และ Linux ปรับ schema ให้ใช้ได้กับ host ที่ไม่ให้สิทธิ์ ALTER ย้าย cron ไปเป็น systemd timers มีบันทึกอนุมัติ deploy ที่ตรวจ syntax และ checksum และ REST backend ที่ใช้ JWT เชื่อม Google Calendar, Meet และ Chat</span></li>
+      </ul>
+    </article>
 
-        <div class="skill">
-            <span>Problem Solving</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
+    <article class="row">
+      <div class="row-text layer" data-layer data-name="Work / Infrastructure">
+        <small>IT / Network</small>
+        <h3>เครือข่าย เซิร์ฟเวอร์ และงานสื่อ</h3>
+        <p>งานโครงสร้างพื้นฐานที่ทำควบคู่กับงานเว็บ ทั้งในองค์กร คลินิก และงานของคณะ</p>
+        <div class="chips"><span>VLAN</span><span>NAS Storage</span><span>VMware ESXi</span><span>Docker</span><span>IIS</span><span>Premiere Pro</span></div>
+      </div>
+      <ul class="proof">
+        <li class="layer" data-layer data-name="Work / Network"><b>Network และ Server</b><span>ออกแบบ Network Diagram ระดับองค์กร ตั้งค่า VLAN, Access Point และ NAS Storage ดูแล Docker, VMware ESXi และ Web Server (IIS, XAMPP)</span></li>
+        <li class="layer" data-layer data-name="Work / CCTV"><b>CCTV และระบบในอาคาร</b><span>ดูแล CCTV (HIKVISION) ระบบลานจอดรถ ระบบตอกบัตร และ Printer (Ricoh, Canon) รวมถึงจอแสดงผลภายในคลินิก</span></li>
+        <li class="layer" data-layer data-name="Work / Media"><b>งานสื่อและอุปกรณ์</b><span>ตัดต่อวิดีโอด้วย Premiere Pro ดูแลกล้องวิดีโอ ระบบเสียง และอุปกรณ์สื่อในงานระดับหน่วยงานและภูมิภาค</span></li>
+      </ul>
+    </article>
+  </section>
 
-        <div class="skill">
-            <span>Teamwork & Communication</span>
-            <div class="barra-skill"><div class="progreso"><span>90%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Adobe Photoshop, Premiere Pro</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
-
-        <div class="skill">
-            <span>Bootstrap, Tailwind CSS, daisyUI</span>
-            <div class="barra-skill"><div class="progreso"><span>85%</span></div></div>
-        </div>
-
+  <section id="credentials">
+    <h2 class="h layer" data-layer="type" data-name="Credentials / Heading">Credentials</h2>
+    <div class="creds">
+      <a class="cred layer" data-layer="place" data-name="Credentials / Google Advanced" href="assets/certs/google-advanced-data-analytics.jpg" data-demo data-title="Google Advanced Data Analytics" data-meta="Coursera professional certificate · 18 ส.ค. 2568">
+        <span class="pic"><img src="assets/certs/google-advanced-data-analytics.jpg" alt="ใบรับรอง Google Advanced Data Analytics จาก Coursera" width="1057" height="817"></span>
+        <b>Google Advanced Data Analytics</b><span>Coursera · 18 ส.ค. 2568</span>
+      </a>
+      <a class="cred layer" data-layer="place" data-name="Credentials / Google DA" href="assets/certs/google-data-analytics.jpg" data-demo data-title="Google Data Analytics" data-meta="Coursera professional certificate · 22 ส.ค. 2568">
+        <span class="pic"><img src="assets/certs/google-data-analytics.jpg" alt="ใบรับรอง Google Data Analytics จาก Coursera" width="1055" height="820"></span>
+        <b>Google Data Analytics</b><span>Coursera · 22 ส.ค. 2568</span>
+      </a>
+      <a class="cred layer" data-layer="place" data-name="Credentials / SPUC 2025" href="assets/certs/spuc-2025-conference.jpg" data-demo data-title="นำเสนอผลงาน SPUC 2025" data-meta="มหาวิทยาลัยศรีปทุม วิทยาเขตชลบุรี · 1 ก.ค. 2568">
+        <span class="pic"><img src="assets/certs/spuc-2025-conference.jpg" alt="เกียรติบัตรนำเสนอผลงานวิชาการภาคบรรยายในงาน SPUC 2025" width="854" height="711"></span>
+        <b>นำเสนอผลงาน SPUC 2025</b><span>ม.ศรีปทุม วิทยาเขตชลบุรี · 1 ก.ค. 2568</span>
+      </a>
     </div>
+  </section>
+
+  <section id="resume" class="split">
+    <div>
+      <h2 class="h layer" data-layer="type" data-name="Résumé / Experience">Experience</h2>
+      <ol class="tl">
+        <li class="layer" data-layer data-name="Experience / Freelance">
+          <span class="when">เม.ย. 2567 – ปัจจุบัน</span>
+          <h3>Full-stack Web Developer · Freelance</h3>
+          <p>พัฒนาเว็บแอปพลิเคชันด้วย Laravel และ JavaScript ให้ลูกค้าหลายประเภทธุรกิจแบบรายโปรเจกต์ เช่น เว็บแสดงข้อมูลพนักงานด้วย NFC Card กับ MariaDB ระบบติดตามสถานะสินค้าและคลังสินค้า และงาน Automation ด้วย Google Apps Script</p>
+        </li>
+        <li class="layer" data-layer data-name="Experience / Lecturer">
+          <span class="when">ส.ค. 2568 – ปัจจุบัน</span>
+          <h3>อาจารย์พิเศษ · วิชาคอมพิวเตอร์พื้นฐาน</h3>
+          <p>สอนพื้นฐานการใช้งานคอมพิวเตอร์และระบบสารสนเทศ</p>
+        </li>
+        <li class="layer" data-layer data-name="Experience / IT Network">
+          <span class="when">ก.ย. 2567 – ก.ค. 2568</span>
+          <h3>IT Support / Network Engineer</h3>
+          <p>ดูแลระบบ IT ขององค์กรและคลินิก ออกแบบ Network Diagram ทั้งองค์กร ดูแล Server, LAN, Access Point และการใช้ Bandwidth รวมถึง CCTV (HIKVISION) ระบบลานจอดรถ ระบบตอกบัตร Printer จอแสดงผล และอุปกรณ์ Windows กับ macOS</p>
+        </li>
+        <li class="layer" data-layer data-name="Experience / Intern">
+          <span class="when">ปีการศึกษา 2565 – 2566</span>
+          <h3>Web Developer (ฝึกงาน) · คณะวิทยาศาสตร์และเทคโนโลยี มรภ.พระนคร</h3>
+          <p>พัฒนาเว็บไซต์คณะด้วย Laravel, Docker และ Laragon ปรับปรุงระบบตามความต้องการของผู้ใช้ ภายใต้การกำกับของอาจารย์ประจำคณะ</p>
+        </li>
+        <li class="layer" data-layer data-name="Experience / Club">
+          <span class="when">ปีการศึกษา 2563 – 2564</span>
+          <h3>IT Support · สโมสรนักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี</h3>
+          <p>ดูแลคอมพิวเตอร์และโสตทัศนูปกรณ์ กล้องวิดีโอ ระบบตัดต่อ และลำโพง สนับสนุนกิจกรรมของคณะ</p>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <h2 class="h layer" data-layer="type" data-name="Résumé / Education">Education</h2>
+      <ol class="tl">
+        <li class="layer" data-layer data-name="Education / Master">
+          <span class="when">คาดว่าจบ 2569</span>
+          <h3>ปริญญาโท · เทคโนโลยีสารสนเทศและปัญญาประดิษฐ์</h3>
+          <p>มหาวิทยาลัยศรีปทุม</p>
+        </li>
+        <li class="layer" data-layer data-name="Education / Bachelor">
+          <span class="when">จบ 2567</span>
+          <h3>ปริญญาตรี · เทคโนโลยีสารสนเทศ</h3>
+          <p>มหาวิทยาลัยราชภัฏพระนคร</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="h layer" data-layer="type" data-name="Skills / Heading">Skills</h2>
+    <div class="skills">
+      <div class="layer" data-layer data-name="Skills / Programming"><h3>Programming &amp; Scripting</h3><div class="chips"><span>PHP</span><span>JavaScript</span><span>C#</span><span>WordPress</span><span>Google Apps Script</span><span>Android Studio</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Frameworks"><h3>Framework &amp; Front-end</h3><div class="chips"><span>Laravel</span><span>Vue.js</span><span>Nuxt 3</span><span>Bootstrap</span><span>Tailwind CSS</span><span>daisyUI</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Database"><h3>Database</h3><div class="chips"><span>MySQL</span><span>MariaDB</span><span>Microsoft Access</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Server"><h3>System &amp; Server</h3><div class="chips"><span>Docker</span><span>VMware ESXi</span><span>Windows Server</span><span>IIS</span><span>Hosting</span><span>XAMPP</span><span>Laragon</span><span>Linux</span><span>Zabbix</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Network"><h3>Network &amp; Infrastructure</h3><div class="chips"><span>VLAN · LAN · WAN</span><span>Wireless</span><span>Router · Switch · Firewall</span><span>Cisco</span><span>Huawei</span><span>NAS Storage</span><span>SAP</span><span>UniFi Access Point</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Smart system"><h3>Smart System</h3><div class="chips"><span>NFC Card System</span><span>ISO/IEC 27001</span><span>Machine Learning / Deep Learning</span><span>CCTV (HIKVISION)</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Support"><h3>Hardware &amp; IT Support</h3><div class="chips"><span>Printer (Ricoh, Canon)</span><span>Remote Support</span><span>Troubleshooting</span><span>Server &amp; Client Devices</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Documents"><h3>Documents &amp; Compliance</h3><div class="chips"><span>ISO/IEC 29110</span><span>TOR · Table of Compliance</span><span>e-bidding audit</span></div></div>
+      <div class="layer" data-layer data-name="Skills / Media"><h3>Tools &amp; Media</h3><div class="chips"><span>Adobe Photoshop</span><span>Premiere Pro</span><span>Raspberry Pi</span></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="h layer" data-layer="type" data-name="Contact / Heading">Contact</h2>
+    <p class="layer" data-layer data-name="Contact / Note">รับงานประจำและงาน Freelance ติดต่อทางอีเมล โทรศัพท์ หรือ Line</p>
+    <a class="mail layer" data-layer="type" data-name="Contact / Email" href="mailto:kenvarisyos@gmail.com">kenvarisyos@gmail.com</a>
+    <div class="links layer" data-layer data-name="Contact / Links">
+      <a href="tel:+66649732217">064-973-2217</a>
+      <a href="https://line.me/ti/p/~pumipumipum">Line</a>
+      <a href="https://www.facebook.com/kenVarisyos/">Facebook</a>
+      <a href="assets/Resume-Varisyos-Srisanga.pdf" download="Resume-Varisyos-Srisanga.pdf">Resume (PDF)</a>
+    </div>
+  </section>
+
+  <footer class="layer" data-layer data-name="Footer">
+    <p class="statement">หน้านี้และ demo ทุกชิ้นเป็นไฟล์ HTML ธรรมดา เปิดจากเครื่องได้โดยไม่ต้องมี server</p>
+    <small>© 2026 Varisyos Srisanga</small>
+  </footer>
+</main>
+
+<dialog class="demo" id="demo" aria-labelledby="demo-title">
+  <div class="demo-head">
+    <div><b id="demo-title">Demo</b><span id="demo-meta"></span></div>
+    <div class="demo-acts">
+      <a class="icon-btn" id="demo-open" href="#" target="_blank" rel="noopener" title="เปิดในแท็บใหม่" aria-label="เปิดในแท็บใหม่"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      <button class="icon-btn" id="demo-close" type="button" autofocus title="ปิด (Esc)" aria-label="ปิด demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+  </div>
+  <iframe id="demo-frame" title="Demo" src="about:blank"></iframe>
+</dialog>
+
+<div id="swarm" aria-hidden="true"></div>
+
+<aside id="lp" aria-hidden="true">
+  <header><span>Layers</span><b id="lpCount">0</b></header>
+  <ol id="lpList"></ol>
+</aside>
+
+<div id="hud" aria-live="polite">
+  <div class="avatars" aria-hidden="true"></div>
+  <span class="hud-agents"><b id="hudN">0</b> agents</span>
+  <span class="sep a"></span>
+  <span><b id="hudDone">0</b>/<b id="hudTotal">0</b> layers</span>
+  <span class="sep"></span>
+  <button id="hudSpeed" type="button" title="Playback speed">1×</button>
+  <button id="hudSkip" type="button">Skip</button>
+  <button id="hudReplay" type="button" hidden>Replay</button>
+  <div class="bar" aria-hidden="true"><i id="hudBar"></i></div>
 </div>
 
+<script>
+// ---------- hero: type the desired positions one after another (screen readers get the full list instead) ----------
+(() => {
+  const el = document.getElementById('role');
+  if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const roles = ['Web Developer', 'DevOps Engineer', 'System Engineer', 'Network Engineer', 'IT Support', 'Pre-sales Engineer'];
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  (async () => {
+    await wait(2800);
+    for (let i = 0; ; i = (i + 1) % roles.length) {
+      const cur = roles[i], next = roles[(i + 1) % roles.length];
+      for (let n = cur.length; n >= 0; n--) { el.textContent = cur.slice(0, n); await wait(32); }
+      await wait(260);
+      for (let n = 1; n <= next.length; n++) { el.textContent = next.slice(0, n); await wait(55 + Math.random() * 55); }
+      await wait(1900);
+    }
+  })();
+})();
+</script>
 
+<script>
+// ---------- demo dialog: a[data-demo] opens its href in a popup; ctrl/middle click still opens a new tab ----------
+(() => {
+  const dlg = document.getElementById('demo');
+  if (!dlg || typeof dlg.showModal !== 'function') return;   // old browser: the links just open the page
+  const frame = document.getElementById('demo-frame');
+  const title = document.getElementById('demo-title');
+  const meta = document.getElementById('demo-meta');
+  const open = document.getElementById('demo-open');
+  let opener = null;
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-demo]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    opener = a;
+    const href = a.getAttribute('href');
+    title.textContent = a.dataset.title || a.textContent.trim();
+    meta.textContent = a.dataset.meta || '';
+    frame.title = 'Demo: ' + title.textContent;
+    open.href = href;
+    frame.src = href;
+    document.documentElement.classList.add('modal-open');
+    dlg.showModal();
+  });
+  document.getElementById('demo-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });   // click on the backdrop
+  dlg.addEventListener('close', () => {
+    frame.src = 'about:blank';   // stop the demo's scripts and timers
+    document.documentElement.classList.remove('modal-open');
+    if (opener) opener.focus({ preventScroll: true });
+  });
+})();
+</script>
 
+<script>
+(() => {
+'use strict';
+// ชื่อเคอร์เซอร์ แก้หรือเพิ่มได้ จำนวนชื่อ = จำนวน agents
+const NAMES = ['mira','kofi','ploy','ohm','june','tariq','nok','sasha','bank','ira','leo','pim',
+  'noor','dev','fah','yuki','omar','bua','zed','ana','kit','mai','ravi','tul',
+  'eli','ying','sam','pun','iris','gun','nina','tae','jo','meen','axel','ice','beam','tan','lina','poom'];
+const LANES = 5;                  // layers built at the same time
+const SPEEDS = [1, 2, 4];
+const ICON = {
+  arrow: '<svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M1 1l6.5 18 2.6-7.2L17 9.2z" fill="var(--c)" stroke="var(--color-paper)" stroke-width="1.2" stroke-linejoin="round"/></svg>',
+  cross: '<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1.5v7M11 13.5v7M1.5 11h7M13.5 11h7" stroke="var(--color-paper)" stroke-width="4.5" stroke-linecap="round" opacity=".7"/><path d="M11 1.5v7M11 13.5v7M1.5 11h7M13.5 11h7" stroke="var(--c)" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  ibeam: '<svg width="14" height="24" viewBox="0 0 14 24" aria-hidden="true"><path d="M3 2h3.5M3 22h3.5M7.5 2H11M7.5 22H11M7 2v20" stroke="var(--color-paper)" stroke-width="4" stroke-linecap="round" opacity=".7"/><path d="M3 2h3.5M3 22h3.5M7.5 2H11M7.5 22H11M7 2v20" stroke="var(--c)" stroke-width="1.8" stroke-linecap="round"/></svg>'
+};
 
+const $ = s => document.querySelector(s);
+const swarm = $('#swarm'), hud = $('#hud'), lp = $('#lp'), lpList = $('#lpList'), lpCount = $('#lpCount');
+const hudN = $('#hudN'), hudDone = $('#hudDone'), hudTotal = $('#hudTotal'), hudBar = $('#hudBar');
+const btnSpeed = $('#hudSpeed'), btnSkip = $('#hudSkip'), btnReplay = $('#hudReplay');
+const layers = [...document.querySelectorAll('[data-layer]')];
+const agents = [];
+const state = { speedIx: 0, aborted: false, finished: false, done: 0, animating: false, lastUserScroll: 0 };
+const S = () => SPEEDS[state.speedIx];
+const rand = (a, b = 0) => b ? a + Math.random() * (b - a) : Math.random() * a;
 
-            </div>
-        </div>
-    </section>
+// ---- typewriter prep: one span per grapheme so Thai vowels and tone marks stay attached ----
+const seg = ('Segmenter' in Intl) ? new Intl.Segmenter(undefined, { granularity: 'grapheme' }) : null;
+const graphemes = s => seg ? [...seg.segment(s)].map(x => x.segment) : Array.from(s);
+for (const el of layers.filter(l => l.dataset.layer === 'type')) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  for (const n of nodes) {
+    const frag = document.createDocumentFragment();
+    for (const g of graphemes(n.nodeValue)) {
+      if (/\s/.test(g)) { frag.appendChild(document.createTextNode(g)); continue; }
+      const s = document.createElement('span'); s.className = 'ch'; s.textContent = g; frag.appendChild(s);
+    }
+    n.replaceWith(frag);
+  }
+}
+hudTotal.textContent = layers.length;
 
-    <!-- SECCION CURRICULUM -->
-    <section id="curriculum" class="curriculum">
-        <div class="contenido-seccion">
-            <h2>Curriculum</h2>
-            <div class="fila">
-                <div class="col izquierda">
-                    <h3>Education</h3>
-                    <div class="item izq">
-                        <h4>Master of Information Technology and Artificial Intelligence </h4>
-                        <span class="fecha">Expected Graduation: 2026</span>
-                        <p>Sripatum University</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>Bachelor of Information Technology</h4>
-                        <span class="fecha">Graduated: 2024</span>
-                        <p>Phranakhon Rajabhat University</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <h4>High School (Math-Science Program)</h4>
+const revealNow = l => { l.classList.add('on'); l.querySelectorAll('.ch').forEach(c => { c.classList.add('on'); c.classList.remove('cur'); }); };
+const resetLayer = l => { l.classList.remove('on'); l.querySelectorAll('.ch').forEach(c => c.classList.remove('on', 'cur')); };
 
-                        <span class="fecha">2018 – 2020</span>
-                        <p>Sukum Navapan Upatham School</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                     <div class="item izq">
-                        <h4>Lower Secondary School</h4>
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layers.forEach(revealNow); hud.hidden = true; lp.hidden = true; document.documentElement.classList.add('built'); return; }
 
-                        <span class="fecha">2015 – 2017</span>
-                        <p>Nawaminthrachinuthit Triamudomsuksanomklao School</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                </div>
+// ---- abortable timing ----
+let abort, abortP;
+const newAbort = () => { abortP = new Promise(r => abort = r); };
+newAbort();
+const sleep = ms => Promise.race([new Promise(r => setTimeout(r, ms / S())), abortP]);
+const tween = (ms, fn) => Promise.race([new Promise(res => {
+  const t0 = performance.now(), d = ms / S();
+  (function f(now) {
+    if (state.aborted) return res();
+    const p = Math.min(1, (now - t0) / d); fn(1 - Math.pow(1 - p, 3));
+    p < 1 ? requestAnimationFrame(f) : res();
+  })(t0);
+}), abortP]);
 
-                <div class="col derecha">
-                    <h3>Experience </h3>
-                    <div class="item der">
-                        <h4>IT Support / Network Engineer</h4>
-                        
-                        <span class="fecha">September 2024 – July 2025</span>
-                        <p>
-                            - Managed and maintained IT systems within the organization and clinics<br>
-                        - Designed and implemented network infrastructure and network diagrams<br>
-                        - Maintained servers, LAN systems, and network devices<br>
-                        - Configured and managed access points and internet connectivity<br>
-                        - Monitored bandwidth usage and network performance<br>
-                        - Provided support for printers, TVs, and display systems<br>
-                        - Maintained CCTV systems (Hikvision) and security devices<br>
-                        - Supported parking systems and card access systems<br>
-                        - Provided technical support for Windows, macOS, and related devices<br>
+// ---- cursors ----
+const rect = el => { const b = el.getBoundingClientRect(); return { left: b.left + scrollX, top: b.top + scrollY, width: b.width, height: b.height, bottom: b.bottom + scrollY }; };
+// arrow while moving, crosshair while dragging a selection, I-beam while typing (like the real tools)
+function setTool(a, icon, key) {
+  if (a.icon !== icon) { a.icon = icon; a.el.querySelector('svg').outerHTML = ICON[icon]; a.el.className = 'cur in i-' + icon; }
+  a.el.querySelector('.tag').textContent = key ? `${a.name} · ${key}` : a.name;
+}
+function makeCursor(a) {
+  const el = document.createElement('div'); el.className = 'cur i-arrow'; el.style.setProperty('--c', a.color);
+  el.innerHTML = ICON.arrow + '<span class="tag"></span>'; a.icon = 'arrow';
+  el.querySelector('.tag').textContent = a.name;
+  swarm.appendChild(el); return el;
+}
+function wander(a, now) {
+  a.k = 2.5;
+  a.tx = rand(16, innerWidth - 48);
+  a.ty = rand(scrollY + 24, scrollY + innerHeight - 48);
+  a.wanderAt = now + rand(1200, 3600) / S();
+}
+function goto(a, x, y) { a.k = 9; a.tx = x; a.ty = y; return Promise.race([new Promise(r => a.arrive = r), abortP]); }
+function spawn() {
+  agents.length = 0; swarm.querySelectorAll('.cur').forEach(e => e.remove());
+  const avatars = hud.querySelector('.avatars'); avatars.innerHTML = '';
+  let joined = 0; hudN.textContent = 0;
+  NAMES.forEach((name, i) => {
+    const a = { name, color: `oklch(76% 0.17 ${(i * 137.508) % 360})`, k: 2.5, wanderAt: 0, busy: false, lock: false, arrive: null };
+    a.x = a.tx = rand(innerWidth); a.y = a.ty = scrollY + rand(innerHeight);
+    a.el = makeCursor(a); agents.push(a);
+    if (i < 5) { const d = document.createElement('i'); d.style.setProperty('--c', a.color); avatars.appendChild(d); }
+    setTimeout(() => { if (agents.includes(a)) { a.el.classList.add('in'); hudN.textContent = ++joined; } }, i * 60 / S());
+  });
+  state.animating = true;
+}
+let last = performance.now();
+(function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (state.animating) for (const a of agents) {
+    if (!a.lock) {
+      if (!a.busy && now > a.wanderAt) wander(a, now);
+      const f = 1 - Math.exp(-a.k * S() * dt);
+      a.x += (a.tx - a.x) * f; a.y += (a.ty - a.y) * f;
+      if (a.arrive && Math.hypot(a.tx - a.x, a.ty - a.y) < 1.5) { const r = a.arrive; a.arrive = null; r(); }
+    }
+    a.el.style.transform = `translate3d(${a.x.toFixed(1)}px,${a.y.toFixed(1)}px,0)`;
+  }
+  requestAnimationFrame(frame);
+})(last);
 
-                        </p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>Full-stack Web Developer (Freelance)</h4>
+// ---- Layers panel (Photoshop style) ----
+function panelAdd(layer, kind) {
+  const li = document.createElement('li'); li.className = 'active';
+  const th = kind === 'type' ? 'T' : '';
+  li.innerHTML = `<svg class="eye" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6s2-3.5 5-3.5S11 6 11 6s-2 3.5-5 3.5S1 6 1 6z" fill="none" stroke="currentColor"/><circle cx="6" cy="6" r="1.6" fill="currentColor"/></svg><span class="th ${kind === 'place' ? 'img' : ''}">${th}</span><span class="nm"></span>`;
+  li.querySelector('.nm').textContent = layer.dataset.name || layer.textContent.trim().slice(0, 24);
+  lpList.prepend(li);
+  while (lpList.children.length > 7) lpList.lastElementChild.remove();
+  return li;
+}
 
-                        <span class="fecha">2005 - 2008</span>
-                        <p>
-                            - Developed web applications using Laravel and JavaScript<br>
-                            - Designed and developed websites for various business clients<br>
-                            - Built employee management systems using NFC Card and MariaDB<br>
-                            - Developed inventory tracking and warehouse management systems<br>
-                            - Implemented automation systems using Google Apps Script<br>
+// ---- building one layer ----
+function makeFrame(a, r, cls, full) {
+  const d = document.createElement('div'); d.className = 'fr ' + cls;
+  d.style.cssText = `left:${r.left - 6}px;top:${r.top - 6}px;width:${full ? r.width + 12 : 0}px;height:${full ? r.height + 12 : 0}px;--c:${a.color}`;
+  d.innerHTML = '<b></b><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>'; d.querySelector('b').textContent = a.name;
+  swarm.appendChild(d); return d;
+}
+const pickIdle = () => { const free = agents.filter(a => !a.busy); return free[Math.floor(rand(free.length))] || agents[0]; };
+function followScroll(el) {
+  if (performance.now() - state.lastUserScroll < 5000) return;        // the reader took the wheel, leave them alone
+  if (document.documentElement.classList.contains('modal-open')) return;   // a demo is open
+  const r = rect(el), top = scrollY, vh = innerHeight;
+  // scroll just enough to show the new layer near the bottom, so what was just built stays on screen
+  if (r.bottom > top + vh - 120) scrollTo({ top: Math.max(0, Math.min(r.top - 96, r.bottom - vh + 160)), behavior: 'smooth' });
+}
+async function build(layer, a) {
+  a.busy = true;
+  const kind = layer.dataset.layer;
+  const r = rect(layer);
+  const row = panelAdd(layer, kind);
+  let fr;
+  if (kind === 'type') {
+    // Type Tool: walk over with the arrow, switch to the I-beam, click at the start of the first line, text box appears, then type with a caret
+    const lh = parseFloat(getComputedStyle(layer).lineHeight) || 24;
+    await goto(a, r.left + 3, r.top + Math.min(r.height, lh) / 2);
+    if (!state.aborted) {
+      setTool(a, 'ibeam', 'T');
+      fr = makeFrame(a, r, 'fr-text', true);
+      await sleep(160);
+      const chars = [...layer.querySelectorAll('.ch')];
+      const base = Math.max(18, Math.min(48, 1000 / Math.max(1, chars.length)));
+      for (let i = 0; i < chars.length && !state.aborted; i++) {
+        chars[i].classList.add('on', 'cur'); if (i) chars[i - 1].classList.remove('cur');
+        const prev = chars[i].previousSibling, afterSpace = prev && prev.nodeType === 3 && /\s/.test(prev.nodeValue);
+        await sleep(base * rand(.6, 1.5) + (afterSpace ? 70 : 0));
+      }
+      if (chars.length) { await sleep(260); chars[chars.length - 1].classList.remove('cur'); }
+    }
+  } else {
+    // Marquee (M) or Place (V): arrive with the arrow, switch to the crosshair, drag a box from corner to corner, then the layer fills in
+    const place = kind === 'place';
+    await goto(a, r.left - 6, r.top - 6);
+    if (!state.aborted) {
+      setTool(a, 'cross', place ? 'V' : 'M');
+      fr = makeFrame(a, r, place ? 'fr-place' : 'fr-ants', false);
+      a.lock = true;
+      await tween(place ? 420 : 340, p => { const w = (r.width + 12) * p, h = (r.height + 12) * p; a.x = r.left - 6 + w; a.y = r.top - 6 + h; fr.style.width = w + 'px'; fr.style.height = h + 'px'; });
+      a.lock = false; a.tx = a.x; a.ty = a.y;
+      if (!state.aborted) { layer.classList.add('on'); await sleep(place ? 520 : 380); }
+    }
+  }
+  await sleep(200);
+  if (fr) fr.remove();
+  row.classList.remove('active');
+  setTool(a, 'arrow', ''); a.busy = false;
+}
+async function run() {
+  let i = 0;
+  const lane = async () => {
+    while (i < layers.length && !state.aborted) {
+      const L = layers[i++]; followScroll(L);
+      await build(L, pickIdle());
+      if (!state.aborted) { state.done++; hudDone.textContent = state.done; lpCount.textContent = state.done; hudBar.style.width = (state.done / layers.length * 100) + '%'; }
+      await sleep(rand(60, 260));
+    }
+  };
+  await Promise.all(Array.from({ length: LANES }, lane));
+  finish();
+}
+function finish() {
+  if (state.finished) return; state.finished = true;
+  layers.forEach(revealNow); swarm.querySelectorAll('.fr:not(.hv)').forEach(e => e.remove());
+  lpList.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
+  state.done = layers.length; hudDone.textContent = state.done; lpCount.textContent = state.done; hudBar.style.width = '100%';
+  btnSkip.hidden = true; btnReplay.hidden = false;
+  document.documentElement.classList.add('built');   // hover frames switch on
+  // agents leave one by one so the page is readable; the Layers panel slides away with them
+  agents.forEach((a, i) => setTimeout(() => {
+    a.busy = true; a.lock = false; a.k = 3; setTool(a, 'arrow', '');
+    a.tx = Math.random() < .5 ? -80 : innerWidth + 80; a.ty = scrollY + rand(-80, innerHeight + 80);
+    setTimeout(() => a.el.classList.remove('in'), 500 / S());
+  }, 1800 / S() + i * 50 / S()));
+  setTimeout(() => lp.classList.add('out'), 2200 / S());
+  setTimeout(() => { state.animating = false; }, 1800 / S() + agents.length * 50 / S() + 1500);
+}
+function skip() {
+  state.aborted = true; abort();
+  agents.forEach(a => { a.busy = false; a.lock = false; a.arrive = null; a.tx = a.x; a.ty = a.y; });
+  finish();
+}
+function replay() {
+  state.aborted = false; state.finished = false; state.done = 0; newAbort();
+  document.documentElement.classList.remove('built');
+  swarm.querySelectorAll('.fr.hv').forEach(f => f.classList.remove('on'));
+  layers.forEach(resetLayer);
+  lpList.innerHTML = ''; lpCount.textContent = 0; lp.classList.remove('out');
+  hudDone.textContent = 0; hudBar.style.width = '0%'; btnSkip.hidden = false; btnReplay.hidden = true;
+  scrollTo(0, 0); state.lastUserScroll = 0;
+  spawn(); setTimeout(run, 900 / S());
+}
 
-                        </p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                                        <div class="item der">
-                        <h4>IT Support (Student Committee – Faculty of Science)</h4>
+btnSpeed.addEventListener('click', () => { state.speedIx = (state.speedIx + 1) % SPEEDS.length; btnSpeed.textContent = S() + '×'; });
+btnSkip.addEventListener('click', skip);
+btnReplay.addEventListener('click', replay);
+const userScrolled = () => { state.lastUserScroll = performance.now(); };
+addEventListener('wheel', userScrolled, { passive: true });
+addEventListener('touchmove', userScrolled, { passive: true });
+addEventListener('keydown', e => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(e.key)) userScrolled(); });
+// a click on a nav link or a demo means the reader is driving: finish the build so nothing is hidden
+document.addEventListener('click', e => { if (!state.finished && e.target.closest('a[href^="#"], a[data-demo]')) skip(); });
 
-                        <span class="fecha">2020 – 2021</span>
-                        <p>
-                            -Maintained computer systems and audiovisual equipment<br>
-                            - Supported video production, sound systems, and media equipment<br>
-                            - Assisted in organizing and supporting faculty events<br>
-                        </p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                    <div class="item der">
-                        <h4>Part-time Lecturer (Basic Computer Course)</h4>
-                        <span class="fecha">August 2025 – Present</span>
-                        <p>
-                            - Taught basic computer and IT skills<br>
-                            - Provided guidance on fundamental computer usage and information systems<br>
+// shortcut: rects are measured once per layer at build time, so a window resize mid-build misplaces the live frame; add a resize listener if it matters
+// wait for fonts and above-the-fold images (max 2.5 s) so layer positions are final before the swarm starts
+const imgs = [...document.images].filter(im => im.loading !== 'lazy').map(im => im.complete ? null : new Promise(r => { im.onload = im.onerror = r; })).filter(Boolean);
+Promise.race([Promise.all([document.fonts.ready, ...imgs]), new Promise(r => setTimeout(r, 2500))]).then(() => { spawn(); setTimeout(run, 900); });
+})();
+</script>
 
-                        </p>
-                        <div class="conectord">
-                            <div class="circulod"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+// ---------- after the build: Move Tool hover. The layer under the mouse, or the one holding keyboard
+// focus, gets a selection frame with its layer name and size, the way Photoshop highlights layers ----------
+(() => {
+  const root = document.documentElement;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  const frame = document.createElement('div');
+  frame.className = 'fr hv';
+  frame.setAttribute('aria-hidden', 'true');
+  frame.innerHTML = '<b><span class="k"></span><span class="n"></span></b>' + '<i></i>'.repeat(8) + '<span class="sz"></span>';
+  document.getElementById('swarm').appendChild(frame);
+  const kind = frame.querySelector('.k'), name = frame.querySelector('.n'), size = frame.querySelector('.sz');
+  let current = null;
+  const layerOf = el => {
+    const l = el && el.closest ? el.closest('[data-layer]') : null;
+    return l && !l.closest('.pill') ? l : null;   // the floating nav is not a canvas layer
+  };
+  function show(l) {
+    if (l && (!root.classList.contains('built') || root.classList.contains('modal-open'))) l = null;
+    if (l === current && (!l || frame.classList.contains('on'))) return;
+    current = l;
+    if (!l) { frame.classList.remove('on'); return; }
+    const b = l.getBoundingClientRect(), pad = 6;
+    frame.style.transform = `translate(${b.left + scrollX - pad}px, ${b.top + scrollY - pad}px)`;
+    frame.style.width = (b.width + pad * 2) + 'px';
+    frame.style.height = (b.height + pad * 2) + 'px';
+    kind.textContent = l.dataset.layer === 'type' ? 'T' : l.dataset.layer === 'place' ? '▣' : '▢';
+    name.textContent = l.dataset.name || '';
+    size.textContent = `W ${Math.round(b.width)} · H ${Math.round(b.height)}`;
+    frame.classList.add('on');
+  }
+  document.addEventListener('pointerover', e => { if (e.pointerType === 'mouse' && fine.matches) show(layerOf(e.target)); });
+  document.addEventListener('mouseout', e => { if (!e.relatedTarget) show(null); });   // the pointer left the window
+  document.addEventListener('focusin', e => { show(e.target.matches(':focus-visible') ? layerOf(e.target) : null); });
+  document.addEventListener('focusout', e => { if (!e.relatedTarget) show(null); });
+  addEventListener('resize', () => show(null));
+})();
+</script>
 
-
-    <section id="portfolio" class="portfolio">
-        <div class="contenido-seccion">
-            <h2>PORTFOLIO</h2>
-            <div class="galeria">
-                <div class="proyecto">
-                    <img src="img/1.png" alt="">
-                    <div class="overlay">
-                        <h3>โปรเจ็คจบป.โท </h3>
-                        <p>เเจ้งเตือนการโจมตีภันคุกคามด้วย php & SIEM</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/2.png" alt="">
-                    <div class="overlay">
-                        <h3>เว็บจองโรงเเรมพร้อมระบบหลังบ้าน</h3>
-                        <p>เขียนเว็บไซต์จองโรงเเรมด้วยภาษา vue.js</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/p3.jpg" alt="">
-                    <div class="overlay">
-                        <h3>โปรเจ็คเขียนเว็บมหาลัยพร้อมระบบหลังบ้าน</h3>
-                        <p>เขียนเว็บไซต์มหาลัยด้วยภาษา Laravel</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/6.png" alt="">
-                    <div class="overlay">
-                        <h3>CERTIFICATIONS</h3>
-                        <p>GoogleAdvancedDataAnalytics</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/5.png" alt="">
-                    <div class="overlay">
-                        <h3>conference</h3>
-                        <p>ผลงานป้องกันภัยคุกคาม</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="img/7.png" alt="">
-                    <div class="overlay">
-                        <h3>CERTIFICATIONS</h3>
-                        <p>GoogleDataAnalytics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCION CONTACTO -->
-    <section id="contacto" class="contacto">
-        <div class="contenido-seccion">
-            <h2>CONTACT</h2>
-            <div class="fila">
-                <!-- Formulario -->
-                <!-- <div class="col">
-                    <form id="contactForm">
-                        <input type="email" id="contactEmail" placeholder="Your Email" required>
-                        <input type="text" id="contactSubject" placeholder="Subject" required>
-                        <textarea id="contactMessage" cols="30" rows="10" placeholder="Message" required></textarea>
-                        <button id="contactSendBtn" type="button">
-                            send<i class="fa-solid fa-paper-plane"></i>
-                            <span class="overlay"></span>
-                        </button>
-                    </form>
-                </div> -->
-                <!-- Mapa -->
-                <div class="col">
-                    <img src="img/map.png" alt="">
-                    <div class="info">
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Location: Bangkok, Thailand
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                Phone: 064-973-2217
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                Email: kenvarisyos@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- footer -->
-    <footer>
-        <a href="#inicio" class="arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
-        <div class="redes">
-             <a href="https://www.facebook.com/kenVarisyos/"><i class="fa-brands fa-facebook-f"></i></a>
-               
-                <a href="mailto:kenvarisyos@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://line.me/ti/p/~pumipumipum" target="_blank"><i class="fa-brands fa-line"></i></a>
-                <a href="tel:+66649732217"><i class="fa-solid fa-phone"></i></a>
-        </div>
-        <p> &copy; 2023 Varisyos Srisanga. All rights reserved. </p>
-    </footer>
-
-    <script src="script.js"></script>
+<script>
+// ---------- background lens: the canvas grid lights up in a soft circle around the mouse (mouse only) ----------
+(() => {
+  const lens = document.querySelector('.bg-lens');
+  const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  if (!lens) return;
+  const grid = lens.firstElementChild, R = 280;
+  let x = 0, y = 0, raf = 0;
+  // the circle moves to the pointer; the grid inside moves back by the same amount, so its lines stay on the page grid
+  const paint = () => { raf = 0; lens.style.transform = `translate(${x}px, ${y}px)`; grid.style.transform = `translate(${R - x}px, ${R - y}px)`; };
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse' || !fine.matches) return;
+    x = e.clientX; y = e.clientY;
+    lens.classList.add('on');
+    if (!raf) raf = requestAnimationFrame(paint);
+  }, { passive: true });
+  document.addEventListener('mouseout', e => { if (!e.relatedTarget) lens.classList.remove('on'); });
+})();
+</script>
 </body>
 </html>
