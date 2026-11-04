@@ -9,7 +9,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#000607">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+document.documentElement.classList.add('js');
+// every load and reload starts at the top: the browser decides whether to restore the old scroll position from
+// the mode the page had when it closed, so set it on the way out too; a #section in the address is dropped
+history.scrollRestoration = 'manual';
+addEventListener('pagehide', () => { history.scrollRestoration = 'manual'; });
+if (location.hash) history.replaceState(null, '', location.href.split('#')[0]);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -697,13 +704,12 @@ hudTotal.textContent = layers.length;
 const revealNow = l => { l.classList.add('on'); l.querySelectorAll('.ch').forEach(c => { c.classList.add('on'); c.classList.remove('cur'); }); };
 const resetLayer = l => { l.classList.remove('on'); l.querySelectorAll('.ch').forEach(c => c.classList.remove('on', 'cur')); };
 
-// reduced motion, or a link straight to a section (#work, #contact): show the finished page without the build
-if (matchMedia('(prefers-reduced-motion: reduce)').matches || (location.hash.length > 1 && document.getElementById(location.hash.slice(1)))) { layers.forEach(revealNow); hud.hidden = true; lp.hidden = true; document.documentElement.classList.add('built'); return; }
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layers.forEach(revealNow); hud.hidden = true; lp.hidden = true; document.documentElement.classList.add('built'); return; }
 
-// the build plays from the top with the page held still until it is done; a reload would otherwise restore
-// the old scroll position and the swarm would work off screen
+// the build plays from the top with the page held still until it is done, even when the address ends in
+// #work or #contact (a reload would otherwise land there, or at the old scroll position, with the swarm off screen)
 const lock = on => document.documentElement.classList.toggle('building', on);
-history.scrollRestoration = 'manual'; scrollTo(0, 0); lock(true);
+scrollTo(0, 0); lock(true);
 
 // ---- abortable timing ----
 let abort, abortP;
